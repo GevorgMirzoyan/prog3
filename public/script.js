@@ -5,17 +5,17 @@ var matrixTest = [[0,1,1,2,0],
                  [3,1,5,0,5],
                  [0,4,1,2,0],
                  [0,1,3,2,0]];
-var side = 10;
-var qanak = 100;
+var side = 20;
+var qanak = 50;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 1000;
-var gishatichQanak = 500;
-var mardQanak = 50;
-var treeCount = 300;
+var xotakerQanak = 500;
+var gishatichQanak = 250;
+var mardQanak = 10;
+var treeCount = 150;
 
 function setup()
 {

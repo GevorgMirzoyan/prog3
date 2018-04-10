@@ -1,4 +1,4 @@
-class Class 
+class Class10
 {
     constructor(x, y) 
     {

@@ -1,9 +1,8 @@
-class Gishatich 
+class Gishatich extends Class10
 {
     constructor(x, y) 
     {
-        this.x = x;
-        this.y = y;
+        super(x,y);
         this.yntaniKendani = false;
         this.energy = 15;
         this.axorjak = 0;
@@ -43,24 +42,8 @@ class Gishatich
 
     yntrelVandak(ch) 
     {
-        this.stanalNorKordinatner();
-
-        var found = [];
-        for (var i in this.directions) 
-        {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) 
-            {
-                if (matrix[y][x] == ch) 
-                {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-
-        return found;
+       this.stanalNorKordinatner();
+       return super.yntrelVandak(ch);
     }
 
     sharjvel() 
