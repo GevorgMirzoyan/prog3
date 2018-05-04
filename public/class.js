@@ -1,4 +1,4 @@
-class Class10
+module.exports =  class Class10
 {
     constructor(x, y) 
     {

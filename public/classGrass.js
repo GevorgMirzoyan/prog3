@@ -1,4 +1,4 @@
-class Grass extends Class10
+module.exports = class Grass extends Class10
 {
     constructor(x, y) 
     {
@@ -52,7 +52,7 @@ class Grass extends Class10
         if (this.multiply >= 700) 
         {
             this.multiply2 = 0;
-            for (var i = 0; i < 3000; i++)
+            for (var i = 0; i < 300; i++)
             {
                 var x = Math.floor(random(100));
                 var y = Math.floor(random(100));
