@@ -1,10 +1,7 @@
+var socket = io();
+socket = io.connect('http://localhost:3000');
+
 var matrix = [];
-var matrixTest = [[0,1,1,2,0],
-                 [5,0,1,2,3],
-                 [4,1,0,2,4],
-                 [3,1,5,0,5],
-                 [0,4,1,2,0],
-                 [0,1,3,2,0]];
 var side = 20;
 var qanak = 50;
 var grassArr = [];
@@ -201,3 +198,5 @@ function draw()
         xotakerArr[i].utel();
     } 
 }
+
+socket.on("staci kordinatnnery", gcel);
