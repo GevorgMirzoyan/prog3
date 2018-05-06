@@ -1,4 +1,4 @@
-module.exports = class Grass extends Class10
+class Grass extends Class10
 {
     constructor(x, y) 
     {

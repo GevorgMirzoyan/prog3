@@ -5,6 +5,7 @@ class Xotaker extends Class10
         super(x,y);
         this.energy = 8;
         this.axorjak = 0;
+        this.ser = 0;
     }
 
     stanalNorKordinatner() 

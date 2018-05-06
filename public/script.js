@@ -1,5 +1,6 @@
-var socket = io();
-socket = io.connect('http://localhost:3000');
+// var socket = io();
+// socket = io.connect('http://localhost:3000');
+// socket.on("staci kordinatnnery", gcel);
 
 var matrix = [];
 var side = 20;
@@ -31,8 +32,19 @@ function setup()
     {
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
+        var r = Math.floor(random(1));
 
-        matrix[y][x] = 2;
+        if(r == 1)
+        {
+            matrix[y][x] = 2;
+            xotakerArr[i].ser = 1;
+        }
+
+        else
+        {
+            matrix[y][x] = 2.5;
+            xotakerArr[i].ser = 2;
+        }
         i++;
     }
     
@@ -44,7 +56,19 @@ function setup()
 
         if (matrix[y][x] != 2) 
         {
-            matrix[y][x] = 3;
+            var r = Math.floor(random(1));
+
+            if(r == 1)
+            {
+                matrix[y][x] = 3;
+                gishatichArr[i].ser = 1;
+            }
+
+            else
+            {
+                matrix[y][x] = 3.5;
+                gishatichArr[i].ser = 2;
+            }
             i++;
         }
     }
@@ -57,7 +81,19 @@ function setup()
 
         if (matrix[y][x] != 2 || matrix [y][x] != 3) 
         {
-            matrix[y][x] = 4;
+            var r = Math.floor(random(1));
+
+            if(r == 1)
+            {
+                matrix[y][x] = 4;
+                mardArr[i].ser = 1;
+            }
+
+            else
+            {
+                matrix[y][x] = 4.5;
+                mardArr[i].ser = 2;
+            }
             i++;
         }
     }
@@ -198,5 +234,3 @@ function draw()
         xotakerArr[i].utel();
     } 
 }
-
-socket.on("staci kordinatnnery", gcel);
