@@ -6,6 +6,8 @@ class Gishatich extends Class10
         this.yntaniKendani = false;
         this.energy = 15;
         this.axorjak = 0;
+        this.ser;
+        this.multiply_bazmanal = 0;
     }
 
     stanalNorKordinatner() 
@@ -148,6 +150,9 @@ class Gishatich extends Class10
             var xotaker = this.yntrelVandak(2);
             var norVandak = random(xotaker);
 
+            var mard = this.yntrelVandak(4.5);
+            var norVandak2 = random(mard);
+
             if (norVandak) 
             {
                 this.axorjak += 1;
@@ -178,6 +183,36 @@ class Gishatich extends Class10
                 }
             }
 
+            if (norVandak2) 
+            {
+                this.axorjak += 1;
+                this.energy += 2;
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak2[0];
+                var nory = norVandak2[1];
+                matrix[nory][norx] = 3;
+                this.x = norx;
+                this.y = nory;
+
+                if (this.energy > 15) 
+                {
+                    this.energy = 15;
+                }
+
+                for (var i in mardArr) 
+                {
+                    if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
+                    {
+                        mardArr.splice(i, 1);
+                    }
+                }
+
+                if(this.axorjak >= 7)
+                {
+                    this.bazmanal();
+                }
+            }
+
             else 
             {
                 this.sharjvel();
@@ -199,50 +234,60 @@ class Gishatich extends Class10
 
     bazmanal() 
     {
-        if(this.yntaniKendani == false)
+        if(this.ser == 1)
         {
-            var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
+            this.multiply_bazmanal++;
 
-            if (norVandak && this.axorjak == 7) 
+            if(this.multiply_bazmanal >= 50)
             {
-                this.axorjak = 0;
-                var norx = norVandak[0];
-                var nory = norVandak[1];
-                matrix[nory][norx] = 3;
+                this.multiply_bazmanal = 0;
 
-                var norGishatich = new Gishatich(norx, nory);
-                gishatichArr.push(norGishatich);
+                if(this.yntaniKendani == false)
+                {
+                    var datarkVandakner = this.yntrelVandak(0);
+                    var norVandak = random(datarkVandakner);
+
+                    if (norVandak && this.axorjak == 7) 
+                    {
+                        this.axorjak = 0;
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+                        matrix[nory][norx] = 3;
+
+                        var norGishatich = new Gishatich(norx, nory);
+                        gishatichArr.push(norGishatich);
+                    }
+
+                    else
+                    {
+                        this.axorjak = 0;
+                    }     
+                }
+
+                else if(this.yntaniKendani == true)
+                {
+                    var datarkVandakner = this.yntrelVandak(0);
+                    var norVandak = random(datarkVandakner);
+
+                    if (norVandak && this.axorjak == 7) 
+                    {
+                        this.axorjak = 0;
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+                        matrix[nory][norx] = 7;
+
+                        var norGishatich = new Gishatich(norx, nory);
+                        gishatichArr.push(norGishatich);
+                        norGishatich.yntaniKendani = true;
+                        norGishatich.energy = 30;
+                    }
+
+                    else
+                    {
+                        this.axorjak = 0;
+                    } 
+                }
             }
-
-            else
-            {
-                this.axorjak = 0;
-            }     
-        }
-
-        else if(this.yntaniKendani == true)
-        {
-            var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
-
-            if (norVandak && this.axorjak == 7) 
-            {
-                this.axorjak = 0;
-                var norx = norVandak[0];
-                var nory = norVandak[1];
-                matrix[nory][norx] = 7;
-
-                var norGishatich = new Gishatich(norx, nory);
-                gishatichArr.push(norGishatich);
-                norGishatich.yntaniKendani = true;
-                norGishatich.energy = 30;
-            }
-
-            else
-            {
-                this.axorjak = 0;
-            } 
         }
     }
 }

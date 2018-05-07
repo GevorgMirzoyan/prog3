@@ -6,6 +6,8 @@ class Mard extends Class10
         this.energy = 25;
         this.axorjak = 0;
         this.wood = 3;
+        this.ser;
+        this.multiply_bazmanal = 0;
     }
 
     stanalNorKordinatner() 
@@ -101,7 +103,7 @@ class Mard extends Class10
         var tree = this.yntrelVandak(5);
         var norVandak4 = random(tree);
 
-        if (this.wood < 8 && norVandak4)
+        if (this.wood < 8 && norVandak4 && this.ser == 1)
         {
             this.axorjak = 0;
             this.wood += 3; 
@@ -153,17 +155,11 @@ class Mard extends Class10
                     norVandak3.yntaniKendani = true;
                     var norx = norVandak3[0];
                     var nory = norVandak3[1];
-
-                    //for(var i = 0; i < 10; i++)
-                    //{
-                        //matrix[nory][norx] = 6;
-                        //if(i >= 10)
-                        //{
-                            matrix[nory][norx] = 7; 
-                        //}
-                    //}
-
+                    //
+                    matrix[nory][norx] = 7;
+                    //
                     this.energy -= 2;
+
                     if(this.energy <= 0)
                     {
                         this.mahanal();
@@ -293,24 +289,33 @@ class Mard extends Class10
 
     bazmanal() 
     {
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak && this.axorjak >= 12) 
+        if(this.ser == 1)
         {
-            this.axorjak = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-            matrix[nory][norx] = 4;
+            this.multiply_bazmanal++;
 
-            var norMard = new Mard(norx, nory);
-            mardArr.push(norMard);
-            this.axorjak = 0;
+            if(this.multiply_bazmanal >= 50)
+            {
+                this.multiply_bazmanal = 0;
+                var datarkVandakner = this.yntrelVandak(0);
+                var norVandak = random(datarkVandakner);
+
+                if (norVandak && this.axorjak >= 12) 
+                {
+                    this.axorjak = 0;
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+                    matrix[nory][norx] = 4;
+
+                    var norMard = new Mard(norx, nory);
+                    mardArr.push(norMard);
+                    this.axorjak = 0;
+                }
+
+                else
+                {
+                    this.axorjak = 0;
+                }     
+            }
         }
-
-        else
-        {
-            this.axorjak = 0;
-        }     
     }
 }

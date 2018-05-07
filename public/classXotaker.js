@@ -5,7 +5,8 @@ class Xotaker extends Class10
         super(x,y);
         this.energy = 8;
         this.axorjak = 0;
-        this.ser = 0;
+        this.ser;
+        this.multiply_bazmanal = 0;
     }
 
     stanalNorKordinatner() 
@@ -116,23 +117,32 @@ class Xotaker extends Class10
 
     bazmanal() 
     {
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak && this.axorjak >= 5) 
+        if(this.ser == 1)
         {
-            this.axorjak = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-            matrix[nory][norx] = 2;
+            this.multiply_bazmanal++;
 
-            var norXotaker = new Xotaker(norx, nory);
-            xotakerArr.push(norXotaker);
-        }
+            if(this.multiply_bazmanal >= 50)
+            {
+                this.multiply_bazmanal = 0;
+                var datarkVandakner = this.yntrelVandak(0);
+                var norVandak = random(datarkVandakner);
 
-        else
-        {
-            this.axorjak = 0;
-        }     
+                if (norVandak && this.axorjak >= 5) 
+                {
+                    this.axorjak = 0;
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+                    matrix[nory][norx] = 2;
+
+                    var norXotaker = new Xotaker(norx, nory);
+                    xotakerArr.push(norXotaker);
+                }
+
+                else
+                {
+                    this.axorjak = 0;
+                }
+            }  
+        }   
     }
 }

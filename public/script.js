@@ -32,18 +32,16 @@ function setup()
     {
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
-        var r = Math.floor(random(1));
+        var r = Math.floor(random(5));
 
-        if(r == 1)
+        if(r >= 1)
         {
             matrix[y][x] = 2;
-            xotakerArr[i].ser = 1;
         }
 
         else
         {
             matrix[y][x] = 2.5;
-            xotakerArr[i].ser = 2;
         }
         i++;
     }
@@ -56,18 +54,16 @@ function setup()
 
         if (matrix[y][x] != 2) 
         {
-            var r = Math.floor(random(1));
+            var r = Math.floor(random(5));
 
-            if(r == 1)
+            if(r >= 1)
             {
                 matrix[y][x] = 3;
-                gishatichArr[i].ser = 1;
             }
 
             else
             {
                 matrix[y][x] = 3.5;
-                gishatichArr[i].ser = 2;
             }
             i++;
         }
@@ -81,18 +77,16 @@ function setup()
 
         if (matrix[y][x] != 2 || matrix [y][x] != 3) 
         {
-            var r = Math.floor(random(1));
+            var r = Math.floor(random(5));
 
-            if(r == 1)
+            if(r >= 1)
             {
-                matrix[y][x] = 4;
-                mardArr[i].ser = 1;
+                matrix[y][x] = 4;              
             }
 
             else
             {
-                matrix[y][x] = 4.5;
-                mardArr[i].ser = 2;
+                matrix[y][x] = 4.5;               
             }
             i++;
         }
@@ -129,18 +123,42 @@ function setup()
             {
                 var xotaker = new Xotaker(x,y);
                 xotakerArr.push(xotaker);
+                xotaker.ser = 1;
+            }
+
+            if (matrix[y][x] == 2.5) 
+            {
+                var xotaker = new Xotaker(x,y);
+                xotakerArr.push(xotaker);
+                xotaker.ser = 2;
             }
 
             if (matrix[y][x] == 3) 
             {
                 var gishatich = new Gishatich(x,y);
                 gishatichArr.push(gishatich);
+                gishatich.ser = 1;
+            }
+
+            if (matrix[y][x] == 3.5) 
+            {
+                var gishatich = new Gishatich(x,y);
+                gishatichArr.push(gishatich);
+                gishatich.ser = 2;
             }
 
             if (matrix[y][x] == 4) 
             {
                 var mard = new Mard(x,y);
                 mardArr.push(mard);
+                mard.ser = 1;
+            }
+
+            if (matrix[y][x] == 4.5) 
+            {
+                var mard = new Mard(x,y);
+                mardArr.push(mard);
+                mard.ser = 2;
             }
 
             if (matrix[y][x] == 5) 
@@ -176,9 +194,21 @@ function draw()
                 rect(x * side, y * side, side, side);
             }
 
+            if (matrix[y][x] == 2.5) 
+            {
+                fill("pink");
+                rect(x * side, y * side, side, side);
+            }
+
             if (matrix[y][x] == 3) 
             {
                 fill("#FF6400");
+                rect(x * side, y * side, side, side);
+            }
+
+            if (matrix[y][x] == 3.5) 
+            {
+                fill("pink");
                 rect(x * side, y * side, side, side);
             }
 
@@ -188,16 +218,16 @@ function draw()
                 rect(x * side, y * side, side, side);
             }
 
+            if (matrix[y][x] == 4.5) 
+            {
+                fill("pink");
+                rect(x * side, y * side, side, side);
+            }
+
             if (matrix[y][x] == 5) 
             {
                 fill("brown");
                 rect(x * side, y * side, side, side);
-            }
-
-            if (matrix[y][x] == 6) 
-            {
-                fill("black");
-                rect(x * side, y * side, side / 1.5, side / 1.5);
             }
 
             if (matrix[y][x] == 7) 
