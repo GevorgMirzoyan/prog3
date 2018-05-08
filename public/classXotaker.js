@@ -7,6 +7,7 @@ class Xotaker extends Class10
         this.axorjak = 0;
         this.ser;
         this.multiply_bazmanal = 0;
+        this.bazmacox = false;
     }
 
     stanalNorKordinatner() 
@@ -38,7 +39,7 @@ class Xotaker extends Class10
        return super.yntrelVandak(ch);
     }
 
-    sharjvel() 
+    sharjvel() //done
     {
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
@@ -49,7 +50,17 @@ class Xotaker extends Class10
             matrix[this.y][this.x] = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
-            matrix[nory][norx] = 2;
+
+            if(this.ser == 1)
+            {
+                matrix[nory][norx] = 2;
+            }
+
+            else
+            {
+                matrix[nory][norx] = 2.5;
+            }
+
             this.x = norx;
             this.y = nory;
 
@@ -61,7 +72,125 @@ class Xotaker extends Class10
         }
     }
 
-    utel() 
+    mahanal() //done
+    {
+        for(var i in xotakerArr)
+        {
+            if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
+            {
+                matrix[this.y][this.x] = 0;
+                xotakerArr.splice(i, 1);
+            }
+        }        
+    }
+
+    bazmanal() //done
+    {
+        this.multiply_bazmanal++;
+
+        if(this.multiply_bazmanal >= 50)
+        {
+            if(this.ser == 1)
+            {
+                this.multiply_bazmanal = 0;
+                
+                var datarkVandakner = this.yntrelVandak(0);
+                var norVandak = random(datarkVandakner);
+
+                var xotaker = this.yntrelVandak(2.5);
+                var norVandak2 = random(xotaker);
+
+                if (norVandak && norVandak2 && norVandak2.bazmacox == false && this.axorjak >= 5) 
+                {
+                    this.axorjak = 0;
+                    norVandak2.axorjak = 0;
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+ 
+                    var r = Math.floor(random(5));
+
+                    if(r >= 1)
+                    {
+                        matrix[y][x] = 2;
+                    }
+
+                    else
+                    {
+                        matrix[y][x] = 2.5;
+                    }
+
+                    var norXotaker = new Xotaker(norx, nory);
+                    xotakerArr.push(norXotaker);
+
+                    if(matrix[y][x] == 2)
+                    {
+                        norXotaker.ser = 1;
+                    }
+
+                    else
+                    {
+                        norXotaker.ser = 2 ;
+                    }
+                }
+
+                else
+                {
+                    this.axorjak = 0;
+                }
+            }
+            
+            else
+            {
+                this.multiply_bazmanal = 0;
+                
+                var datarkVandakner = this.yntrelVandak(0);
+                var norVandak = random(datarkVandakner);
+
+                var xotaker = this.yntrelVandak(2);
+                var norVandak2 = random(xotaker);
+
+                if (norVandak && norVandak2 && norVandak2.bazmacox == false && this.axorjak >= 5) 
+                {
+                    this.axorjak = 0;
+                    norVandak2.axorjak = 0;
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+ 
+                    var r = Math.floor(random(5));
+
+                    if(r >= 1)
+                    {
+                        matrix[y][x] = 2;
+                    }
+
+                    else
+                    {
+                        matrix[y][x] = 2.5;
+                    }
+
+                    var norXotaker = new Xotaker(norx, nory);
+                    xotakerArr.push(norXotaker);
+
+                    if(matrix[y][x] == 2)
+                    {
+                        norXotaker.ser = 1;
+                    }
+
+                    else
+                    {
+                        norXotaker.ser = 2 ;
+                    }
+                }
+
+                else
+                {
+                    this.axorjak = 0;
+                }
+            }
+        }
+    }   
+
+    utel() //done
     {
         var xoter = this.yntrelVandak(1);
         var norVandak = random(xoter);
@@ -73,7 +202,17 @@ class Xotaker extends Class10
             matrix[this.y][this.x] = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
-            matrix[nory][norx] = 2;
+
+            if(this.ser == 1)
+            {
+                matrix[nory][norx] = 2;
+            }
+
+            else
+            {
+                matrix[nory][norx] = 2.5;
+            }
+
             this.x = norx;
             this.y = nory;
 
@@ -92,6 +231,7 @@ class Xotaker extends Class10
 
             if(this.axorjak >= 5)
             {
+                this.bazmacox = true;
                 this.bazmanal();
                 this.axorjak = 0;
             }
@@ -101,48 +241,5 @@ class Xotaker extends Class10
         {
             this.sharjvel();
         }
-    }
-
-    mahanal() 
-    {
-        for(var i in xotakerArr)
-        {
-            if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
-            {
-                matrix[this.y][this.x] = 0;
-                xotakerArr.splice(i, 1);
-            }
-        }        
-    }
-
-    bazmanal() 
-    {
-        if(this.ser == 1)
-        {
-            this.multiply_bazmanal++;
-
-            if(this.multiply_bazmanal >= 50)
-            {
-                this.multiply_bazmanal = 0;
-                var datarkVandakner = this.yntrelVandak(0);
-                var norVandak = random(datarkVandakner);
-
-                if (norVandak && this.axorjak >= 5) 
-                {
-                    this.axorjak = 0;
-                    var norx = norVandak[0];
-                    var nory = norVandak[1];
-                    matrix[nory][norx] = 2;
-
-                    var norXotaker = new Xotaker(norx, nory);
-                    xotakerArr.push(norXotaker);
-                }
-
-                else
-                {
-                    this.axorjak = 0;
-                }
-            }  
-        }   
     }
 }

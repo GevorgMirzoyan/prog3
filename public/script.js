@@ -10,10 +10,10 @@ var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 500;
-var gishatichQanak = 250;
-var mardQanak = 10;
-var treeCount = 150;
+var xotakerQanak = 300;
+var gishatichQanak = 0;
+var mardQanak = 0;
+var treeCount = 0;
 
 function setup()
 {
@@ -238,26 +238,26 @@ function draw()
         }
     }
     
-    for (var i in mardArr) 
-    {
-        mardArr[i].utel();   
-    }
+    // for (var i in mardArr) 
+    // {
+    //     mardArr[i].utel();   
+    // }
     
-    for (var i in grassArr) 
-    {
-        grassArr[i].bazmanal();
-        grassArr[i].rain();
-    }
+    // for (var i in grassArr) 
+    // {
+    //     grassArr[i].bazmanal();
+    //     grassArr[i].rain();
+    // }
     
-    for (var i in gishatichArr) 
-    {
-        gishatichArr[i].utel();
-    }
+    // for (var i in gishatichArr) 
+    // {
+    //     gishatichArr[i].utel();
+    // }
 
-    for (var i in treeArr) 
-    {
-        treeArr[i].bazmanal();
-    }
+    // for (var i in treeArr) 
+    // {
+    //     treeArr[i].bazmanal();
+    // }
     
     for (var i in xotakerArr) 
     {
