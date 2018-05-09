@@ -1,4 +1,4 @@
-class Grass extends Class10
+class Grass extends Class10 //done
 {
     constructor(x, y) 
     {
@@ -27,14 +27,14 @@ class Grass extends Class10
        return super.yntrelVandak(ch);
     }
 
-    bazmanal() 
+    bazmanal() //done
     {
         this.multiply_bazmanal++;
 
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
 
-        if (norVandak && this.multiply_bazmanal >= 3) 
+        if (norVandak && this.multiply_bazmanal >= 15) 
         {
             this.multiply_bazmanal = 0;
             var norx = norVandak[0];
@@ -46,23 +46,37 @@ class Grass extends Class10
         }
     }
 
-    // rain()
+    // rain() //not done
     // {
-    //     this.multiply_rain++;
-
-    //     if (this.multiply >= 700) 
+    //     if(grassArr != [])
     //     {
-    //         this.multiply_rain = 0;
-    //         for (var i = 0; i < 300; i++)
+    //         this.multiply_rain++;
+    //         console.log(this.multiply_rain);
+
+    //         if (this.multiply_rain >= 5) 
     //         {
-    //             var x = Math.floor(random(100));
-    //             var y = Math.floor(random(100));
-        
-    //             if (matrix[y][x] == 0) 
+    //             this.multiply_rain = 0;
+
+    //             for (var i = 0; i < 10; i++)
     //             {
-    //                 matrix[y][x] = 1;
-    //                 var norXot = new Grass(x, y);
-    //                 grassArr.push(norXot);
+    //                 var x = Math.round(random(100));
+    //                 var y = Math.round(random(100));
+            
+    //                 if (matrix[y][x] == 0) 
+    //                 {
+    //                     matrix[y][x] = 6;
+
+    //                     var rain_time = 0;
+    //                     rain_time++;
+    //                     console.log(rain_time);
+    //                     if(rain_time >= 3)
+    //                     {
+    //                         matrix[y][x] = 1;
+
+    //                         var norXot = new Grass(x, y);
+    //                         grassArr.push(norXot);
+    //                     }
+    //                 }
     //             }
     //         }
     //     }

@@ -1,4 +1,4 @@
-class Xotaker extends Class10
+class Xotaker extends Class10 //not done
 {
     constructor(x, y) 
     {
@@ -99,7 +99,7 @@ class Xotaker extends Class10
         }
     }
 
-    bazmanal() //done
+    bazmanal() //not done
     {
         if(this.bazmanal_timeout == true)
         {

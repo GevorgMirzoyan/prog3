@@ -10,7 +10,7 @@ var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 15;
+var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeCount = 0;
@@ -176,61 +176,61 @@ function draw()
     {
         for (var x = 0; x < matrix[y].length; x++) 
         {
-            if (matrix[y][x] == 0) 
+            if (matrix[y][x] == 0) //datark vandak
             {
                 fill("#acacac");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 1) 
+            if (matrix[y][x] == 1) //xot
             {
                 fill("green");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 2) 
+            if (matrix[y][x] == 2) //xotaker_arakan
             {
                 fill("yellow");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 2.5) 
+            if (matrix[y][x] == 2.5) //xotaker_igakan
             {
                 fill("pink");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 3) 
+            if (matrix[y][x] == 3) //gishatich_arakan
             {
                 fill("#FF6400");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 3.5) 
+            if (matrix[y][x] == 3.5) //gishatich_igakan
             {
                 fill("pink");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 4) 
+            if (matrix[y][x] == 4) //mard_arakan
             {
                 fill("red");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 4.5) 
+            if (matrix[y][x] == 4.5) //mard_igakan
             {
                 fill("pink");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 5) 
+            if (matrix[y][x] == 5) //tree
             {
                 fill("brown");
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 7) 
+            if (matrix[y][x] == 6) //water
             {
                 fill("blue");
                 rect(x * side, y * side, side, side);
@@ -259,9 +259,9 @@ function draw()
     //     treeArr[i].bazmanal();
     // }
     
-    for (var i in xotakerArr) 
-    {
-        xotakerArr[i].timeout();
-        xotakerArr[i].utel();
-    } 
+    // for (var i in xotakerArr) 
+    // {
+    //     xotakerArr[i].timeout();
+    //     xotakerArr[i].utel();
+    // } 
 }
