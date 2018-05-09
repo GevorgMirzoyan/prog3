@@ -10,7 +10,7 @@ var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 30;
+var xotakerQanak = 15;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeCount = 0;
@@ -261,6 +261,7 @@ function draw()
     
     for (var i in xotakerArr) 
     {
+        xotakerArr[i].timeout();
         xotakerArr[i].utel();
     } 
 }

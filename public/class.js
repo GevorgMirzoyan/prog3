@@ -4,8 +4,6 @@ class Class10
     {
         this.x = x;
         this.y = y;
-        this.multiply = 0;
-        this.multiply2 = 0;
     }
 
     yntrelVandak(ch) 

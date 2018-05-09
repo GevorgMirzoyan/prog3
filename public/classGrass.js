@@ -29,14 +29,14 @@ class Grass extends Class10
 
     bazmanal() 
     {
-        this.multiply++;
+        this.multiply_bazmanal++;
 
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
 
-        if (norVandak && this.multiply >= 3) 
+        if (norVandak && this.multiply_bazmanal >= 3) 
         {
-            this.multiply = 0;
+            this.multiply_bazmanal = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
             matrix[nory][norx] = 1;
@@ -48,11 +48,11 @@ class Grass extends Class10
 
     // rain()
     // {
-    //     this.multiply2++;
+    //     this.multiply_rain++;
 
     //     if (this.multiply >= 700) 
     //     {
-    //         this.multiply2 = 0;
+    //         this.multiply_rain = 0;
     //         for (var i = 0; i < 300; i++)
     //         {
     //             var x = Math.floor(random(100));
