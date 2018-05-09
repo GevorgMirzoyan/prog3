@@ -100,36 +100,41 @@ class Xotaker extends Class10
                 var xotaker = this.yntrelVandak(2.5);
                 var norVandak2 = random(xotaker);
 
-                if (norVandak && norVandak2 && norVandak2.bazmacox == false && this.axorjak >= 5) 
+                if (norVandak && norVandak2 && this.axorjak >= 5) 
                 {
-                    this.axorjak = 0;
-                    norVandak2.axorjak = 0;
-                    var norx = norVandak[0];
-                    var nory = norVandak[1];
- 
-                    var r = Math.floor(random(5));
-
-                    if(r >= 1)
+                    if(norVandak2.bazmacox == false)
                     {
-                        matrix[y][x] = 2;
-                    }
+                        this.axorjak = 0;
+                        norVandak2.axorjak = 0;
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+    
+                        var r = Math.floor(random(5));
 
-                    else
-                    {
-                        matrix[y][x] = 2.5;
-                    }
+                        if(r >= 1)
+                        {
+                            matrix[y][x] = 2;
+                        }
 
-                    var norXotaker = new Xotaker(norx, nory);
-                    xotakerArr.push(norXotaker);
+                        else
+                        {
+                            matrix[y][x] = 2.5;
+                        }
 
-                    if(matrix[y][x] == 2)
-                    {
-                        norXotaker.ser = 1;
-                    }
+                        var norXotaker = new Xotaker(norx, nory);
+                        xotakerArr.push(norXotaker);
 
-                    else
-                    {
-                        norXotaker.ser = 2 ;
+                        if(matrix[y][x] == 2)
+                        {
+                            norXotaker.ser = 1;
+                        }
+
+                        else
+                        {
+                            norXotaker.ser = 2 ;
+                        }
+
+                        console.log(norXotaker);
                     }
                 }
 
@@ -180,6 +185,8 @@ class Xotaker extends Class10
                     {
                         norXotaker.ser = 2 ;
                     }
+
+                    console.log(norXotaker);
                 }
 
                 else
@@ -232,8 +239,8 @@ class Xotaker extends Class10
             if(this.axorjak >= 5)
             {
                 this.bazmacox = true;
-                this.bazmanal();
                 this.axorjak = 0;
+                this.bazmanal();
             }
         }
 

@@ -3,8 +3,8 @@ class Grass extends Class10
     constructor(x, y) 
     {
         super(x,y);
-        this.multiply = 0;
-        this.multiply2 = 0;
+        this.multiply_bazmanal = 0;
+        this.multiply_rain = 0;
     }
 
     stanalNorKordinatner() 
@@ -30,10 +30,11 @@ class Grass extends Class10
     bazmanal() 
     {
         this.multiply++;
+
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
 
-        if (norVandak && this.multiply >= 30) 
+        if (norVandak && this.multiply >= 3) 
         {
             var norx = norVandak[0];
             var nory = norVandak[1];
@@ -45,25 +46,25 @@ class Grass extends Class10
         }
     }
 
-    rain()
-    {
-        this.multiply2++;
+    // rain()
+    // {
+    //     this.multiply2++;
 
-        if (this.multiply >= 700) 
-        {
-            this.multiply2 = 0;
-            for (var i = 0; i < 300; i++)
-            {
-                var x = Math.floor(random(100));
-                var y = Math.floor(random(100));
+    //     if (this.multiply >= 700) 
+    //     {
+    //         this.multiply2 = 0;
+    //         for (var i = 0; i < 300; i++)
+    //         {
+    //             var x = Math.floor(random(100));
+    //             var y = Math.floor(random(100));
         
-                if (matrix[y][x] == 0) 
-                {
-                    matrix[y][x] = 1;
-                    var norXot = new Grass(x, y);
-                    grassArr.push(norXot);
-                }
-            }
-        }
-    }
+    //             if (matrix[y][x] == 0) 
+    //             {
+    //                 matrix[y][x] = 1;
+    //                 var norXot = new Grass(x, y);
+    //                 grassArr.push(norXot);
+    //             }
+    //         }
+    //     }
+    // }
 }

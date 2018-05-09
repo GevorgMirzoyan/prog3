@@ -3,14 +3,14 @@
 // socket.on("staci kordinatnnery", gcel);
 
 var matrix = [];
-var side = 20;
-var qanak = 50;
+var side = 25;
+var qanak = 30;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 300;
+var xotakerQanak = 10;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeCount = 0;
@@ -98,7 +98,7 @@ function setup()
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
 
-        if (matrix[y][x] != 2 || matrix [y][x] != 3 || matrix [y][x] != 4 || matrix [y][x] != 6) 
+        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix [y][x] != 6) 
         {
             matrix[y][x] = 5;
             i++;
@@ -243,11 +243,11 @@ function draw()
     //     mardArr[i].utel();   
     // }
     
-    // for (var i in grassArr) 
-    // {
-    //     grassArr[i].bazmanal();
-    //     grassArr[i].rain();
-    // }
+    for (var i in grassArr) 
+    {
+        grassArr[i].bazmanal();
+        //grassArr[i].rain();
+    }
     
     // for (var i in gishatichArr) 
     // {
