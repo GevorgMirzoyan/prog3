@@ -36,13 +36,13 @@ class Grass extends Class10
 
         if (norVandak && this.multiply >= 3) 
         {
+            this.multiply = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
             matrix[nory][norx] = 1;
 
             var norXot = new Grass(norx, nory);
             grassArr.push(norXot);
-            this.multiply = 0;
         }
     }
 
