@@ -3,8 +3,9 @@
 // socket.on("staci kordinatnnery", gcel);
 
 var matrix = [];
-var side = 25;
-var qanak = 30;
+var fr = 1;
+var side = 30;
+var qanak = 10;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -13,7 +14,7 @@ var treeArr = [];
 var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
-var treeCount = 0;
+var treeCount = 5;
 
 function setup()
 {
@@ -105,7 +106,7 @@ function setup()
         }
     }
 
-    frameRate(10);
+    frameRate(fr);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
 
@@ -208,7 +209,7 @@ function draw()
 
             if (matrix[y][x] == 3.5) //gishatich_igakan
             {
-                fill("pink");
+                fill("black");
                 rect(x * side, y * side, side, side);
             }
 
@@ -243,21 +244,22 @@ function draw()
     //     mardArr[i].utel();   
     // }
     
-    for (var i in grassArr) 
-    {
-        grassArr[i].bazmanal();
-        //grassArr[i].rain();
-    }
+    // for (var i in grassArr) 
+    // {
+    //     grassArr[i].bazmanal();
+    //     //grassArr[i].rain();
+    // }
     
     // for (var i in gishatichArr) 
     // {
+    //     gishatichArr[i].timeout();
     //     gishatichArr[i].utel();
     // }
 
-    // for (var i in treeArr) 
-    // {
-    //     treeArr[i].bazmanal();
-    // }
+    for (var i in treeArr) 
+    {
+        treeArr[i].bazmanal();
+    }
     
     // for (var i in xotakerArr) 
     // {

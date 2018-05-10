@@ -8,7 +8,7 @@ class Xotaker extends Class10 //not done
         this.ser = 0;
         this.bazmacox = false;
         this.timeout_time = 0;
-        this.bazmanal_timeout = false;
+        this.bazmanal_timeout = true;
     }
 
     stanalNorKordinatner() 
@@ -91,7 +91,7 @@ class Xotaker extends Class10 //not done
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 30)
+            if(this.timeout_time >= 10)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;
@@ -154,7 +154,7 @@ class Xotaker extends Class10 //not done
                         }
         
                         else if(norVandak3)
-                        { 
+                        {
                             this.axorjak = 0;
         
                             var norx = norVandak3[0];
@@ -185,13 +185,14 @@ class Xotaker extends Class10 //not done
                                 norXotaker.ser = 2 ;
                             }
         
-                            if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
+                            for(var i in grassArr)
                             {
-                                grassArr.splice(i, 1);
-                                norXotaker.energy += 1;
-                            }
-        
-                            console.log(norXotaker);
+                                if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
+                                {
+                                    grassArr.splice(i, 1);
+                                    norXotaker.energy += 1;
+                                }
+                            }                                   
                         }
                     //}
     
@@ -337,7 +338,7 @@ class Xotaker extends Class10 //not done
                         }
         
                         else if(norVandak3)
-                        { 
+                        {
                             this.axorjak = 0;
         
                             var norx = norVandak3[0];
@@ -367,14 +368,15 @@ class Xotaker extends Class10 //not done
                             {
                                 norXotaker.ser = 2 ;
                             }
-        
-                            if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
+                            
+                            for(var i in grassArr)
                             {
-                                grassArr.splice(i, 1);
-                                norXotaker.energy += 1;
+                                if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
+                                {
+                                    grassArr.splice(i, 1);
+                                    norXotaker.energy += 1;
+                                }
                             }
-        
-                            console.log(norXotaker);
                         }
                     //}
     
@@ -470,7 +472,7 @@ class Xotaker extends Class10 //not done
             }
         }
         
-    }   
+    }
 
     utel() //done
     {
@@ -481,6 +483,7 @@ class Xotaker extends Class10 //not done
         {
             this.axorjak += 1;
             this.energy += 3;
+
             matrix[this.y][this.x] = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];

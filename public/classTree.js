@@ -1,4 +1,4 @@
-class Tree extends Class10
+class Tree extends Class10 //done
 {
     constructor(x, y) 
     {
@@ -26,22 +26,23 @@ class Tree extends Class10
        return super.yntrelVandak(ch);
     }
 
-    bazmanal() 
+    bazmanal() //done
     {
         this.multiply++;
 
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
 
-        if (norVandak && this.multiply >= 300) 
+        if (norVandak && this.multiply >= 30) 
         {
+            this.multiply = 0;
+
             var norx = norVandak[0];
             var nory = norVandak[1];
             matrix[nory][norx] = 5;
 
             var newTree = new Tree(norx, nory);
             treeArr.push(newTree);
-            this.multiply = 0;
         }
     }
 }

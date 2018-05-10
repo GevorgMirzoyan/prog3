@@ -1,12 +1,12 @@
-class Class10
+class Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y) //done
     {
         this.x = x;
         this.y = y;
     }
 
-    yntrelVandak(ch) 
+    yntrelVandak(ch) //done
     {
         var found = [];
 
