@@ -2,7 +2,7 @@ class Xotaker extends Class10 //not done
 {
     constructor(x, y) 
     {
-        super(x,y);
+        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
@@ -501,9 +501,9 @@ class Xotaker extends Class10 //not done
             this.x = norx;
             this.y = nory;
 
-            if (this.energy > 8) 
+            if (this.energy > 15) 
             {
-                this.energy = 8;
+                this.energy = 15;
             }
 
             for (var i in grassArr) 

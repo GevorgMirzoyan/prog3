@@ -2,14 +2,16 @@ class Gishatich extends Class10 //not done
 {
     constructor(x, y) 
     {
-        super(x,y);
+        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
         this.yntaniKendani = false;
-        this.energy = 15;
+        this.energy = 25;
         this.axorjak = 0;
         this.ser = 0;
         this.bazmacox = false;
         this.timeout_time = 0;
         this.bazmanal_timeout = true;
+        this.vandak_time = 0;
+        this.vandak_off = false;
     }
 
     stanalNorKordinatner() 
@@ -48,6 +50,16 @@ class Gishatich extends Class10 //not done
     {
        this.stanalNorKordinatner();
        return super.yntrelVandak(ch);
+    }
+
+    yntaniKendani() //done
+    {
+        this.vandak_time ++;
+
+        if(this.vandak_time >= 5)
+        {
+            this.vandak_off = true;
+        }
     }
 
     sharjvel() //done
@@ -242,6 +254,7 @@ class Gishatich extends Class10 //not done
                                 {
                                     xotakerArr.splice(i, 1);
                                     norGishatich.energy += 2;
+                                    norGishatich.axorjak += 1;
                                 }
                             }
                         }
@@ -426,6 +439,7 @@ class Gishatich extends Class10 //not done
                                 {
                                     xotakerArr.splice(i, 1);
                                     norGishatich.energy += 2;
+                                    norGishatich.axorjak += 1;
                                 }
                             }
                         }
@@ -531,6 +545,9 @@ class Gishatich extends Class10 //not done
             var xotaker = this.yntrelVandak(2, 2.5);
             var norVandak = random(xotaker);
 
+            var mard = this.yntrelVandak(4.5);
+            var norVandak2 = random(mard);
+
             if (norVandak) 
             {
                 this.axorjak += 1;
@@ -553,9 +570,9 @@ class Gishatich extends Class10 //not done
                 this.x = norx;
                 this.y = nory;
 
-                if (this.energy > 30) 
+                if (this.energy > 25) 
                 {
-                    this.energy = 30;
+                    this.energy = 25;
                 }
 
                 for (var i in xotakerArr) 
@@ -563,6 +580,49 @@ class Gishatich extends Class10 //not done
                     if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                     {
                         xotakerArr.splice(i, 1);
+                    }
+                }
+
+                if(this.axorjak >= 7)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+            }
+
+            else if (norVandak2) 
+            {
+                this.axorjak += 1;
+                this.energy += 3;
+
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak2[0];
+                var nory = norVandak2[1];
+
+                if(this.ser == 1)
+                {
+                    matrix[nory][norx] = 3;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 3.5;
+                }
+
+                this.x = norx;
+                this.y = nory;
+
+                if (this.energy > 25) 
+                {
+                    this.energy = 25;
+                }
+
+                for (var i in mardArr) 
+                {
+                    if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
+                    {
+                        mardArr.splice(i, 1);
                     }
                 }
 

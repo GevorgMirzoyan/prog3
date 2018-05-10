@@ -14,7 +14,7 @@ var treeArr = [];
 var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
-var treeCount = 5;
+var treeCount = 0;
 
 function setup()
 {
@@ -236,11 +236,18 @@ function draw()
                 fill("blue");
                 rect(x * side, y * side, side, side);
             }
+
+            if (matrix[y][x] == 7) //vandak
+            {
+                fill("black");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
     
     // for (var i in mardArr) 
     // {
+    //     mardArr[i].timeout();
     //     mardArr[i].utel();   
     // }
     
@@ -256,10 +263,10 @@ function draw()
     //     gishatichArr[i].utel();
     // }
 
-    for (var i in treeArr) 
-    {
-        treeArr[i].bazmanal();
-    }
+    // for (var i in treeArr) 
+    // {
+    //     treeArr[i].bazmanal();
+    // }
     
     // for (var i in xotakerArr) 
     // {

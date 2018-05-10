@@ -2,7 +2,7 @@ class Tree extends Class10 //done
 {
     constructor(x, y) 
     {
-        super(x,y);
+        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
         this.multiply = 0;
     }
 

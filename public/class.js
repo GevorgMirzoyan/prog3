@@ -4,6 +4,14 @@ class Class10 //done
     {
         this.x = x;
         this.y = y;
+        this.spring_time = 0;
+        this.spring = true;
+        this.summer_time = 0;
+        this.summer = false;
+        this.autumn_time = 0;
+        this.autumn = false;
+        this.winter_time = 0;
+        this.winter = false;
     }
 
     yntrelVandak(ch) //done
@@ -25,5 +33,52 @@ class Class10 //done
         }
 
         return found;
+    }
+
+    weather() //not done
+    {
+        if(this.spring == true)
+        {
+            this.spring_time ++;
+
+            if(this.spring_time >= 3)
+            {
+                this.spring = false;
+                this.summer = true;
+            }
+        }
+
+        if(this.summer == true)
+        {
+            this.summer_time ++;
+
+            if(this.summer_time >= 3)
+            {
+                this.summer = false;
+                this.autumn = true;
+            }
+        }
+
+        if(this.autumn == true)
+        {
+            this.autumn_time ++;
+
+            if(this.autumn_time >= 3)
+            {
+                this.autumn = false;
+                this.winter = true;
+            }
+        }
+
+        if(this.winter == true)
+        {
+            this.winter_time ++;
+
+            if(this.winter_time >= 3)
+            {
+                this.winter_time = false;
+                this.spring = true;
+            }
+        }
     }
 }
