@@ -1,8 +1,8 @@
 class Grass extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, changeTime, spring, summer, autumn, winter) 
     {
-        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
+        super(x, y, changeTime, spring, summer, autumn, winter);
         this.multiply_bazmanal = 0;
     }
 

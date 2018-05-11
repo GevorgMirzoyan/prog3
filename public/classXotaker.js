@@ -1,8 +1,8 @@
-class Xotaker extends Class10 //not done
+class Xotaker extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, changeTime, spring, summer, autumn, winter) 
     {
-        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
+        super(x, y, changeTime, spring, summer, autumn, winter)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
@@ -91,7 +91,7 @@ class Xotaker extends Class10 //not done
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 10)
+            if(this.timeout_time >= 3)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;
@@ -99,379 +99,255 @@ class Xotaker extends Class10 //not done
         }
     }
 
-    bazmanal() //not done
+    bazmanal() //done
     {
-        if(this.bazmanal_timeout == true)
+        if(this.ser == 1 && this.bazmanal_timeout == true)
         {
-            if(this.ser == 1)
-            {
-                var datarkVandakner = this.yntrelVandak(0);
-                var norVandak = random(datarkVandakner);
-    
-                var xot = this.yntrelVandak(1);
-                var norVandak3 = random(xot);
-    
-                var xotaker = this.yntrelVandak(2.5);
-                var norVandak2 = random(xotaker);
-    
-                if (norVandak2) 
-                {
-                    // if(this.bazmacox == true)
-                    // {
-                        this.bazmanal_timeout = false;
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
+            var norVandak3 = random(datarkVandakner);
 
-                        if(norVandak)
+            var xot = this.yntrelVandak(0);
+            var norVandak4 = random(xot);
+            var norVandak5 = random(xot);
+        
+            var xotaker = this.yntrelVandak(2.5);
+            var norVandak2 = random(xotaker);
+        
+            if (norVandak2)
+            {
+                for(var i in xotakerArr)
+                {
+                    if(norVandak2[0] == xotakerArr[i].x && norVandak2[1] == xotakerArr[i].y)
+                    {
+                        var xotaker_igakan = xotakerArr[i];
+                    }
+                }
+
+                if(norVandak)
+                {
+                    this.bazmanal_timeout = false; 
+
+                    if(xotaker_igakan.bazmacox == false)
+                    {
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
                         {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak[0];
-                            var nory = norVandak[1];
-                
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
-                            {
-                                matrix[nory][norx] = 2;
-                            }
-        
-                            else
-                            {
-                                matrix[nory][norx] = 2.5;
-                            }
-        
-                            var norXotaker = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker);
-        
-                            if(matrix[nory][norx] == 2)
-                            {
-                                norXotaker.ser = 1;
-                            }
-        
-                            else
-                            {
-                                norXotaker.ser = 2 ;
-                            }
+                            matrix[nory][norx] = 2;
                         }
-        
-                        else if(norVandak3)
+                
+                        else
                         {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
-                
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
-                            {
-                                matrix[nory][norx] = 2;
-                            }
-        
-                            else
-                            {
-                                matrix[nory][norx] = 2.5;
-                            }
-        
-                            var norXotaker = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker);
-        
-                            if(matrix[nory][norx] == 2)
-                            {
-                                norXotaker.ser = 1;
-                            }
-        
-                            else
-                            {
-                                norXotaker.ser = 2 ;
-                            }
-        
-                            for(var i in grassArr)
-                            {
-                                if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
-                                {
-                                    grassArr.splice(i, 1);
-                                    norXotaker.energy += 1;
-                                }
-                            }                                   
+                            matrix[nory][norx] = 2.5;
                         }
-                    //}
-    
+                
+                        var norXotaker = new Xotaker(norx, nory);
+                        xotakerArr.push(norXotaker);
+                
+                        if(matrix[nory][norx] == 2)
+                        {
+                            norXotaker.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norXotaker.ser = 2 ;
+                        }
+                    }
                     
-                    // else if(norVandak2.bazmacox == false)
-                    // {
-                    //     if(norVandak)
-                    //     {
-                    //         console.log('datark vandak');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak[0];
-                    //         var nory = norVandak[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-    
-                    //     else if(norVandak3)
-                    //     {
-                    //         console.log('xot');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak3[0];
-                    //         var nory = norVandak3[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
-                    //         {
-                    //             grassArr.splice(i, 1);
-                    //             norXotaker.energy += 1;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-                    // }
-                }
-    
-                else
-                {
-                    this.axorjak = 0;
-                }
-            }
-                
-            else
-            {
-                var datarkVandakner = this.yntrelVandak(0);
-                var norVandak = random(datarkVandakner);
-    
-                var xot = this.yntrelVandak(1);
-                var norVandak3 = random(xot);
-    
-                var xotaker = this.yntrelVandak(2);
-                var norVandak2 = random(xotaker);
-    
-                if (norVandak2) 
-                {
-                    // if(this.bazmacox == true)
-                    // {
-                        this.bazmanal_timeout = false;
+                    if(xotaker_igakan.bazmacox == true)
+                    {
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
 
-                        if(norVandak)
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
                         {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak[0];
-                            var nory = norVandak[1];
-                
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
-                            {
-                                matrix[nory][norx] = 2;
-                            }
-        
-                            else
-                            {
-                                matrix[nory][norx] = 2.5;
-                            }
-        
-                            var norXotaker = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker);
-        
-                            if(matrix[nory][norx] == 2)
-                            {
-                                norXotaker.ser = 1;
-                            }
-        
-                            else
-                            {
-                                norXotaker.ser = 2 ;
-                            }
+                            matrix[nory][norx] = 2;
                         }
-        
-                        else if(norVandak3)
+                
+                        else
                         {
-                            this.axorjak = 0;
-        
+                            matrix[nory][norx] = 2.5;
+                        }
+                
+                        var norXotaker = new Xotaker(norx, nory);
+                        xotakerArr.push(norXotaker);
+                
+                        if(matrix[nory][norx] == 2)
+                        {
+                            norXotaker.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norXotaker.ser = 2 ;
+                        }
+
+                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        {
                             var norx = norVandak3[0];
                             var nory = norVandak3[1];
+
+                            var r2 = Math.floor(random(5));
                 
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
+                            if(r2 >= 1)
                             {
                                 matrix[nory][norx] = 2;
                             }
-        
+                    
                             else
                             {
                                 matrix[nory][norx] = 2.5;
                             }
-        
-                            var norXotaker = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker);
-        
+                    
+                            var norXotaker2 = new Xotaker(norx, nory);
+                            xotakerArr.push(norXotaker2);
+                    
                             if(matrix[nory][norx] == 2)
                             {
-                                norXotaker.ser = 1;
+                                norXotaker2.ser = 1;
                             }
-        
+                    
                             else
                             {
-                                norXotaker.ser = 2 ;
+                                norXotaker2.ser = 2 ;
                             }
-                            
+                        }
+                    }
+                }
+
+                if(norVandak4)
+                {
+                    this.bazmanal_timeout = false; 
+
+                    if(xotaker_igakan.bazmacox == false)
+                    {
+                        var norx = norVandak4[0];
+                        var nory = norVandak4[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 2;
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 2.5;
+                        }
+                
+                        var norXotaker = new Xotaker(norx, nory);                       
+                        xotakerArr.push(norXotaker);
+                
+                        if(matrix[nory][norx] == 2)
+                        {
+                            norXotaker.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norXotaker.ser = 2 ;
+                        }
+                        
+                        for(var i in grassArr)
+                        {
+                            if(norXotaker.x == grassArr[i].x && norXotaker.y == grassArr[i].y)
+                            {
+                                grassArr.splice(i, 1);
+                                norXotaker.axorjak += 1;
+                            }
+                        }
+                    }
+                    
+                    else if(xotaker_igakan.bazmacox == true)
+                    {
+                        var norx = norVandak4[0];
+                        var nory = norVandak4[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 2;
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 2.5;
+                        }
+                
+                        var norXotaker = new Xotaker(norx, nory);
+                        xotakerArr.push(norXotaker);
+                
+                        if(matrix[nory][norx] == 2)
+                        {
+                            norXotaker.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norXotaker.ser = 2 ;
+                        }
+
+                        for(var i in grassArr)
+                        {
+                            if(norXotaker.x == grassArr[i].x && norXotaker.y == grassArr[i].y)
+                            {
+                                grassArr.splice(i, 1);
+                                norXotaker.axorjak += 1;
+                            }
+                        }
+
+                        if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                        {
+                            var norx = norVandak5[0];
+                            var nory = norVandak5[1];
+
+                            var r2 = Math.floor(random(5));
+                
+                            if(r2 >= 1)
+                            {
+                                matrix[nory][norx] = 2;
+                            }
+                    
+                            else
+                            {
+                                matrix[nory][norx] = 2.5;
+                            }
+                    
+                            var norXotaker2 = new Xotaker(norx, nory);
+                            xotakerArr.push(norXotaker2);
+                    
+                            if(matrix[nory][norx] == 2)
+                            {
+                                norXotaker2.ser = 1;
+                            }
+                    
+                            else
+                            {
+                                norXotaker2.ser = 2 ;
+                            }
+
                             for(var i in grassArr)
                             {
-                                if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
+                                if(norXotaker2.x == grassArr[i].x && norXotaker2.y == grassArr[i].y)
                                 {
                                     grassArr.splice(i, 1);
-                                    norXotaker.energy += 1;
+                                    norXotaker2.axorjak += 1;
                                 }
                             }
                         }
-                    //}
-    
-                    
-                    // else if(norVandak2.bazmacox == false)
-                    // {
-                    //     if(norVandak)
-                    //     {
-                    //         console.log('datark vandak');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak[0];
-                    //         var nory = norVandak[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-    
-                    //     else if(norVandak3)
-                    //     {
-                    //         console.log('xot');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak3[0];
-                    //         var nory = norVandak3[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
-                    //         {
-                    //             grassArr.splice(i, 1);
-                    //             norXotaker.energy += 1;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-                    // }
+                    }
                 }
-    
-                else
-                {
-                    this.axorjak = 0;
-                }
-            }
+            }  
         }
-        
     }
 
     utel() //done
@@ -514,11 +390,17 @@ class Xotaker extends Class10 //not done
                 }
             }
 
-            if(this.axorjak >= 5)
+            if(this.axorjak >= 5 && this.ser == 1)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
                 this.bazmanal();
+            }
+
+            else if(this.axorjak >= 5 && this.ser == 2)
+            {
+                this.bazmacox = true;
+                this.axorjak = 0;           
             }
         }
 
