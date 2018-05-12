@@ -107,7 +107,7 @@ class Xotaker extends Class10 //done
             var norVandak = random(datarkVandakner);
             var norVandak3 = random(datarkVandakner);
 
-            var xot = this.yntrelVandak(0);
+            var xot = this.yntrelVandak(1);
             var norVandak4 = random(xot);
             var norVandak5 = random(xot);
         
@@ -161,6 +161,8 @@ class Xotaker extends Class10 //done
                     
                     if(xotaker_igakan.bazmacox == true)
                     {
+                        xotaker_igakan.bazmacox = false;
+
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
@@ -268,6 +270,8 @@ class Xotaker extends Class10 //done
                     
                     else if(xotaker_igakan.bazmacox == true)
                     {
+                        xotaker_igakan.bazmacox = false;
+
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
@@ -346,7 +350,7 @@ class Xotaker extends Class10 //done
                         }
                     }
                 }
-            }  
+            }
         }
     }
 

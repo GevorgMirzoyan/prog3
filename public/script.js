@@ -5,7 +5,7 @@
 var matrix = [];
 var fr = 1;
 var side = 30;
-var qanak = 5;
+var qanak = 3;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -253,8 +253,8 @@ function draw()
     
     for (var i in grassArr) 
     {
+        // grassArr[i].weather();
         grassArr[i].bazmanal();
-        //grassArr[i].rain();
     }
     
     // for (var i in gishatichArr) 

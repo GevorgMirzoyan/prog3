@@ -36,10 +36,11 @@ class Class10 //not done
     // {
     //     if(this.spring == true)
     //     {
-    //         this.spring_time ++;
-
-    //         if(this.spring_time >= 3)
+    //         this.changeTime ++;
+    //         console.log('spring');
+    //         if(this.changeTime >= 3)
     //         {
+    //             this.changeTime = 0;
     //             this.spring = false;
     //             this.summer = true;
     //         }
@@ -47,10 +48,11 @@ class Class10 //not done
 
     //     if(this.summer == true)
     //     {
-    //         this.summer_time ++;
-
-    //         if(this.summer_time >= 3)
+    //         this.changeTime ++;
+    //         console.log('summer');
+    //         if(this.changeTime >= 3)
     //         {
+    //             this.changeTime = 0;
     //             this.summer = false;
     //             this.autumn = true;
     //         }
@@ -58,10 +60,11 @@ class Class10 //not done
 
     //     if(this.autumn == true)
     //     {
-    //         this.autumn_time ++;
-
-    //         if(this.autumn_time >= 3)
+    //         this.changeTime ++;
+    //         console.log('autumn');
+    //         if(this.changeTime >= 3)
     //         {
+    //             this.changeTime = 0;
     //             this.autumn = false;
     //             this.winter = true;
     //         }
@@ -69,11 +72,12 @@ class Class10 //not done
 
     //     if(this.winter == true)
     //     {
-    //         this.winter_time ++;
-
-    //         if(this.winter_time >= 3)
+    //         this.changeTime ++;
+    //         console.log('winter');
+    //         if(this.changeTime >= 3)
     //         {
-    //             this.winter_time = false;
+    //             this.changeTime = 0;
+    //             this.winter = false;
     //             this.spring = true;
     //         }
     //     }

@@ -26,6 +26,11 @@ class Grass extends Class10 //done
        return super.yntrelVandak(ch);
     }
 
+    // weather() // done
+    // {
+    //     return super.weather();
+    // }
+
     bazmanal() //done
     {
         this.multiply_bazmanal++;
@@ -38,46 +43,31 @@ class Grass extends Class10 //done
             this.multiply_bazmanal = 0;
             var norx = norVandak[0];
             var nory = norVandak[1];
+
             matrix[nory][norx] = 1;
 
+            // if(this.spring == true)
+            // {
+            //     matrix[nory][norx] = 1;
+            // }
+
+            // if(this.summer == true)
+            // {
+            //     matrix[nory][norx] = 7;
+            // }
+
+            // if(this.autumn == true)
+            // {
+            //     matrix[nory][norx] = 4;
+            // }
+
+            // if(this.winter == true)
+            // {
+            //     matrix[nory][norx] = 3;
+            // }
+            
             var norXot = new Grass(norx, nory);
             grassArr.push(norXot);
         }
     }
-
-    // rain() //not done
-    // {
-    //     if(grassArr != [])
-    //     {
-    //         this.multiply_rain++;
-    //         console.log(this.multiply_rain);
-
-    //         if (this.multiply_rain >= 5) 
-    //         {
-    //             this.multiply_rain = 0;
-
-    //             for (var i = 0; i < 10; i++)
-    //             {
-    //                 var x = Math.round(random(100));
-    //                 var y = Math.round(random(100));
-            
-    //                 if (matrix[y][x] == 0) 
-    //                 {
-    //                     matrix[y][x] = 6;
-
-    //                     var rain_time = 0;
-    //                     rain_time++;
-    //                     console.log(rain_time);
-    //                     if(rain_time >= 3)
-    //                     {
-    //                         matrix[y][x] = 1;
-
-    //                         var norXot = new Grass(x, y);
-    //                         grassArr.push(norXot);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 }
