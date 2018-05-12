@@ -1,8 +1,8 @@
-class Gishatich extends Class10 //not done
+class Gishatich extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, changeTime, spring, summer, autumn, winter) 
     {
-        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
+        super(x, y, changeTime, spring, summer, autumn, winter)
         this.yntaniKendani = false;
         this.energy = 25;
         this.axorjak = 0;
@@ -173,14 +173,17 @@ class Gishatich extends Class10 //not done
             var xotaker = this.yntrelVandak(2,2.5);
             var norVandak4 = random(xotaker);
             var norVandak5 = random(xotaker);
+
+            var gishatich = this.yntrelVandak(3.5);
+            var norVandak2 = random(gishatich);
         
             if (norVandak2)
             {
-                for(var i in xotakerArr)
+                for(var i in gishatichArr)
                 {
-                    if(norVandak2[0] == xotakerArr[i].x && norVandak2[1] == xotakerArr[i].y)
+                    if(norVandak2[0] == gishatichArr[i].x && norVandak2[1] == gishatichArr[i].y)
                     {
-                        var xotaker_igakan = xotakerArr[i];
+                        var gishatich_igakan = gishatichArr[i];
                     }
                 }
 
@@ -188,7 +191,7 @@ class Gishatich extends Class10 //not done
                 {
                     this.bazmanal_timeout = false; 
 
-                    if(xotaker_igakan.bazmacox == false)
+                    if(gishatich_igakan.bazmacox == false)
                     {
                         var norx = norVandak[0];
                         var nory = norVandak[1];
@@ -197,31 +200,31 @@ class Gishatich extends Class10 //not done
             
                         if(r >= 1)
                         {
-                            matrix[nory][norx] = 2;
+                            matrix[nory][norx] = 3;
                         }
                 
                         else
                         {
-                            matrix[nory][norx] = 2.5;
+                            matrix[nory][norx] = 3.5;
                         }
                 
-                        var norXotaker = new Xotaker(norx, nory);
-                        xotakerArr.push(norXotaker);
+                        var norGishatich = new Gishatich(norx, nory);
+                        gishatichArr.push(norGishatich);
                 
-                        if(matrix[nory][norx] == 2)
+                        if(matrix[nory][norx] == 3)
                         {
-                            norXotaker.ser = 1;
+                            norGishatich.ser = 1;
                         }
                 
                         else
                         {
-                            norXotaker.ser = 2 ;
+                            norGishatich.ser = 2 ;
                         }
                     }
                     
-                    if(xotaker_igakan.bazmacox == true)
+                    if(gishatich_igakan.bazmacox == true)
                     {
-                        xotaker_igakan.bazmacox = false;
+                        gishatich_igakan.bazmacox = false;
 
                         var norx = norVandak[0];
                         var nory = norVandak[1];
@@ -230,25 +233,25 @@ class Gishatich extends Class10 //not done
             
                         if(r >= 1)
                         {
-                            matrix[nory][norx] = 2;
+                            matrix[nory][norx] = 3;
                         }
                 
                         else
                         {
-                            matrix[nory][norx] = 2.5;
+                            matrix[nory][norx] = 3.5;
                         }
                 
-                        var norXotaker = new Xotaker(norx, nory);
-                        xotakerArr.push(norXotaker);
+                        var norGishatich = new Gishatich(norx, nory);
+                        gishatichArr.push(norGishatich);
                 
-                        if(matrix[nory][norx] == 2)
+                        if(matrix[nory][norx] == 3)
                         {
-                            norXotaker.ser = 1;
+                            norGishatich.ser = 1;
                         }
                 
                         else
                         {
-                            norXotaker.ser = 2 ;
+                            norGishatich.ser = 2 ;
                         }
 
                         if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
@@ -260,25 +263,25 @@ class Gishatich extends Class10 //not done
                 
                             if(r2 >= 1)
                             {
-                                matrix[nory][norx] = 2;
+                                matrix[nory][norx] = 3;
                             }
                     
                             else
                             {
-                                matrix[nory][norx] = 2.5;
+                                matrix[nory][norx] = 3.5;
                             }
                     
-                            var norXotaker2 = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker2);
+                            var norGishatich2 = new Gishatich(norx, nory);
+                            gishatichArr.push(norGishatich2);
                     
-                            if(matrix[nory][norx] == 2)
+                            if(matrix[nory][norx] == 3)
                             {
-                                norXotaker2.ser = 1;
+                                norGishatich2.ser = 1;
                             }
                     
                             else
                             {
-                                norXotaker2.ser = 2 ;
+                                norGishatich2.ser = 2 ;
                             }
                         }
                     }
@@ -288,7 +291,7 @@ class Gishatich extends Class10 //not done
                 {
                     this.bazmanal_timeout = false; 
 
-                    if(xotaker_igakan.bazmacox == false)
+                    if(gishatich_igakan.bazmacox == false)
                     {
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
@@ -297,40 +300,40 @@ class Gishatich extends Class10 //not done
             
                         if(r >= 1)
                         {
-                            matrix[nory][norx] = 2;
+                            matrix[nory][norx] = 3;
                         }
                 
                         else
                         {
-                            matrix[nory][norx] = 2.5;
+                            matrix[nory][norx] = 3.5;
                         }
                 
-                        var norXotaker = new Xotaker(norx, nory);                       
-                        xotakerArr.push(norXotaker);
+                        var norGishatich = new Gishatich(norx, nory);                       
+                        gishatichArr.push(norGishatich);
                 
-                        if(matrix[nory][norx] == 2)
+                        if(matrix[nory][norx] == 3)
                         {
-                            norXotaker.ser = 1;
+                            norGishatich.ser = 1;
                         }
                 
                         else
                         {
-                            norXotaker.ser = 2 ;
+                            norGishatich.ser = 2 ;
                         }
                         
-                        for(var i in grassArr)
+                        for(var i in xotakerArr)
                         {
-                            if(norXotaker.x == grassArr[i].x && norXotaker.y == grassArr[i].y)
+                            if(norGishatich.x == xotakerArr[i].x && norGishatich.y == xotakerArr[i].y)
                             {
-                                grassArr.splice(i, 1);
-                                norXotaker.axorjak += 1;
+                                xotakerArr.splice(i, 1);
+                                norGishatich.axorjak += 1;
                             }
                         }
                     }
                     
-                    else if(xotaker_igakan.bazmacox == true)
+                    else if(gishatich_igakan.bazmacox == true)
                     {
-                        xotaker_igakan.bazmacox = false;
+                        gishatich_igakan.bazmacox = false;
 
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
@@ -339,33 +342,33 @@ class Gishatich extends Class10 //not done
             
                         if(r >= 1)
                         {
-                            matrix[nory][norx] = 2;
+                            matrix[nory][norx] = 3;
                         }
                 
                         else
                         {
-                            matrix[nory][norx] = 2.5;
+                            matrix[nory][norx] = 3.5;
                         }
                 
-                        var norXotaker = new Xotaker(norx, nory);
-                        xotakerArr.push(norXotaker);
+                        var norGishatich = new Gishatich(norx, nory);
+                        gishatichArr.push(norGishatich);
                 
-                        if(matrix[nory][norx] == 2)
+                        if(matrix[nory][norx] == 3)
                         {
-                            norXotaker.ser = 1;
+                            norGishatich.ser = 1;
                         }
                 
                         else
                         {
-                            norXotaker.ser = 2 ;
+                            norGishatich.ser = 2 ;
                         }
 
-                        for(var i in grassArr)
+                        for(var i in xotakerArr)
                         {
-                            if(norXotaker.x == grassArr[i].x && norXotaker.y == grassArr[i].y)
+                            if(norGishatich.x == xotakerArr[i].x && norGishatich.y == xotakerArr[i].y)
                             {
-                                grassArr.splice(i, 1);
-                                norXotaker.axorjak += 1;
+                                xotakerArr.splice(i, 1);
+                                norGishatich.axorjak += 1;
                             }
                         }
 
@@ -378,33 +381,33 @@ class Gishatich extends Class10 //not done
                 
                             if(r2 >= 1)
                             {
-                                matrix[nory][norx] = 2;
+                                matrix[nory][norx] = 3;
                             }
                     
                             else
                             {
-                                matrix[nory][norx] = 2.5;
+                                matrix[nory][norx] = 3.5;
                             }
                     
-                            var norXotaker2 = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker2);
+                            var norGishatich2 = new Xotaker(norx, nory);
+                            gishatichArr.push(norGishatich2);
                     
-                            if(matrix[nory][norx] == 2)
+                            if(matrix[nory][norx] == 3)
                             {
-                                norXotaker2.ser = 1;
+                                norGishatich2.ser = 1;
                             }
                     
                             else
                             {
-                                norXotaker2.ser = 2 ;
+                                norGishatich2.ser = 2 ;
                             }
 
-                            for(var i in grassArr)
+                            for(var i in xotakerArr)
                             {
-                                if(norXotaker2.x == grassArr[i].x && norXotaker2.y == grassArr[i].y)
+                                if(norGishatich2.x == xotakerArr[i].x && norGishatich2.y == xotakerArr[i].y)
                                 {
-                                    grassArr.splice(i, 1);
-                                    norXotaker2.axorjak += 1;
+                                    xotakerArr.splice(i, 1);
+                                    norGishatich2.axorjak += 1;
                                 }
                             }
                         }
@@ -412,11 +415,11 @@ class Gishatich extends Class10 //not done
                 }
             }
         }
-    }   
+    }
 
     utel() //done
     {
-        if(this.yntaniKendani == true)
+        if(this.yntaniKendani == false)
         {
             var xotaker = this.yntrelVandak(2, 2.5);
             var norVandak = random(xotaker);
@@ -519,6 +522,66 @@ class Gishatich extends Class10 //not done
                 {
                     this.bazmacox = true;
                     this.axorjak = 0;           
+                }
+            }
+
+            else 
+            {
+                this.sharjvel();
+            }
+        }
+
+        else if(this.yntaniKendani == true)
+        {
+            var xotaker = this.yntrelVandak(2, 2.5);
+            var norVandak = random(xotaker);
+
+            if (norVandak) 
+            {
+                this.axorjak += 1;
+                this.energy += 2;
+
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                if(this.ser == 1)
+                {
+                    matrix[nory][norx] = 3;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 3.5;
+                }
+
+                this.x = norx;
+                this.y = nory;
+
+                if (this.energy > 25) 
+                {
+                    this.energy = 25;
+                }
+
+                for (var i in xotakerArr) 
+                {
+                    if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y)
+                    {
+                        xotakerArr.splice(i, 1);
+                    }
+                }
+
+                if(this.axorjak >= 5 && this.ser == 1)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+
+                else if(this.axorjak >= 5 && this.ser == 2)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
                 }
             }
 
