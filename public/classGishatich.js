@@ -134,6 +134,16 @@ class Gishatich extends Class10 //done
                 this.mahanal();
             }
         }
+
+        else
+        {
+            this.energy-= 1;
+
+            if(this.energy <= 0)
+            {
+                this.mahanal();
+            }
+        }
     }
 
     mahanal() //done
@@ -170,7 +180,7 @@ class Gishatich extends Class10 //done
             var norVandak = random(datarkVandakner);
             var norVandak3 = random(datarkVandakner);
 
-            var xotaker = this.yntrelVandak(2,2.5);
+            var xotaker = this.yntrelVandak(2);
             var norVandak4 = random(xotaker);
             var norVandak5 = random(xotaker);
 
@@ -421,20 +431,33 @@ class Gishatich extends Class10 //done
     {
         if(this.yntaniKendani == false)
         {
-            var xotaker = this.yntrelVandak(2, 2.5);
+            var xotaker = this.yntrelVandak(2);
             var norVandak = random(xotaker);
+
+            var xotaker = this.yntrelVandak(2.5);
+            var norVandak3 = random(xotaker);
 
             var mard = this.yntrelVandak(4.5);
             var norVandak2 = random(mard);
 
-            if (norVandak) 
+            if (norVandak || norVandak3) 
             {
                 this.axorjak += 1;
                 this.energy += 2;
 
                 matrix[this.y][this.x] = 0;
-                var norx = norVandak[0];
-                var nory = norVandak[1];
+
+                if(norVandak)
+                {
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+                }
+
+                else if (norVandak3)
+                {
+                    var norx = norVandak3[0];
+                    var nory = norVandak3[1];
+                }
 
                 if(this.ser == 1)
                 {

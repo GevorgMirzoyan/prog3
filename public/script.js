@@ -11,9 +11,9 @@ var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 15;
-var gishatichQanak = 2;
-var mardQanak = 0;
+var xotakerQanak = 0;
+var gishatichQanak = 0;
+var mardQanak = 2;
 var treeCount = 0;
 
 function setup()
@@ -209,7 +209,7 @@ function draw()
 
             if (matrix[y][x] == 3.5) //gishatich_igakan
             {
-                fill("pink");
+                fill("black");
                 rect(x * side, y * side, side, side);
             }
 
@@ -245,17 +245,17 @@ function draw()
         }
     }
     
-    // for (var i in mardArr) 
-    // {
-    //     mardArr[i].timeout();
-    //     mardArr[i].utel();   
-    // }
+    for (var i in mardArr) 
+    {
+        mardArr[i].timeout();
+        mardArr[i].utel();
+    }
     
-    // for (var i in grassArr) 
-    // {
-    //     // grassArr[i].weather();
-    //     grassArr[i].bazmanal();
-    // }
+    for (var i in grassArr) 
+    {
+        // grassArr[i].weather();
+        grassArr[i].bazmanal();
+    }
     
     // for (var i in gishatichArr) 
     // {

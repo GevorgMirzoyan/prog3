@@ -71,6 +71,16 @@ class Xotaker extends Class10 //done
                 this.mahanal();
             }
         }
+
+        else
+        {
+            this.energy-= 1;
+
+            if(this.energy <= 0)
+            {
+                this.mahanal();
+            }
+        }
     }
 
     mahanal() //done

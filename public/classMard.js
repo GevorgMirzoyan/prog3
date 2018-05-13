@@ -115,30 +115,54 @@ class Mard extends Class10 //done
                 this.mahanal();
             }
         }
+
+        else
+        {
+            this.energy-= 1;
+
+            if(this.energy <= 0)
+            {
+                this.mahanal();
+            }
+        }
     }
 
-    utel() // done
+    utel() //done
     {
         var xot = this.yntrelVandak(1);
         var norVandak = random(xot);
 
-        var xotaker = this.yntrelVandak(2, 2.5);
+        var xotaker = this.yntrelVandak(2);
         var norVandak2 = random(xotaker);
 
-        var gishatich = this.yntrelVandak(3, 3.5);
+        var xotaker = this.yntrelVandak(2.5);
+        var norVandak5 = random(xotaker);
+
+        var gishatich = this.yntrelVandak(3);
         var norVandak3 = random(gishatich);
+
+        var gishatich = this.yntrelVandak(3.5);
+        var norVandak6 = random(gishatich);
 
         var tree = this.yntrelVandak(5);
         var norVandak4 = random(tree);
 
-        for(var i in gishatichArr)
+        if(norVandak3 || norVandak6)
         {
-            if(norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y)
+            for(var i in gishatichArr)
             {
-                var gishatich = gishatichArr[i];
+                if(norVandak3 && norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y)
+                {
+                    var gishatich = gishatichArr[i];
+                }
+
+                else if(norVandak6 && norVandak6[0] == gishatichArr[i].x && norVandak6[1] == gishatichArr[i].y)
+                {
+                    var gishatich = gishatichArr[i];
+                }
             }
         }
-
+    
         if (this.wood < 3 && norVandak4)
         {
             this.axorjak = 0;
@@ -182,7 +206,7 @@ class Mard extends Class10 //done
             }
         }
         
-        else if (norVandak3 && gishatich.yntaniKendani == false  && this.ser == 1)
+        else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == false  && this.ser == 1)
         {
             if(this.wood >= 3)
             {
@@ -191,8 +215,17 @@ class Mard extends Class10 //done
                 this.axorjak = 0;
                 this.wood -= 3;
 
-                var norx = norVandak3[0];
-                var nory = norVandak3[1];
+                if(norVandak3)
+                {
+                    var norx = norVandak3[0];
+                    var nory = norVandak3[1];
+                }
+
+                if(norVandak6)
+                {
+                    var norx = norVandak6[0];
+                    var nory = norVandak6[1];
+                }
 
                 matrix[nory][norx] = 7;
 
@@ -237,8 +270,17 @@ class Mard extends Class10 //done
                     this.axorjak += 1;
                     this.energy += 3;
 
-                    var norx = norVandak3[0];
-                    var nory = norVandak3[1];
+                    if(norVandak3)
+                    {
+                        var norx = norVandak3[0];
+                        var nory = norVandak3[1];
+                    }
+
+                    if(norVandak6)
+                    {
+                        var norx = norVandak6[0];
+                        var nory = norVandak6[1];
+                    }
 
                     this.x = norx;
                     this.y = nory;
@@ -287,14 +329,24 @@ class Mard extends Class10 //done
             }
         }
             
-        else if (norVandak2) 
+        else if (norVandak2 || norVandak5) 
         {
             this.axorjak += 1;
             this.energy += 2;
 
             matrix[this.y][this.x] = 0;
-            var norx = norVandak2[0];
-            var nory = norVandak2[1];
+
+            if(norVandak2)
+            {
+                var norx = norVandak2[0];
+                var nory = norVandak2[1];
+            }
+
+            else if(norVandak5)
+            {
+                var norx = norVandak5[0];
+                var nory = norVandak5[1];
+            }
 
             if(this.ser == 1)
             {
@@ -363,14 +415,14 @@ class Mard extends Class10 //done
                 this.energy = 50;
             }
 
-            if(this.axorjak >= 20 && this.ser == 1)
+            if(this.axorjak >= 3 && this.ser == 1)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
                 this.bazmanal();
             }
 
-            else if(this.axorjak >= 20 && this.ser == 2)
+            else if(this.axorjak >= 3 && this.ser == 2)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
@@ -403,7 +455,11 @@ class Mard extends Class10 //done
             var norVandak = random(datarkVandakner);
             var norVandak3 = random(datarkVandakner);
 
-            var xotaker = this.yntrelVandak(2,2.5);
+            var xot = this.yntrelVandak(2);
+            var norVandak6 = random(xot);
+            var norVandak7 = random(xot);
+
+            var xotaker = this.yntrelVandak(2);
             var norVandak4 = random(xotaker);
             var norVandak5 = random(xotaker);
 
@@ -457,7 +513,7 @@ class Mard extends Class10 //done
                     
                     else if(mard_igakan.bazmacox == true)
                     {
-                        norMard.bazmacox = false;
+                        mard_igakan.bazmacox = false;
 
                         var norx = norVandak[0];
                         var nory = norVandak[1];
@@ -496,18 +552,18 @@ class Mard extends Class10 //done
                 
                             if(r2 >= 1)
                             {
-                                matrix[nory][norx] = 3;
+                                matrix[nory][norx] = 4;
                             }
                     
                             else
                             {
-                                matrix[nory][norx] = 3.5;
+                                matrix[nory][norx] = 4.5;
                             }
                     
                             var norMard = new Mard(norx, nory);
                             mardArr.push(norMard);
                     
-                            if(matrix[nory][norx] == 3)
+                            if(matrix[nory][norx] == 4)
                             {
                                 norMard.ser = 1;
                             }
@@ -520,7 +576,107 @@ class Mard extends Class10 //done
                     }
                 }
 
-                if(norVandak4)
+                else if(norVandak6)
+                {
+                    this.bazmanal_timeout = false; 
+
+                    if(mard_igakan.bazmacox == false)
+                    {
+                        var norx = norVandak6[0];
+                        var nory = norVandak6[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 4;
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                
+                        var norMard = new Mard(norx, nory);
+                        mardArr.push(norMard);
+                
+                        if(matrix[nory][norx] == 4)
+                        {
+                            norMard.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norMard.ser = 2 ;
+                        }
+                    }
+                    
+                    else if(mard_igakan.bazmacox == true)
+                    {
+                        mard_igakan.bazmacox = false;
+
+                        var norx = norVandak6[0];
+                        var nory = norVandak6[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 4;
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                
+                        var norMard = new Mard(norx, nory);
+                        mardArr.push(norMard);
+                
+                        if(matrix[nory][norx] == 4)
+                        {
+                            norMard.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norMard.ser = 2 ;
+                        }
+
+                        if(norVandak6[0] != norVandak7[0] && norVandak6[1] != norVandak7[1])
+                        {
+                            var norx = norVandak7[0];
+                            var nory = norVandak7[1];
+
+                            var r2 = Math.floor(random(5));
+                
+                            if(r2 >= 1)
+                            {
+                                matrix[nory][norx] = 4;
+                            }
+                    
+                            else
+                            {
+                                matrix[nory][norx] = 4.5;
+                            }
+                    
+                            var norMard = new Mard(norx, nory);
+                            mardArr.push(norMard);
+                    
+                            if(matrix[nory][norx] == 4)
+                            {
+                                norMard.ser = 1;
+                            }
+                    
+                            else
+                            {
+                                norMard.ser = 2 ;
+                            }
+                        }
+                    }
+                }
+
+                else if(norVandak4)
                 {
                     this.bazmanal_timeout = false; 
 
