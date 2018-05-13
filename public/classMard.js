@@ -1,8 +1,8 @@
-class Mard extends Class10 //not done
+class Mard extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, changeTime, spring, summer, autumn, winter) 
     {
-        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
+        super(x, y, changeTime, spring, summer, autumn, winter);
         this.energy = 30;
         this.axorjak = 0;
         this.wood = 3;
@@ -117,19 +117,27 @@ class Mard extends Class10 //not done
         }
     }
 
-    utel() //done
+    utel() // done
     {
         var xot = this.yntrelVandak(1);
         var norVandak = random(xot);
 
-        var xotaker = this.yntrelVandak(2);
+        var xotaker = this.yntrelVandak(2, 2.5);
         var norVandak2 = random(xotaker);
 
-        var gishatich = this.yntrelVandak(3);
+        var gishatich = this.yntrelVandak(3, 3.5);
         var norVandak3 = random(gishatich);
 
         var tree = this.yntrelVandak(5);
         var norVandak4 = random(tree);
+
+        for(var i in gishatichArr)
+        {
+            if(norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y)
+            {
+                var gishatich = gishatichArr[i];
+            }
+        }
 
         if (this.wood < 3 && norVandak4)
         {
@@ -174,24 +182,25 @@ class Mard extends Class10 //not done
             }
         }
         
-        else if (norVandak3 && norVandak3.yntaniKendani == false  && this.ser == 1)
+        else if (norVandak3 && gishatich.yntaniKendani == false  && this.ser == 1)
         {
             if(this.wood >= 3)
             {
+                gishatich.yntaniKendani = true;
+
                 this.axorjak = 0;
                 this.wood -= 3;
-                norVandak3.yntaniKendani = true;
 
                 var norx = norVandak3[0];
                 var nory = norVandak3[1];
 
                 matrix[nory][norx] = 7;
 
-                norVandak3.yntaniKendani();
+                gishatich.yntaniKendani();
 
-                if(norVandak3.vandak_off == true)
+                if(gishatich.vandak_off == true)
                 {
-                    if(norVandak3.ser == 1)
+                    if(gishatich.ser == 1)
                     {
                         matrix[nory][norx] = 3;
                     }
@@ -202,7 +211,7 @@ class Mard extends Class10 //not done
                     }
                 }
 
-                this.energy -= 2;
+                this.energy -= 5;
 
                 if(this.energy <= 0)
                 {
@@ -233,18 +242,33 @@ class Mard extends Class10 //not done
 
                     this.x = norx;
                     this.y = nory;
-                    matrix[nory][norx] = 4;
+
+                    if(this.ser == 1)
+                    {
+                        matrix[nory][norx] = 4;
+                    }
+
+                    else
+                    {
+                        matrix[nory][norx] = 4.5;
+                    }
                    
                     if (this.energy > 50) 
                     {
                         this.energy = 50;
                     }
 
-                    if(this.axorjak >= 25)
+                    if(this.axorjak >= 20 && this.ser == 1)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;
-                        this.bazmanal();                       
+                        this.bazmanal();
+                    }
+
+                    else if(this.axorjak >= 20 && this.ser == 2)
+                    {
+                        this.bazmacox = true;
+                        this.axorjak = 0;
                     }
                 }
 
@@ -252,17 +276,12 @@ class Mard extends Class10 //not done
                 {
                     this.mahanal();
 
-                    norVandak3.axorjak += 1;
-                    norVandak3.energy += 3;
+                    gishatich.axorjak += 1;
+                    gishatich.energy += 3;
 
-                    if(norVandak3.energy >= 25)
+                    if(gishatich.energy >= 25)
                     {
-                        norVandak3.energy = 25;
-                    }
-
-                    if(norVandak3.axorjak >= 7)
-                    {
-                        norVandak3.bazmanal();
+                        gishatich.energy = 25;
                     }
                 }
             }
@@ -295,11 +314,17 @@ class Mard extends Class10 //not done
                 this.energy = 50;
             }
 
-            if(this.axorjak >= 25)
+            if(this.axorjak >= 20 && this.ser == 1)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
                 this.bazmanal();
+            }
+
+            else if(this.axorjak >= 20 && this.ser == 2)
+            {
+                this.bazmacox = true;
+                this.axorjak = 0;
             }
 
             for (var i in xotakerArr) 
@@ -338,11 +363,17 @@ class Mard extends Class10 //not done
                 this.energy = 50;
             }
 
-            if(this.axorjak >= 3)
+            if(this.axorjak >= 20 && this.ser == 1)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
                 this.bazmanal();
+            }
+
+            else if(this.axorjak >= 20 && this.ser == 2)
+            {
+                this.bazmacox = true;
+                this.axorjak = 0;
             }
         }
 
@@ -364,377 +395,256 @@ class Mard extends Class10 //not done
         }
     }
     
-    bazmanal() //not done
+    bazmanal() //done
     {
-        if(this.bazmanal_timeout == true)
+        if(this.ser == 1 && this.bazmanal_timeout == true)
         {
-            if(this.ser == 1)
-            {
-                var datarkVandakner = this.yntrelVandak(0);
-                var norVandak = random(datarkVandakner);
-    
-                var xot = this.yntrelVandak(1);
-                var norVandak3 = random(xot);
-    
-                var mard_igakan = this.yntrelVandak(4.5);
-                var norVandak2 = random(mard_igakan);
-    
-                if (norVandak2) 
-                {
-                    // if(this.bazmacox == true)
-                    // {
-                        this.bazmanal_timeout = false;
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
+            var norVandak3 = random(datarkVandakner);
 
-                        if(norVandak)
+            var xotaker = this.yntrelVandak(2,2.5);
+            var norVandak4 = random(xotaker);
+            var norVandak5 = random(xotaker);
+
+            var mard = this.yntrelVandak(4.5);
+            var norVandak2 = random(mard);
+        
+            if (norVandak2)
+            {
+                for(var i in mardArr)
+                {
+                    if(norVandak2[0] == mardArr[i].x && norVandak2[1] == mardArr[i].y)
+                    {
+                        var mard_igakan = mardArr[i];
+                    }
+                }
+
+                if(norVandak)
+                {
+                    this.bazmanal_timeout = false; 
+
+                    if(mard_igakan.bazmacox == false)
+                    {
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
                         {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak[0];
-                            var nory = norVandak[1];
+                            matrix[nory][norx] = 4;
+                        }
                 
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                
+                        var norMard = new Mard(norx, nory);
+                        mardArr.push(norMard);
+                
+                        if(matrix[nory][norx] == 4)
+                        {
+                            norMard.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norMard.ser = 2 ;
+                        }
+                    }
+                    
+                    else if(mard_igakan.bazmacox == true)
+                    {
+                        norMard.bazmacox = false;
+
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 4;
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                
+                        var norMard = new Mard(norx, nory);
+                        mardArr.push(norMard);
+                
+                        if(matrix[nory][norx] == 4)
+                        {
+                            norMard.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norMard.ser = 2 ;
+                        }
+
+                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        {
+                            var norx = norVandak3[0];
+                            var nory = norVandak3[1];
+
+                            var r2 = Math.floor(random(5));
+                
+                            if(r2 >= 1)
                             {
-                                matrix[nory][norx] = 4;
+                                matrix[nory][norx] = 3;
                             }
-        
+                    
                             else
                             {
-                                matrix[nory][norx] = 4.5;
+                                matrix[nory][norx] = 3.5;
                             }
-        
+                    
                             var norMard = new Mard(norx, nory);
                             mardArr.push(norMard);
-        
-                            if(matrix[nory][norx] == 4)
+                    
+                            if(matrix[nory][norx] == 3)
                             {
                                 norMard.ser = 1;
                             }
-        
+                    
                             else
                             {
                                 norMard.ser = 2 ;
                             }
                         }
-        
-                        else if(norVandak3)
+                    }
+                }
+
+                if(norVandak4)
+                {
+                    this.bazmanal_timeout = false; 
+
+                    if(mard_igakan.bazmacox == false)
+                    {
+                        var norx = norVandak4[0];
+                        var nory = norVandak4[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
                         {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
+                            matrix[nory][norx] = 4;
+                        }
                 
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                
+                        var norMard = new Mard(norx, nory);                       
+                        mardArr.push(norMard);
+                
+                        if(matrix[nory][norx] == 4)
+                        {
+                            norMard.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norMard.ser = 2 ;
+                        }
+                        
+                        for(var i in xotakerArr)
+                        {
+                            if(norMard.x == xotakerArr[i].x && norMard.y == xotakerArr[i].y)
+                            {
+                                xotakerArr.splice(i, 1);
+                                norMard.axorjak += 1;
+                            }
+                        }
+                    }
+                    
+                    else if(mard_igakan.bazmacox == true)
+                    {
+                        mard_igakan.bazmacox = false;
+
+                        var norx = norVandak4[0];
+                        var nory = norVandak4[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 4;
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                
+                        var norMard = new Mard(norx, nory);
+                        mardArr.push(norMard);
+                
+                        if(matrix[nory][norx] == 4)
+                        {
+                            norMard.ser = 1;
+                        }
+                
+                        else
+                        {
+                            norMard.ser = 2 ;
+                        }
+
+                        for(var i in xotakerArr)
+                        {
+                            if(norMard.x == xotakerArr[i].x && norMard.y == xotakerArr[i].y)
+                            {
+                                xotakerArr.splice(i, 1);
+                                norMard.axorjak += 1;
+                            }
+                        }
+
+                        if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                        {
+                            var norx = norVandak5[0];
+                            var nory = norVandak5[1];
+
+                            var r2 = Math.floor(random(5));
+                
+                            if(r2 >= 1)
                             {
                                 matrix[nory][norx] = 4;
                             }
-        
+                    
                             else
                             {
                                 matrix[nory][norx] = 4.5;
                             }
-        
-                            var norMard = new Mard(norx, nory);
-                            mardArr.push(norMard);
-        
+                    
+                            var norMard2 = new Mard(norx, nory);
+                            mardArr.push(norMard2);
+                    
                             if(matrix[nory][norx] == 4)
                             {
-                                norMard.ser = 1;
+                                norMard2.ser = 1;
                             }
-        
+                    
                             else
                             {
-                                norMard.ser = 2 ;
+                                norMard2.ser = 2 ;
                             }
-        
+
                             for(var i in xotakerArr)
                             {
-                                if (norx == xotakerArr[i].x && nor.y == xotakerArr[i].y) 
+                                if(norMard2.x == xotakerArr[i].x && norMard2.y == xotakerArr[i].y)
                                 {
-                                    xotakerArr.splice(i, 1);
-                                    norMard.energy += 1;
-                                    norMard.axorjak += 1;
+                                    mardArr.splice(i, 1);
+                                    norMard2.axorjak += 1;
                                 }
                             }
                         }
-                    //}
-    
-                    
-                    // else if(norVandak2.bazmacox == false)
-                    // {
-                    //     if(norVandak)
-                    //     {
-                    //         console.log('datark vandak');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak[0];
-                    //         var nory = norVandak[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-    
-                    //     else if(norVandak3)
-                    //     {
-                    //         console.log('xot');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak3[0];
-                    //         var nory = norVandak3[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
-                    //         {
-                    //             grassArr.splice(i, 1);
-                    //             norXotaker.energy += 1;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-                    // }
-                }
-    
-                else
-                {
-                    this.axorjak = 0;
-                }
-            }
-                
-            else
-            {
-                var datarkVandakner = this.yntrelVandak(0);
-                var norVandak = random(datarkVandakner);
-    
-                var xot = this.yntrelVandak(1);
-                var norVandak3 = random(xot);
-    
-                var mard_igakan = this.yntrelVandak(4);
-                var norVandak2 = random(mard_igakan);
-    
-                if (norVandak2) 
-                {
-                    // if(this.bazmacox == true)
-                    // {
-                        this.bazmanal_timeout = false;
-
-                        if(norVandak)
-                        {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak[0];
-                            var nory = norVandak[1];
-                
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
-                            {
-                                matrix[nory][norx] = 4;
-                            }
-        
-                            else
-                            {
-                                matrix[nory][norx] = 4.5;
-                            }
-        
-                            var norMard = new Mard(norx, nory);
-                            mardArr.push(norMard);
-        
-                            if(matrix[nory][norx] == 4)
-                            {
-                                norMard.ser = 1;
-                            }
-        
-                            else
-                            {
-                                norMard.ser = 2 ;
-                            }
-                        }
-        
-                        else if(norVandak3)
-                        {
-                            this.axorjak = 0;
-        
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
-                
-                            var r = Math.floor(random(5));
-        
-                            if(r >= 1)
-                            {
-                                matrix[nory][norx] = 4;
-                            }
-        
-                            else
-                            {
-                                matrix[nory][norx] = 4.5;
-                            }
-        
-                            var norMard = new Mard(norx, nory);
-                            mardArr.push(norMard);
-        
-                            if(matrix[nory][norx] == 4)
-                            {
-                                norMard.ser = 1;
-                            }
-        
-                            else
-                            {
-                                norMard.ser = 2 ;
-                            }
-        
-                            for(var i in xotakerArr)
-                            {
-                                if (norx == xotakerArr[i].x && nor.y == xotakerArr[i].y) 
-                                {
-                                    xotakerArr.splice(i, 1);
-                                    norMard.energy += 1;
-                                    norMard.axorjak += 1;
-                                }
-                            }
-                        }
-                    //}
-    
-                    
-                    // else if(norVandak2.bazmacox == false)
-                    // {
-                    //     if(norVandak)
-                    //     {
-                    //         console.log('datark vandak');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak[0];
-                    //         var nory = norVandak[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-    
-                    //     else if(norVandak3)
-                    //     {
-                    //         console.log('xot');
-                    //         this.axorjak = 0;
-                    //         norVandak2.axorjak = 0;
-    
-                    //         var norx = norVandak3[0];
-                    //         var nory = norVandak3[1];
-                
-                    //         var r = Math.floor(random(5));
-    
-                    //         if(r >= 1)
-                    //         {
-                    //             matrix[nory][norx] = 2;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             matrix[nory][norx] = 2.5;
-                    //         }
-    
-                    //         var norXotaker = new Xotaker(norx, nory);
-                    //         xotakerArr.push(norXotaker);
-    
-                    //         if(matrix[nory][norx] == 2)
-                    //         {
-                    //             norXotaker.ser = 1;
-                    //         }
-    
-                    //         else
-                    //         {
-                    //             norXotaker.ser = 2 ;
-                    //         }
-    
-                    //         if (norx == grassArr[i].x && nor.y == grassArr[i].y) 
-                    //         {
-                    //             grassArr.splice(i, 1);
-                    //             norXotaker.energy += 1;
-                    //         }
-    
-                    //         console.log(norXotaker);
-                    //     }
-                    // }
-                }
-    
-                else
-                {
-                    this.axorjak = 0;
+                    }
                 }
             }
         }
