@@ -13,7 +13,7 @@ var mardArr = [];
 var treeArr = [];
 var xotakerQanak = 0;
 var gishatichQanak = 0;
-var mardQanak = 2;
+var mardQanak = 0;
 var treeCount = 0;
 
 function setup()
@@ -242,18 +242,24 @@ function draw()
                 fill("black");
                 rect(x * side, y * side, side, side);
             }
+
+            if (matrix[y][x] == 8) //test
+            {
+                fill("white");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
     
-    for (var i in mardArr) 
-    {
-        mardArr[i].timeout();
-        mardArr[i].utel();
-    }
+    // for (var i in mardArr) 
+    // {
+    //     mardArr[i].timeout();
+    //     mardArr[i].utel();
+    // }
     
     for (var i in grassArr) 
     {
-        // grassArr[i].weather();
+        grassArr[i].weather();
         grassArr[i].bazmanal();
     }
     

@@ -95,13 +95,13 @@ class Xotaker extends Class10 //done
         }        
     }
 
-    timeout() //done
+    timeout() //done timeout-10s
     {
         if(this.bazmanal_timeout == false)
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 3)
+            if(this.timeout_time >= 10)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;

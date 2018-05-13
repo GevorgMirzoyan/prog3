@@ -1,11 +1,11 @@
-class Mard extends Class10 //done
+class Mard extends Class10 //not done
 {
     constructor(x, y, changeTime, spring, summer, autumn, winter) 
     {
         super(x, y, changeTime, spring, summer, autumn, winter);
         this.energy = 30;
         this.axorjak = 0;
-        this.wood = 3;
+        this.wood = 5;
         this.ser = 0;
         this.bazmacox = false;
         this.timeout_time = 0;
@@ -68,13 +68,13 @@ class Mard extends Class10 //done
        return super.yntrelVandak(ch);
     }
 
-    timeout() //done
+    timeout() //done  timeout-30s
     {
         if(this.bazmanal_timeout == false)
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 3)
+            if(this.timeout_time >= 30)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;
@@ -127,7 +127,7 @@ class Mard extends Class10 //done
         }
     }
 
-    utel() //done
+    utel() //not done (yntani kendani)
     {
         var xot = this.yntrelVandak(1);
         var norVandak = random(xot);
@@ -135,14 +135,14 @@ class Mard extends Class10 //done
         var xotaker = this.yntrelVandak(2);
         var norVandak2 = random(xotaker);
 
-        var xotaker = this.yntrelVandak(2.5);
-        var norVandak5 = random(xotaker);
+        var xotaker2 = this.yntrelVandak(2.5);
+        var norVandak5 = random(xotaker2);
 
         var gishatich = this.yntrelVandak(3);
         var norVandak3 = random(gishatich);
 
-        var gishatich = this.yntrelVandak(3.5);
-        var norVandak6 = random(gishatich);
+        var gishatich2 = this.yntrelVandak(3.5);
+        var norVandak6 = random(gishatich2);
 
         var tree = this.yntrelVandak(5);
         var norVandak4 = random(tree);
@@ -206,10 +206,16 @@ class Mard extends Class10 //done
             }
         }
         
+        else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == true  && this.ser == 1)
+        {
+            this.sharjvel();
+        }
+
         else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == false  && this.ser == 1)
         {
             if(this.wood >= 3)
             {
+                console.log('gishatich LOL')
                 gishatich.yntaniKendani = true;
 
                 this.axorjak = 0;
@@ -221,27 +227,22 @@ class Mard extends Class10 //done
                     var nory = norVandak3[1];
                 }
 
-                if(norVandak6)
+                else if(norVandak6)
                 {
                     var norx = norVandak6[0];
                     var nory = norVandak6[1];
                 }
 
                 matrix[nory][norx] = 7;
-
-                gishatich.yntaniKendani();
-
-                if(gishatich.vandak_off == true)
+                       
+                if(gishatich.ser == 1)
                 {
-                    if(gishatich.ser == 1)
-                    {
-                        matrix[nory][norx] = 3;
-                    }
+                    matrix[nory][norx] = 8;
+                }
 
-                    else
-                    {
-                        matrix[nory][norx] = 3.5;
-                    }
+                else
+                {
+                    matrix[nory][norx] = 3.5;
                 }
 
                 this.energy -= 5;
@@ -254,6 +255,7 @@ class Mard extends Class10 //done
 
             else
             {
+                console.log('mard LOL')
                 var i = Math.round(random(10));
 
                 if (i >= 3) 
@@ -415,14 +417,14 @@ class Mard extends Class10 //done
                 this.energy = 50;
             }
 
-            if(this.axorjak >= 3 && this.ser == 1)
+            if(this.axorjak >= 20 && this.ser == 1)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
                 this.bazmanal();
             }
 
-            else if(this.axorjak >= 3 && this.ser == 2)
+            else if(this.axorjak >= 20 && this.ser == 2)
             {
                 this.bazmacox = true;
                 this.axorjak = 0;
@@ -455,7 +457,7 @@ class Mard extends Class10 //done
             var norVandak = random(datarkVandakner);
             var norVandak3 = random(datarkVandakner);
 
-            var xot = this.yntrelVandak(2);
+            var xot = this.yntrelVandak(1);
             var norVandak6 = random(xot);
             var norVandak7 = random(xot);
 

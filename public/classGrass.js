@@ -26,10 +26,10 @@ class Grass extends Class10 //done
        return super.yntrelVandak(ch);
     }
 
-    // weather() // done
-    // {
-    //     return super.weather();
-    // }
+    weather() // done
+    {
+        return super.weather();
+    }
 
     bazmanal() //done
     {
@@ -44,27 +44,27 @@ class Grass extends Class10 //done
             var norx = norVandak[0];
             var nory = norVandak[1];
 
-            matrix[nory][norx] = 1;
+            //matrix[nory][norx] = 1;
 
-            // if(this.spring == true)
-            // {
-            //     matrix[nory][norx] = 1;
-            // }
+            if(this.spring == true)
+            {
+                matrix[nory][norx] = 1;
+            }
 
-            // if(this.summer == true)
-            // {
-            //     matrix[nory][norx] = 7;
-            // }
+            else if(this.summer == true)
+            {
+                matrix[nory][norx] = 8;
+            }
 
-            // if(this.autumn == true)
-            // {
-            //     matrix[nory][norx] = 4;
-            // }
+            else if(this.autumn == true)
+            {
+                matrix[nory][norx] = 8;
+            }
 
-            // if(this.winter == true)
-            // {
-            //     matrix[nory][norx] = 3;
-            // }
+            else if(this.winter == true)
+            {
+                matrix[nory][norx] = 8;
+            }
             
             var norXot = new Grass(norx, nory);
             grassArr.push(norXot);

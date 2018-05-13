@@ -10,8 +10,6 @@ class Gishatich extends Class10 //done
         this.bazmacox = false;
         this.timeout_time = 0;
         this.bazmanal_timeout = true;
-        this.vandak_time = 0;
-        this.vandak_off = false;
     }
 
     stanalNorKordinatner() 
@@ -50,16 +48,6 @@ class Gishatich extends Class10 //done
     {
        this.stanalNorKordinatner();
        return super.yntrelVandak(ch);
-    }
-
-    yntaniKendani() //done
-    {
-        this.vandak_time ++;
-
-        if(this.vandak_time >= 5)
-        {
-            this.vandak_off = true;
-        }
     }
 
     sharjvel() //done
@@ -158,13 +146,13 @@ class Gishatich extends Class10 //done
         }
     }
 
-    timeout() //done
+    timeout() //done  timeout-20s
     {
         if(this.bazmanal_timeout == false)
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 3)
+            if(this.timeout_time >= 20)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;
@@ -434,8 +422,8 @@ class Gishatich extends Class10 //done
             var xotaker = this.yntrelVandak(2);
             var norVandak = random(xotaker);
 
-            var xotaker = this.yntrelVandak(2.5);
-            var norVandak3 = random(xotaker);
+            var xotaker2 = this.yntrelVandak(2.5);
+            var norVandak3 = random(xotaker2);
 
             var mard = this.yntrelVandak(4.5);
             var norVandak2 = random(mard);
@@ -556,18 +544,31 @@ class Gishatich extends Class10 //done
 
         else if(this.yntaniKendani == true)
         {
-            var xotaker = this.yntrelVandak(2, 2.5);
+            var xotaker = this.yntrelVandak(2);
             var norVandak = random(xotaker);
 
-            if (norVandak) 
+            var xotaker2 = this.yntrelVandak(2.5);
+            var norVandak2 = random(xotaker2);
+
+            if (norVandak || norVandak2) 
             {
                 this.axorjak += 1;
                 this.energy += 2;
 
                 matrix[this.y][this.x] = 0;
-                var norx = norVandak[0];
-                var nory = norVandak[1];
 
+                if(norVandak)
+                {
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+                }
+
+                else if(norVandak2)
+                {
+                    var norx = norVandak[0];
+                    var nory = norVandak[1];
+                }
+                
                 if(this.ser == 1)
                 {
                     matrix[nory][norx] = 3;
