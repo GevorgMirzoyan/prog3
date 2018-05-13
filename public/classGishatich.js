@@ -1,8 +1,8 @@
 class Gishatich extends Class10 //done
 {
-    constructor(x, y, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, changeTime, spring, summer, autumn, winter)
+        super(x, y)
         this.yntaniKendani = false;
         this.energy = 25;
         this.axorjak = 0;

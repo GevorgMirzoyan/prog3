@@ -1,8 +1,8 @@
 class Grass extends Class10 //done
 {
-    constructor(x, y, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, changeTime, spring, summer, autumn, winter);
+        super(x, y);
         this.multiply_bazmanal = 0;
     }
 
@@ -26,11 +26,6 @@ class Grass extends Class10 //done
        return super.yntrelVandak(ch);
     }
 
-    weather() // done
-    {
-        return super.weather();
-    }
-
     bazmanal() //done
     {
         this.multiply_bazmanal++;
@@ -44,27 +39,7 @@ class Grass extends Class10 //done
             var norx = norVandak[0];
             var nory = norVandak[1];
 
-            //matrix[nory][norx] = 1;
-
-            if(this.spring == true)
-            {
-                matrix[nory][norx] = 1;
-            }
-
-            else if(this.summer == true)
-            {
-                matrix[nory][norx] = 8;
-            }
-
-            else if(this.autumn == true)
-            {
-                matrix[nory][norx] = 8;
-            }
-
-            else if(this.winter == true)
-            {
-                matrix[nory][norx] = 8;
-            }
+            matrix[nory][norx] = 1;
             
             var norXot = new Grass(norx, nory);
             grassArr.push(norXot);

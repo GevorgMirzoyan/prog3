@@ -1,8 +1,8 @@
 class Mard extends Class10 //not done
 {
-    constructor(x, y, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, changeTime, spring, summer, autumn, winter);
+        super(x, y);
         this.energy = 30;
         this.axorjak = 0;
         this.wood = 5;

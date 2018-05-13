@@ -257,11 +257,10 @@ function draw()
     //     mardArr[i].utel();
     // }
     
-    for (var i in grassArr) 
-    {
-        grassArr[i].weather();
-        grassArr[i].bazmanal();
-    }
+    // for (var i in grassArr) 
+    // {
+    //     grassArr[i].bazmanal();
+    // }
     
     // for (var i in gishatichArr) 
     // {

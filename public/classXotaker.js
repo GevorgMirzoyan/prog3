@@ -1,8 +1,8 @@
 class Xotaker extends Class10 //done
 {
-    constructor(x, y, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, changeTime, spring, summer, autumn, winter)
+        super(x, y)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
