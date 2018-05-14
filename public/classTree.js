@@ -28,21 +28,24 @@ class Tree extends Class10 //done
 
     bazmanal() //done
     {
-        this.multiply++;
-
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak && this.multiply >= 30) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.multiply = 0;
+            this.multiply++;
 
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-            matrix[nory][norx] = 5;
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
 
-            var newTree = new Tree(norx, nory);
-            treeArr.push(newTree);
+            if (norVandak && this.multiply >= 30) 
+            {
+                this.multiply = 0;
+
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+                matrix[nory][norx] = 5;
+
+                var newTree = new Tree(norx, nory);
+                treeArr.push(newTree);
+            }
         }
     }
 
@@ -59,14 +62,50 @@ class Tree extends Class10 //done
             if(150 % r != 0 && r % 2 == 0)
             {
                 this.hivandutyun_mahacu = true;
+                this.mahanal();
+            }
+        }
+    }
 
-                for(var i in treeArr)
+    mahanal() //done
+    {
+        if(this.hivandutyun_mahacu == true)
+        {
+            for(var i in treeArr)
+            {
+                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
                 {
-                    if(this.x == treeArr[i].x && this.y == treeArr[i].y)
-                    {               
-                        matrix[this.y][this.x] = 0;
-                        treeArr.splice(i, 1);
-                    }
+                    matrix[this.y][this.x] = 8;
+                    this.antiVirus();
+                }
+            }
+        }
+
+        else
+        {
+            for(var i in treeArr)
+            {
+                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    treeArr.splice(i, 1);
+                }
+            }
+        }
+    }
+
+    antiVirus() //done
+    {
+        this.virus_time ++;
+
+        if(this.virus_time >= 5)
+        {
+            for(var i in treeArr)
+            {
+                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    treeArr.splice(i, 1);
                 }
             }
         }

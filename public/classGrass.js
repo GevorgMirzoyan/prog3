@@ -28,21 +28,24 @@ class Grass extends Class10 //done
 
     bazmanal() //done
     {
-        this.multiply_bazmanal++;
-
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak && this.multiply_bazmanal >= 10) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.multiply_bazmanal = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
+            this.multiply_bazmanal++;
 
-            matrix[nory][norx] = 1;
-            
-            var norXot = new Grass(norx, nory);
-            grassArr.push(norXot);
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
+
+            if (norVandak && this.multiply_bazmanal >= 10) 
+            {
+                this.multiply_bazmanal = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                matrix[nory][norx] = 1;
+                
+                var norXot = new Grass(norx, nory);
+                grassArr.push(norXot);
+            }
         }
     }
 
@@ -73,8 +76,6 @@ class Grass extends Class10 //done
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                 {
                     matrix[this.y][this.x] = 8;
-                    grassArr.splice(i, 1);
-
                     this.antiVirus();
                 }
             }
@@ -93,15 +94,20 @@ class Grass extends Class10 //done
         }
     }
 
-    antiVirus()
+    antiVirus() //done
     {
-        console.log('yoyoyoyoyo');
         this.virus_time ++;
 
         if(this.virus_time >= 5)
         {
-            console.log('y');
-            matrix[this.y][this.x] = 0;
+            for(var i in grassArr)
+            {
+                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    grassArr.splice(i, 1);
+                }
+            }
         }
     }
 }

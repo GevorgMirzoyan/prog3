@@ -1,8 +1,8 @@
 class Xotaker extends Class10 //done
 {
-    constructor(x, y, Hivandutyun) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) 
     {
-        super(x, y, Hivandutyun)
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
@@ -42,62 +42,53 @@ class Xotaker extends Class10 //done
 
     sharjvel() //done
     {
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.axorjak = 0;
-            matrix[this.y][this.x] = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
 
-            if(this.ser == 1)
+            if (norVandak) 
             {
-                matrix[nory][norx] = 2;
+                this.axorjak = 0;
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                if(this.ser == 1)
+                {
+                    matrix[nory][norx] = 2;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 2.5;
+                }
+
+                this.x = norx;
+                this.y = nory;
+
+                this.energy -= 1;
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
 
             else
             {
-                matrix[nory][norx] = 2.5;
-            }
+                this.energy-= 1;
 
-            this.x = norx;
-            this.y = nory;
-
-            this.energy -= 1;
-            if(this.energy <= 0)
-            {
-                this.mahanal();
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
         }
-
-        else
-        {
-            this.energy-= 1;
-
-            if(this.energy <= 0)
-            {
-                this.mahanal();
-            }
-        }
-    }
-
-    mahanal() //done
-    {
-        for(var i in xotakerArr)
-        {
-            if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
-            {
-                matrix[this.y][this.x] = 0;
-                xotakerArr.splice(i, 1);
-            }
-        }        
     }
 
     timeout() //done timeout-10s
     {
-        if(this.bazmanal_timeout == false)
+        if(this.bazmanal_timeout == false && this.hivandutyun_mahacu == false)
         {
             this.timeout_time ++;
             
@@ -111,7 +102,7 @@ class Xotaker extends Class10 //done
 
     bazmanal() //done
     {
-        if(this.ser == 1 && this.bazmanal_timeout == true)
+        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
@@ -366,61 +357,126 @@ class Xotaker extends Class10 //done
 
     utel() //done
     {
-        var xoter = this.yntrelVandak(1);
-        var norVandak = random(xoter);
-
-        if (norVandak) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.axorjak += 1;
-            this.energy += 3;
+            var xoter = this.yntrelVandak(1);
+            var norVandak = random(xoter);
 
-            matrix[this.y][this.x] = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-
-            if(this.ser == 1)
+            if (norVandak) 
             {
-                matrix[nory][norx] = 2;
-            }
+                this.axorjak += 1;
+                this.energy += 3;
 
-            else
-            {
-                matrix[nory][norx] = 2.5;
-            }
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
 
-            this.x = norx;
-            this.y = nory;
-
-            if (this.energy > 15) 
-            {
-                this.energy = 15;
-            }
-
-            for (var i in grassArr) 
-            {
-                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
+                if(this.ser == 1)
                 {
-                    grassArr.splice(i, 1);
+                    matrix[nory][norx] = 2;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 2.5;
+                }
+
+                this.x = norx;
+                this.y = nory;
+
+                if (this.energy > 15) 
+                {
+                    this.energy = 15;
+                }
+
+                for (var i in grassArr) 
+                {
+                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
+                    {
+                        grassArr.splice(i, 1);
+                    }
+                }
+
+                if(this.axorjak >= 5 && this.ser == 1)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+
+                else if(this.axorjak >= 5 && this.ser == 2)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;           
                 }
             }
 
-            if(this.axorjak >= 5 && this.ser == 1)
+            else 
             {
-                this.bazmacox = true;
-                this.axorjak = 0;
-                this.bazmanal();
+                this.sharjvel();
             }
+        }
+    }
 
-            else if(this.axorjak >= 5 && this.ser == 2)
+    hivandutyun() //done
+    {
+        this.hivandutyun_timeout ++;
+
+        if(this.hivandutyun_timeout >= 3)
+        {
+            this.hivandutyun_timeout = 0;
+
+            var r = Math.round(random(300));
+    
+            if(150 % r != 0 && r % 2 == 0)
             {
-                this.bazmacox = true;
-                this.axorjak = 0;           
+                this.hivandutyun_mahacu = true;
+                this.mahanal();
+            }
+        }
+    }
+
+    mahanal() //done
+    {
+        if(this.hivandutyun_mahacu == true)
+        {
+            for(var i in xotakerArr)
+            {
+                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 8;
+                    this.antiVirus();
+                }
             }
         }
 
-        else 
+        else
         {
-            this.sharjvel();
+            for(var i in xotakerArr)
+            {
+                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    xotakerArr.splice(i, 1);
+                }
+            }
+        }
+    }
+
+    antiVirus() //done
+    {
+        this.virus_time ++;
+
+        if(this.virus_time >= 5)
+        {
+            for(var i in xotakerArr)
+            {
+                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    xotakerArr.splice(i, 1);
+                }
+            }
         }
     }
 }
