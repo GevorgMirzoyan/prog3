@@ -4,16 +4,16 @@
 
 var matrix = [];
 var fr = 1;
-var side = 15;
-var qanak = 30;
+var side = 30;
+var qanak = 10;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
 var treeArr = [];
-var xotakerQanak = 50;
+var xotakerQanak = 0;
 var gishatichQanak = 0;
-var mardQanak = 0;
+var mardQanak = 27;
 var treeCount = 0;
 
 function setup()
@@ -209,7 +209,7 @@ function draw()
 
             if (matrix[y][x] == 3.5) //gishatich_igakan
             {
-                fill("black");
+                fill("pink");
                 rect(x * side, y * side, side, side);
             }
 
@@ -251,11 +251,12 @@ function draw()
         }
     }
     
-    // for (var i in mardArr) 
-    // {
-    //     mardArr[i].timeout();
-    //     mardArr[i].utel();
-    // }
+    for (var i in mardArr) 
+    {
+        mardArr[i].timeout();
+        mardArr[i].utel();
+        mardArr[i].hivandutyun();
+    }
     
     for (var i in grassArr) 
     {
@@ -267,18 +268,19 @@ function draw()
     // {
     //     gishatichArr[i].timeout();
     //     gishatichArr[i].utel();
+    //     gishatichArr[i].hivandutyun();
     // }
 
     // for (var i in treeArr) 
     // {
+    //     treeArr[i].bazmanal();
     //     treeArr[i].hivandutyun();
-    //     treeArr[i].bazmanal();   
     // }
     
-    for (var i in xotakerArr) 
-    {
-        xotakerArr[i].timeout();
-        xotakerArr[i].utel();
-        xotakerArr[i].hivandutyun();
-    } 
+    // for (var i in xotakerArr) 
+    // {
+    //     xotakerArr[i].timeout();
+    //     xotakerArr[i].utel();
+    //     xotakerArr[i].hivandutyun();
+    // } 
 }

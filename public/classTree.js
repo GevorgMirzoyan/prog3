@@ -1,8 +1,8 @@
 class Tree extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time);
         this.multiply = 0;
     }
 
@@ -22,8 +22,11 @@ class Tree extends Class10 //done
 
     yntrelVandak(ch) 
     {
-       this.stanalNorKordinatner();
-       return super.yntrelVandak(ch);
+        if(this.hivandutyun_mahacu == false)
+        {
+            this.stanalNorKordinatner();
+            return super.yntrelVandak(ch);
+        }
     }
 
     bazmanal() //done

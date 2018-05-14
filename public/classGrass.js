@@ -22,8 +22,11 @@ class Grass extends Class10 //done
 
     yntrelVandak(ch) 
     {
-       this.stanalNorKordinatner();
-       return super.yntrelVandak(ch);
+        if(this.hivandutyun_mahacu == false)
+        {
+            this.stanalNorKordinatner();
+            return super.yntrelVandak(ch);
+        }
     }
 
     bazmanal() //done

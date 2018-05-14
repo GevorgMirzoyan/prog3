@@ -1,8 +1,8 @@
 class Mard extends Class10 //not done
 {
-    constructor(x, y, Hivandutyun) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
     {
-        super(x, y, Hivandutyun);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time);
         this.energy = 30;
         this.axorjak = 0;
         this.wood = 5;
@@ -64,13 +64,16 @@ class Mard extends Class10 //not done
 
     yntrelVandak(ch) 
     {
-       this.stanalNorKordinatner();
-       return super.yntrelVandak(ch);
+        if(this.hivandutyun_mahacu == false)
+        {
+            this.stanalNorKordinatner();
+            return super.yntrelVandak(ch);
+        }
     }
 
     timeout() //done  timeout-30s
     {
-        if(this.bazmanal_timeout == false)
+        if(this.bazmanal_timeout == false && this.hivandutyun_mahacu == false)
         {
             this.timeout_time ++;
             
@@ -84,168 +87,33 @@ class Mard extends Class10 //not done
 
     sharjvel() //done
     {
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.axorjak = 0;
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
 
-            matrix[this.y][this.x] = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-
-            if(this.ser == 1)
+            if (norVandak) 
             {
-                matrix[nory][norx] = 4;
-            }
-
-            else
-            {
-                matrix[nory][norx] = 4.5;
-            }
-
-            this.x = norx;
-            this.y = nory;
-
-            this.energy-= 1;
-
-            if(this.energy <= 0)
-            {
-                this.mahanal();
-            }
-        }
-
-        else
-        {
-            this.energy-= 1;
-
-            if(this.energy <= 0)
-            {
-                this.mahanal();
-            }
-        }
-    }
-
-    utel() //not done (yntani kendani)
-    {
-        var xot = this.yntrelVandak(1);
-        var norVandak = random(xot);
-
-        var xotaker = this.yntrelVandak(2);
-        var norVandak2 = random(xotaker);
-
-        var xotaker2 = this.yntrelVandak(2.5);
-        var norVandak5 = random(xotaker2);
-
-        var gishatich = this.yntrelVandak(3);
-        var norVandak3 = random(gishatich);
-
-        var gishatich2 = this.yntrelVandak(3.5);
-        var norVandak6 = random(gishatich2);
-
-        var tree = this.yntrelVandak(5);
-        var norVandak4 = random(tree);
-
-        if(norVandak3 || norVandak6)
-        {
-            for(var i in gishatichArr)
-            {
-                if(norVandak3 && norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y)
-                {
-                    var gishatich = gishatichArr[i];
-                }
-
-                else if(norVandak6 && norVandak6[0] == gishatichArr[i].x && norVandak6[1] == gishatichArr[i].y)
-                {
-                    var gishatich = gishatichArr[i];
-                }
-            }
-        }
-    
-        if (this.wood < 3 && norVandak4)
-        {
-            this.axorjak = 0;
-            this.wood += 3;
-
-            matrix[this.y][this.x] = 0;
-            var norx = norVandak4[0];
-            var nory = norVandak4[1];
-            
-            if(this.ser == 1)
-            {
-                matrix[nory][norx] = 4;
-            }
-
-            else
-            {
-                matrix[nory][norx] = 4.5;
-            }
-
-            this.x = norx;
-            this.y = nory;
-
-            if(this.wood > 10)
-            {
-                this.wood = 10;
-            }
-
-            for (var i in treeArr) 
-            {
-                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
-                {
-                    treeArr.splice(i,1);
-                }
-            }
-
-            this.energy -= 2;
-
-            if(this.energy <= 0)
-            {
-                this.mahanal();
-            }
-        }
-        
-        else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == true  && this.ser == 1)
-        {
-            this.sharjvel();
-        }
-
-        else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == false  && this.ser == 1)
-        {
-            if(this.wood >= 3)
-            {
-                console.log('gishatich LOL')
-                gishatich.yntaniKendani = true;
-
                 this.axorjak = 0;
-                this.wood -= 3;
 
-                if(norVandak3)
-                {
-                    var norx = norVandak3[0];
-                    var nory = norVandak3[1];
-                }
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
 
-                else if(norVandak6)
+                if(this.ser == 1)
                 {
-                    var norx = norVandak6[0];
-                    var nory = norVandak6[1];
-                }
-
-                matrix[nory][norx] = 7;
-                       
-                if(gishatich.ser == 1)
-                {
-                    matrix[nory][norx] = 8;
+                    matrix[nory][norx] = 4;
                 }
 
                 else
                 {
-                    matrix[nory][norx] = 3.5;
+                    matrix[nory][norx] = 4.5;
                 }
 
-                this.energy -= 5;
+                this.x = norx;
+                this.y = nory;
+
+                this.energy-= 1;
 
                 if(this.energy <= 0)
                 {
@@ -255,22 +123,111 @@ class Mard extends Class10 //not done
 
             else
             {
-                console.log('mard LOL')
-                var i = Math.round(random(10));
+                this.energy-= 1;
 
-                if (i >= 3) 
+                if(this.energy <= 0)
                 {
-                    for (var i in gishatichArr) 
+                    this.mahanal();
+                }
+            }
+        }
+    }
+
+    utel() //not done (yntani kendani)
+    {
+        if(this.hivandutyun_mahacu == false)
+        {
+            var xot = this.yntrelVandak(1);
+            var norVandak = random(xot);
+
+            var xotaker = this.yntrelVandak(2);
+            var norVandak2 = random(xotaker);
+
+            var xotaker2 = this.yntrelVandak(2.5);
+            var norVandak5 = random(xotaker2);
+
+            var gishatich = this.yntrelVandak(3);
+            var norVandak3 = random(gishatich);
+
+            var gishatich2 = this.yntrelVandak(3.5);
+            var norVandak6 = random(gishatich2);
+
+            var tree = this.yntrelVandak(5);
+            var norVandak4 = random(tree);
+
+            if(norVandak3 || norVandak6)
+            {
+                for(var i in gishatichArr)
+                {
+                    if(norVandak3 && norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y)
                     {
-                        if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
-                        {
-                            gishatichArr.splice(i, 1);
-                            matrix[this.y][this.x] = 0;                        
-                        }
+                        var gishatich = gishatichArr[i];
                     }
 
-                    this.axorjak += 1;
-                    this.energy += 3;
+                    else if(norVandak6 && norVandak6[0] == gishatichArr[i].x && norVandak6[1] == gishatichArr[i].y)
+                    {
+                        var gishatich = gishatichArr[i];
+                    }
+                }
+            }
+        
+            if (this.wood < 3 && norVandak4)
+            {
+                this.axorjak = 0;
+                this.wood += 3;
+
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak4[0];
+                var nory = norVandak4[1];
+                
+                if(this.ser == 1)
+                {
+                    matrix[nory][norx] = 4;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 4.5;
+                }
+
+                this.x = norx;
+                this.y = nory;
+
+                if(this.wood > 10)
+                {
+                    this.wood = 10;
+                }
+
+                for (var i in treeArr) 
+                {
+                    if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
+                    {
+                        treeArr.splice(i,1);
+                    }
+                }
+
+                this.energy -= 2;
+
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
+            }
+            
+            else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == true  && this.ser == 1)
+            {
+                this.sharjvel();
+            }
+
+            else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == false  && this.ser == 1)
+            {
+                if(this.wood >= 3)
+                {
+                    console.log('gishatich LOL')
+                    gishatich.yntaniKendani = true;
+
+                    this.axorjak = 0;
+                    this.wood -= 3;
 
                     if(norVandak3)
                     {
@@ -278,180 +235,220 @@ class Mard extends Class10 //not done
                         var nory = norVandak3[1];
                     }
 
-                    if(norVandak6)
+                    else if(norVandak6)
                     {
                         var norx = norVandak6[0];
                         var nory = norVandak6[1];
                     }
 
-                    this.x = norx;
-                    this.y = nory;
-
-                    if(this.ser == 1)
+                    matrix[nory][norx] = 7;
+                        
+                    if(gishatich.ser == 1)
                     {
-                        matrix[nory][norx] = 4;
+                        matrix[nory][norx] = 8;
                     }
 
                     else
                     {
-                        matrix[nory][norx] = 4.5;
-                    }
-                   
-                    if (this.energy > 50) 
-                    {
-                        this.energy = 50;
+                        matrix[nory][norx] = 3.5;
                     }
 
-                    if(this.axorjak >= 20 && this.ser == 1)
-                    {
-                        this.bazmacox = true;
-                        this.axorjak = 0;
-                        this.bazmanal();
-                    }
+                    this.energy -= 5;
 
-                    else if(this.axorjak >= 20 && this.ser == 2)
+                    if(this.energy <= 0)
                     {
-                        this.bazmacox = true;
-                        this.axorjak = 0;
+                        this.mahanal();
                     }
                 }
 
-                else 
+                else
                 {
-                    this.mahanal();
+                    console.log('mard LOL')
+                    var i = Math.round(random(10));
 
-                    gishatich.axorjak += 1;
-                    gishatich.energy += 3;
-
-                    if(gishatich.energy >= 25)
+                    if (i >= 3) 
                     {
-                        gishatich.energy = 25;
+                        for (var i in gishatichArr) 
+                        {
+                            if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
+                            {
+                                gishatichArr.splice(i, 1);
+                                matrix[this.y][this.x] = 0;                        
+                            }
+                        }
+
+                        this.axorjak += 1;
+                        this.energy += 3;
+
+                        if(norVandak3)
+                        {
+                            var norx = norVandak3[0];
+                            var nory = norVandak3[1];
+                        }
+
+                        if(norVandak6)
+                        {
+                            var norx = norVandak6[0];
+                            var nory = norVandak6[1];
+                        }
+
+                        this.x = norx;
+                        this.y = nory;
+
+                        if(this.ser == 1)
+                        {
+                            matrix[nory][norx] = 4;
+                        }
+
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+                        }
+                    
+                        if (this.energy > 50) 
+                        {
+                            this.energy = 50;
+                        }
+
+                        if(this.axorjak >= 20 && this.ser == 1)
+                        {
+                            this.bazmacox = true;
+                            this.axorjak = 0;
+                            this.bazmanal();
+                        }
+
+                        else if(this.axorjak >= 20 && this.ser == 2)
+                        {
+                            this.bazmacox = true;
+                            this.axorjak = 0;
+                        }
+                    }
+
+                    else 
+                    {
+                        this.mahanal();
+
+                        gishatich.axorjak += 1;
+                        gishatich.energy += 3;
+
+                        if(gishatich.energy >= 25)
+                        {
+                            gishatich.energy = 25;
+                        }
                     }
                 }
             }
-        }
-            
-        else if (norVandak2 || norVandak5) 
-        {
-            this.axorjak += 1;
-            this.energy += 2;
-
-            matrix[this.y][this.x] = 0;
-
-            if(norVandak2)
+                
+            else if (norVandak2 || norVandak5) 
             {
-                var norx = norVandak2[0];
-                var nory = norVandak2[1];
-            }
+                this.axorjak += 1;
+                this.energy += 2;
 
-            else if(norVandak5)
-            {
-                var norx = norVandak5[0];
-                var nory = norVandak5[1];
-            }
-
-            if(this.ser == 1)
-            {
-                matrix[nory][norx] = 4;
-            }
-
-            else
-            {
-                matrix[nory][norx] = 4.5;
-            }
-
-            this.x = norx;
-            this.y = nory;
-
-            if (this.energy > 50) 
-            {
-                this.energy = 50;
-            }
-
-            if(this.axorjak >= 20 && this.ser == 1)
-            {
-                this.bazmacox = true;
-                this.axorjak = 0;
-                this.bazmanal();
-            }
-
-            else if(this.axorjak >= 20 && this.ser == 2)
-            {
-                this.bazmacox = true;
-                this.axorjak = 0;
-            }
-
-            for (var i in xotakerArr) 
-            {
-                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
-                {
-                    xotakerArr.splice(i, 1);
-                }
-            }
-        }
-
-        else if (norVandak) 
-        {
-            this.axorjak += 1;
-            this.energy += 1;
-
-            matrix[this.y][this.x] = 0;
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-
-            if(this.ser == 1)
-            {
-                matrix[nory][norx] = 4;
-            }
-
-            else
-            {
-                matrix[nory][norx] = 4.5;
-            }
-            
-            this.x = norx;
-            this.y = nory;
-
-            if (this.energy >= 50) 
-            {
-                this.energy = 50;
-            }
-
-            if(this.axorjak >= 20 && this.ser == 1)
-            {
-                this.bazmacox = true;
-                this.axorjak = 0;
-                this.bazmanal();
-            }
-
-            else if(this.axorjak >= 20 && this.ser == 2)
-            {
-                this.bazmacox = true;
-                this.axorjak = 0;
-            }
-        }
-
-        else
-        {
-            this.sharjvel();
-        }
-    }
-
-    mahanal() //done
-    {
-        for (var i in mardArr) 
-        {
-            if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
-            {
                 matrix[this.y][this.x] = 0;
-                mardArr.splice(i, 1);
+
+                if(norVandak2)
+                {
+                    var norx = norVandak2[0];
+                    var nory = norVandak2[1];
+                }
+
+                else if(norVandak5)
+                {
+                    var norx = norVandak5[0];
+                    var nory = norVandak5[1];
+                }
+
+                if(this.ser == 1)
+                {
+                    matrix[nory][norx] = 4;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 4.5;
+                }
+
+                this.x = norx;
+                this.y = nory;
+
+                if (this.energy > 50) 
+                {
+                    this.energy = 50;
+                }
+
+                if(this.axorjak >= 20 && this.ser == 1)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+
+                else if(this.axorjak >= 20 && this.ser == 2)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                }
+
+                for (var i in xotakerArr) 
+                {
+                    if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
+                    {
+                        xotakerArr.splice(i, 1);
+                    }
+                }
+            }
+
+            else if (norVandak) 
+            {
+                this.axorjak += 1;
+                this.energy += 1;
+
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                if(this.ser == 1)
+                {
+                    matrix[nory][norx] = 4;
+                }
+
+                else
+                {
+                    matrix[nory][norx] = 4.5;
+                }
+                
+                this.x = norx;
+                this.y = nory;
+
+                if (this.energy >= 50) 
+                {
+                    this.energy = 50;
+                }
+
+                if(this.axorjak >= 20 && this.ser == 1)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+
+                else if(this.axorjak >= 20 && this.ser == 2)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                }
+            }
+
+            else
+            {
+                this.sharjvel();
             }
         }
     }
     
     bazmanal() //done
     {
-        if(this.ser == 1 && this.bazmanal_timeout == true)
+        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
@@ -803,6 +800,68 @@ class Mard extends Class10 //not done
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    hivandutyun() //done
+    {
+        this.hivandutyun_timeout ++;
+
+        if(this.hivandutyun_timeout >= 3)
+        {
+            this.hivandutyun_timeout = 0;
+
+            var r = Math.round(random(300));
+    
+            if(150 % r != 0 && r % 2 == 0)
+            {
+                this.hivandutyun_mahacu = true;
+                this.mahanal();
+            }
+        }
+    }
+
+    mahanal() //done
+    {
+        if(this.hivandutyun_mahacu == true)
+        {
+            for(var i in mardArr)
+            {
+                if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 8;
+                    this.antiVirus();
+                }
+            }
+        }
+
+        else
+        {
+            for(var i in mardArr)
+            {
+                if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    mardArr.splice(i, 1);
+                }
+            }
+        }
+    }
+
+    antiVirus() //done
+    {
+        this.virus_time ++;
+
+        if(this.virus_time >= 5)
+        {
+            for(var i in mardArr)
+            {
+                if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    mardArr.splice(i, 1);
                 }
             }
         }

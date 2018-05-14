@@ -1,8 +1,8 @@
 class Xotaker extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu)
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
@@ -36,8 +36,11 @@ class Xotaker extends Class10 //done
 
     yntrelVandak(ch) 
     {
-       this.stanalNorKordinatner();
-       return super.yntrelVandak(ch);
+        if(this.hivandutyun_mahacu == false)
+        {
+            this.stanalNorKordinatner();
+            return super.yntrelVandak(ch);
+        }
     }
 
     sharjvel() //done
