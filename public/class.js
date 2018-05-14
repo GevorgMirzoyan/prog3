@@ -1,9 +1,13 @@
 class Class10 //done
 {
-    constructor(x, y) //done
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) //done
     {
         this.x = x;
         this.y = y;
+        this.hivandutyun_timeout = 0;
+        this.hivandutyun_mahacu = false;
+        this.vandak_virus = false;
+        this.virus_time = 0;
     }
 
     yntrelVandak(ch) //done

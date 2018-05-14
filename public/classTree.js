@@ -1,8 +1,8 @@
 class Tree extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) 
     {
-        super(x,y,spring_time,spring,summer_time,summer,autumn_time,autumn,winter_time,winter);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu);
         this.multiply = 0;
     }
 
@@ -43,6 +43,32 @@ class Tree extends Class10 //done
 
             var newTree = new Tree(norx, nory);
             treeArr.push(newTree);
+        }
+    }
+
+    hivandutyun() //done
+    {
+        this.hivandutyun_timeout ++;
+
+        if(this.hivandutyun_timeout >= 3)
+        {
+            this.hivandutyun_timeout = 0;
+
+            var r = Math.round(random(300));
+    
+            if(150 % r != 0 && r % 2 == 0)
+            {
+                this.hivandutyun_mahacu = true;
+
+                for(var i in treeArr)
+                {
+                    if(this.x == treeArr[i].x && this.y == treeArr[i].y)
+                    {               
+                        matrix[this.y][this.x] = 0;
+                        treeArr.splice(i, 1);
+                    }
+                }
+            }
         }
     }
 }

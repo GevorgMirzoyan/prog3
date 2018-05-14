@@ -1,8 +1,8 @@
 class Xotaker extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, Hivandutyun) 
     {
-        super(x, y)
+        super(x, y, Hivandutyun)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;

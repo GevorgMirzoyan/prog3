@@ -1,8 +1,8 @@
 class Mard extends Class10 //not done
 {
-    constructor(x, y) 
+    constructor(x, y, Hivandutyun) 
     {
-        super(x, y);
+        super(x, y, Hivandutyun);
         this.energy = 30;
         this.axorjak = 0;
         this.wood = 5;

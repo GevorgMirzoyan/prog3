@@ -245,7 +245,7 @@ function draw()
 
             if (matrix[y][x] == 8) //test
             {
-                fill("white");
+                fill("black");
                 rect(x * side, y * side, side, side);
             }
         }
@@ -257,10 +257,11 @@ function draw()
     //     mardArr[i].utel();
     // }
     
-    // for (var i in grassArr) 
-    // {
-    //     grassArr[i].bazmanal();
-    // }
+    for (var i in grassArr) 
+    {
+        // grassArr[i].bazmanal();
+        grassArr[i].hivandutyun();
+    }
     
     // for (var i in gishatichArr) 
     // {

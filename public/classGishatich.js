@@ -1,8 +1,8 @@
 class Gishatich extends Class10 //done
 {
-    constructor(x, y) 
+    constructor(x, y, Hivandutyun) 
     {
-        super(x, y)
+        super(x, y, Hivandutyun)
         this.yntaniKendani = false;
         this.energy = 25;
         this.axorjak = 0;
