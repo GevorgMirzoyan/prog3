@@ -1,8 +1,8 @@
-class Grass extends Class10 //done
+class Grass extends Class10 //not done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter);
         this.multiply_bazmanal = 0;
     }
 
@@ -43,7 +43,7 @@ class Grass extends Class10 //done
                 this.multiply_bazmanal = 0;
                 var norx = norVandak[0];
                 var nory = norVandak[1];
-
+                
                 matrix[nory][norx] = 1;
                 
                 var norXot = new Grass(norx, nory);
@@ -111,6 +111,37 @@ class Grass extends Class10 //done
                     grassArr.splice(i, 1);
                 }
             }
+        }
+    }
+
+    weather() //done
+    {
+        if(this.hivandutyun_mahacu == false)
+        {
+            return super.weather();
+        }
+    }
+
+    weatherChange() //not done
+    {
+        if(this.spring == true)
+        {
+            matrix[this.y][this.x] = 1;
+        }
+
+        else if(this.summer == true)
+        {
+            matrix[this.y][this.x] = 2;
+        }
+
+        else if(this.autumn == true)
+        {
+            matrix[this.y][this.x] = 3;
+        }
+
+        else if(this.winter == true)
+        {
+            matrix[this.y][this.x] = 4;
         }
     }
 }

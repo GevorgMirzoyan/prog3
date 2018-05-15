@@ -1,8 +1,8 @@
 class Tree extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter);
         this.multiply = 0;
     }
 

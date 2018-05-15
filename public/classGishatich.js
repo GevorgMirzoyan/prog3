@@ -1,8 +1,8 @@
 class Gishatich extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time)
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter)
         this.yntaniKendani = false;
         this.energy = 25;
         this.axorjak = 0;
@@ -561,8 +561,8 @@ class Gishatich extends Class10 //done
 
                     else if(norVandak2)
                     {
-                        var norx = norVandak[0];
-                        var nory = norVandak[1];
+                        var norx = norVandak2[0];
+                        var nory = norVandak2[1];
                     }
                     
                     if(this.ser == 1)

@@ -3,9 +3,9 @@
 // socket.on("staci kordinatnnery", gcel);
 
 var matrix = [];
-var fr = 1;
-var side = 30;
-var qanak = 15;
+var fr = 3;
+var side = 15;
+var qanak = 10;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -13,8 +13,8 @@ var mardArr = [];
 var yntaniKendaniArr = [];
 var treeArr = [];
 var xotakerQanak = 0;
-var gishatichQanak = 1;
-var mardQanak = 1;
+var gishatichQanak = 0;
+var mardQanak = 0;
 var treeCount = 0;
 
 function setup()
@@ -252,34 +252,40 @@ function draw()
         }
     }
     
-    for (var i in mardArr) 
-    {
-        mardArr[i].timeout();
-        mardArr[i].utel();
-        // mardArr[i].hivandutyun();
-    }
+    // for (var i in mardArr) 
+    // {
+    //     mardArr[i].weather();
+    //     mardArr[i].timeout();
+    //     mardArr[i].utel();
+    //     mardArr[i].hivandutyun();
+    // }
     
     for (var i in grassArr) 
     {
+        grassArr[i].weather();
+        grassArr[i].weatherChange();
         grassArr[i].bazmanal();
         // grassArr[i].hivandutyun();
     }
     
-    for (var i in gishatichArr) 
-    {
-        gishatichArr[i].timeout();
-        gishatichArr[i].utel();
-        // gishatichArr[i].hivandutyun();
-    }
+    // for (var i in gishatichArr) 
+    // {
+    //     gishatichArr[i].weather();
+    //     gishatichArr[i].timeout();
+    //     gishatichArr[i].utel();
+    //     gishatichArr[i].hivandutyun();
+    // }
 
     // for (var i in treeArr) 
     // {
+    //     treeArr[i].weather();
     //     treeArr[i].bazmanal();
     //     treeArr[i].hivandutyun();
     // }
     
     // for (var i in xotakerArr) 
     // {
+    //     xotakerArr[i].weather();
     //     xotakerArr[i].timeout();
     //     xotakerArr[i].utel();
     //     xotakerArr[i].hivandutyun();
