@@ -1,4 +1,4 @@
-class Mard extends Class10 //not done
+class Mard extends Class10 //done
 {
     constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time) 
     {
@@ -133,7 +133,7 @@ class Mard extends Class10 //not done
         }
     }
 
-    utel() //not done (yntani kendani)
+    utel() //done
     {
         if(this.hivandutyun_mahacu == false)
         {
@@ -159,14 +159,10 @@ class Mard extends Class10 //not done
             {
                 for(var i in gishatichArr)
                 {
-                    if(norVandak3 && norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y)
+                    if((norVandak3 && norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y) || (norVandak6 && norVandak6[0] == gishatichArr[i].x && norVandak6[1] == gishatichArr[i].y))
                     {
                         var gishatich = gishatichArr[i];
-                    }
-
-                    else if(norVandak6 && norVandak6[0] == gishatichArr[i].x && norVandak6[1] == gishatichArr[i].y)
-                    {
-                        var gishatich = gishatichArr[i];
+                        yntaniKendaniArr.push(gishatich);
                     }
                 }
             }
@@ -213,17 +209,11 @@ class Mard extends Class10 //not done
                     this.mahanal();
                 }
             }
-            
-            else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == true  && this.ser == 1)
-            {
-                this.sharjvel();
-            }
 
-            else if (norVandak3 || norVandak6 && gishatich.yntaniKendani == false  && this.ser == 1)
+            else if ((norVandak3 || norVandak6) && gishatich.yntaniKendani == false  && this.ser == 1)
             {
                 if(this.wood >= 3)
                 {
-                    console.log('gishatich LOL')
                     gishatich.yntaniKendani = true;
 
                     this.axorjak = 0;
@@ -241,7 +231,7 @@ class Mard extends Class10 //not done
                         var nory = norVandak6[1];
                     }
 
-                    matrix[nory][norx] = 7;
+                    matrix[nory][norx] = 8;
                         
                     if(gishatich.ser == 1)
                     {

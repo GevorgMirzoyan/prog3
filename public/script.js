@@ -5,15 +5,16 @@
 var matrix = [];
 var fr = 1;
 var side = 30;
-var qanak = 10;
+var qanak = 15;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
+var yntaniKendaniArr = [];
 var treeArr = [];
 var xotakerQanak = 0;
-var gishatichQanak = 0;
-var mardQanak = 27;
+var gishatichQanak = 1;
+var mardQanak = 1;
 var treeCount = 0;
 
 function setup()
@@ -255,21 +256,21 @@ function draw()
     {
         mardArr[i].timeout();
         mardArr[i].utel();
-        mardArr[i].hivandutyun();
+        // mardArr[i].hivandutyun();
     }
     
     for (var i in grassArr) 
     {
         grassArr[i].bazmanal();
-        grassArr[i].hivandutyun();
+        // grassArr[i].hivandutyun();
     }
     
-    // for (var i in gishatichArr) 
-    // {
-    //     gishatichArr[i].timeout();
-    //     gishatichArr[i].utel();
-    //     gishatichArr[i].hivandutyun();
-    // }
+    for (var i in gishatichArr) 
+    {
+        gishatichArr[i].timeout();
+        gishatichArr[i].utel();
+        // gishatichArr[i].hivandutyun();
+    }
 
     // for (var i in treeArr) 
     // {
