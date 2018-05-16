@@ -126,22 +126,34 @@ class Grass extends Class10 //not done
     {
         if(this.spring == true)
         {
-            matrix[this.y][this.x] = 1;
+            for(var i in grassArr)
+            {
+                matrix[grassArr[i].y][grassArr[i].x] = 1;
+            } 
         }
 
         else if(this.summer == true)
         {
-            matrix[this.y][this.x] = 2;
+            for(var i in grassArr)
+            {
+                matrix[grassArr[i].y][grassArr[i].x] =  2;
+            }
         }
 
         else if(this.autumn == true)
         {
-            matrix[this.y][this.x] = 3;
+            for(var i in grassArr)
+            {
+                matrix[grassArr[i].y][grassArr[i].x] =  3;
+            }
         }
 
         else if(this.winter == true)
         {
-            matrix[this.y][this.x] = 4;
+            for(var i in grassArr)
+            {
+                matrix[grassArr[i].y][grassArr[i].x] =  4;
+            }
         }
     }
 }
