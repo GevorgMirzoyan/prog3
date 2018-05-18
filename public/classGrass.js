@@ -114,7 +114,7 @@ class Grass extends Class10 //not done
         }
     }
 
-    weather() //done
+    weather2() //done
     {
         if(this.hivandutyun_mahacu == false)
         {
@@ -122,38 +122,11 @@ class Grass extends Class10 //not done
         }
     }
 
-    weatherChange() //not done
+    weatherSelect() //not done
     {
-        if(this.spring == true)
+        if(this.hivandutyun_mahacu == false)
         {
-            for(var i in grassArr)
-            {
-                matrix[grassArr[i].y][grassArr[i].x] = 1;
-            } 
-        }
-
-        else if(this.summer == true)
-        {
-            for(var i in grassArr)
-            {
-                matrix[grassArr[i].y][grassArr[i].x] =  2;
-            }
-        }
-
-        else if(this.autumn == true)
-        {
-            for(var i in grassArr)
-            {
-                matrix[grassArr[i].y][grassArr[i].x] =  3;
-            }
-        }
-
-        else if(this.winter == true)
-        {
-            for(var i in grassArr)
-            {
-                matrix[grassArr[i].y][grassArr[i].x] =  4;
-            }
+            return super.weatherChange(grassArr);
         }
     }
 }

@@ -92,4 +92,43 @@ class Class10 //done
 
         return this.spring, this.summer, this.autumn, this.winter;
     }
+
+    weatherChange(Arr) //done
+    {
+        if(this.spring == true)
+        {
+            for(var i in Arr)
+            {
+                console.log('spring')
+                matrix[Arr[i].y][Arr[i].x] = 1;
+            }
+        }
+
+        else if(this.summer == true)
+        {
+            for(var i in Arr)
+            {
+                console.log('summer')
+                matrix[Arr[i].y][Arr[i].x] =  2;
+            }
+        }
+
+        else if(this.autumn == true)
+        {
+            for(var i in Arr)
+            {
+                console.log('autumn')
+                matrix[Arr[i].y][Arr[i].x] =  3;
+            }
+        }
+
+        else if(this.winter == true)
+        {
+            for(var i in Arr)
+            {
+                console.log('winter')
+                matrix[Arr[i].y][Arr[i].x] =  4;
+            }
+        }
+    }
 }

@@ -4,8 +4,8 @@
 
 var matrix = [];
 var fr = 3;
-var side = 15;
-var qanak = 10;
+var side = 50;
+var qanak = 5;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -262,8 +262,8 @@ function draw()
     
     for (var i in grassArr) 
     {
-        grassArr[i].weather();
-        grassArr[i].weatherChange();
+        grassArr[i].weather2();
+        grassArr[i].weatherSelect();
         grassArr[i].bazmanal();
         // grassArr[i].hivandutyun();
     }
