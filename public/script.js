@@ -10,11 +10,12 @@ var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
 var mardArr = [];
-var yntaniKendaniArr = [];
+var mutantArr = [];
 var treeArr = [];
 var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
+var mutantQanak = 0;
 var treeCount = 0;
 
 function setup()
@@ -54,7 +55,7 @@ function setup()
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
 
-        if (matrix[y][x] != 2) 
+        if (matrix[y][x] != 2 && matrix[y][x] != 2.5) 
         {
             var r = Math.floor(random(5));
 
@@ -77,7 +78,7 @@ function setup()
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
 
-        if (matrix[y][x] != 2 || matrix [y][x] != 3) 
+        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5) 
         {
             var r = Math.floor(random(5));
 
@@ -100,9 +101,21 @@ function setup()
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
 
-        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix [y][x] != 6) 
+        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5) 
         {
             matrix[y][x] = 5;
+            i++;
+        }
+    }
+
+    while (i < mutantQanak)
+    {
+        var x = Math.floor(random(qanak));
+        var y = Math.floor(random(qanak));
+
+        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5) 
+        {
+            matrix[y][x] = 9;
             i++;
         }
     }
@@ -167,6 +180,12 @@ function setup()
             {
                 var tree = new Tree(x,y);
                 treeArr.push(tree);
+            }
+
+            if (matrix[y][x] == 9) 
+            {
+                var mutant = new Mutant(x,y);
+                mutantArr.push(mutant);
             }
         }
     }
@@ -244,7 +263,13 @@ function draw()
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 8) //test
+            if (matrix[y][x] == 8) //virus
+            {
+                fill("black");
+                rect(x * side, y * side, side, side);
+            }
+
+            if (matrix[y][x] == 9) //mutant
             {
                 fill("black");
                 rect(x * side, y * side, side, side);
@@ -262,8 +287,7 @@ function draw()
     
     for (var i in grassArr) 
     {
-        grassArr[i].weather2();
-        grassArr[i].weatherSelect();
+        grassArr[i].weatherChange();
         grassArr[i].bazmanal();
         // grassArr[i].hivandutyun();
     }
@@ -289,5 +313,10 @@ function draw()
     //     xotakerArr[i].timeout();
     //     xotakerArr[i].utel();
     //     xotakerArr[i].hivandutyun();
-    // } 
+    // }
+
+    // for (var i in mutantArr)
+    // {
+    //     mutantArr[i].utel();
+    // }
 }

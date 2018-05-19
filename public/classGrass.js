@@ -1,8 +1,8 @@
 class Grass extends Class10 //not done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter);
         this.multiply_bazmanal = 0;
     }
 
@@ -44,7 +44,25 @@ class Grass extends Class10 //not done
                 var norx = norVandak[0];
                 var nory = norVandak[1];
                 
-                matrix[nory][norx] = 1;
+                if(this.spring == true)
+                {
+                    matrix[nory][norx] = 1;
+                }
+
+                else if(this.summer == true)
+                {
+                    matrix[nory][norx] = 2;
+                }
+
+                else if(this.autumn == true)
+                {
+                    matrix[nory][norx] = 3;
+                }
+
+                else if(this.winter == true)
+                {
+                    matrix[nory][norx] = 4;
+                } 
                 
                 var norXot = new Grass(norx, nory);
                 grassArr.push(norXot);
@@ -114,19 +132,21 @@ class Grass extends Class10 //not done
         }
     }
 
-    weather2() //done
+    weatherChange() //done
     {
         if(this.hivandutyun_mahacu == false)
         {
+            console.log('weather change');
             return super.weather();
         }
     }
 
-    weatherSelect() //not done
-    {
-        if(this.hivandutyun_mahacu == false)
-        {
-            return super.weatherChange(grassArr);
-        }
-    }
+    // weatherSelect() //not done
+    // {
+    //     if(this.hivandutyun_mahacu == false)
+    //     {
+    //         console.log('b')
+    //         return super.weatherChange(grassArr);
+    //     }
+    // }
 }
