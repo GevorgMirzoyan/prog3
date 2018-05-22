@@ -38,6 +38,7 @@ class Mutant extends Class10 //not done
 
         if (norVandak) 
         {
+            this.lvlUpScore = 0;
             matrix[this.y][this.x] = 8;
             var norx = norVandak[0];
             var nory = norVandak[1];
@@ -46,10 +47,18 @@ class Mutant extends Class10 //not done
 
             this.x = norx;
             this.y = nory;
+
+            this.energy -= 1;
+
+            if(this.energy <= 0)
+            {
+                this.mahanal();
+            }
         }
 
         else if (norVandak2) 
         {
+            this.lvlUpScore = 0;
             matrix[this.y][this.x] = 8;
             var norx = norVandak2[0];
             var nory = norVandak2[1];
@@ -58,14 +67,23 @@ class Mutant extends Class10 //not done
 
             this.x = norx;
             this.y = nory;
+
+            this.energy -= 1;
+
+            if(this.energy <= 0)
+            {
+                this.mahanal();
+            }
         }
 
-        this.lvlUpScore = 0;
-        this.energy -= 1;
-
-        if(this.energy <= 0)
+        else
         {
-            this.mahanal();
+            this.energy -= 1;
+
+            if(this.energy <= 0)
+            {
+                this.mahanal();
+            }
         }
     }
 
@@ -75,14 +93,16 @@ class Mutant extends Class10 //not done
         {
             if (this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
             {
+                matrix[this.y][this.x] = 0;
+                mutantArr.splice(i, 1);
                 // matrix[this.y][this.x] = 8;
-                for(var i in this.directions)
-                {
-                    this.directions[i][0] = 8;
-                    this.directions[i][1] = 8;
-                }
+                // for(var i in this.directions)
+                // {
+                //     this.directions[i][0] = 8;
+                //     this.directions[i][1] = 8;
+                // }
 
-                this.antiVirus();
+                // this.antiVirus();
             }
         }
     }
@@ -120,20 +140,20 @@ class Mutant extends Class10 //not done
         var xotaker2 = this.yntrelVandak(2.5);
         var norVandak3 = random(xotaker2);
 
-        // var gishatich = this.yntrelVandak(3);
-        // var norVandak4 = random(gishatich);
+        var gishatich = this.yntrelVandak(3);
+        var norVandak4 = random(gishatich);
 
-        // var gishatich2 = this.yntrelVandak(3.5);
-        // var norVandak5 = random(gishatich2);
+        var gishatich2 = this.yntrelVandak(3.5);
+        var norVandak5 = random(gishatich2);
 
-        // var mard = this.yntrelVandak(4)
-        // var norVandak6 = random(mard);
+        var mard = this.yntrelVandak(4)
+        var norVandak6 = random(mard);
 
-        // var mard2 = this.yntrelVandak(4.5)
-        // var norVandak7 = random(mard2);
+        var mard2 = this.yntrelVandak(4.5)
+        var norVandak7 = random(mard2);
 
-        // var tree = this.yntrelVandak(5);
-        // var norVandak8 = random(tree);
+        var tree = this.yntrelVandak(5);
+        var norVandak8 = random(tree);
         
         if(norVandak)
         {
@@ -194,6 +214,105 @@ class Mutant extends Class10 //not done
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                 {
                     xotakerArr.splice(i, 1);
+                }
+            }
+        }
+
+        else if(norVandak4 || norVandak5)
+        {
+            this.energy += 1;
+            matrix[this.y][this.x] = 8;
+
+            if(this.lvl != 10)
+            {
+                this.lvlUpScore += 1;
+            }
+            
+            if(norVandak4)
+            {
+                var norx = norVandak4[0];
+                var nory = norVandak4[1];
+            }
+
+            else if(norVandak5)
+            {
+                var norx = norVandak5[0];
+                var nory = norVandak5[1];
+            }
+
+            matrix[nory][norx] = 9;
+
+            this.x = norx;
+            this.y = nory;
+
+            for (var i in gishatichArr) 
+            {
+                if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
+                {
+                    gishatichArr.splice(i, 1);
+                }
+            }
+        }
+
+        else if(norVandak6 || norVandak7)
+        {
+            this.energy += 1;
+            matrix[this.y][this.x] = 8;
+
+            if(this.lvl != 10)
+            {
+                this.lvlUpScore += 1;
+            }
+            
+            if(norVandak6)
+            {
+                var norx = norVandak6[0];
+                var nory = norVandak6[1];
+            }
+
+            else if(norVandak7)
+            {
+                var norx = norVandak7[0];
+                var nory = norVandak7[1];
+            }
+
+            matrix[nory][norx] = 9;
+
+            this.x = norx;
+            this.y = nory;
+
+            for (var i in mardArr) 
+            {
+                if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
+                {
+                    mardArr.splice(i, 1);
+                }
+            }
+        }
+
+        else if(norVandak8)
+        {
+            this.energy += 1;
+            matrix[this.y][this.x] = 8;
+
+            if(this.lvl != 10)
+            {
+                this.lvlUpScore += 1;
+            }
+
+            var norx = norVandak8[0];
+            var nory = norVandak8[1]; 
+
+            matrix[nory][norx] = 9;
+
+            this.x = norx;
+            this.y = nory;
+
+            for (var i in treeArr) 
+            {
+                if (this.x == treeArr[i].x && this.y == mardArr[i].y) 
+                {
+                    treeArr.splice(i, 1);
                 }
             }
         }

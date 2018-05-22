@@ -83,6 +83,13 @@ class Gishatich extends Class10 //done
 
                 this.x = norx;
                 this.y = nory;
+
+                this.energy -= 1;
+
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
 
             else if (norVandak2) 
@@ -112,13 +119,23 @@ class Gishatich extends Class10 //done
                 {
                     matrix[nory][norx] = 3.5;
                 }
+
+                this.energy -= 1;
+
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
 
-            this.energy -= 1;
-            
-            if(this.energy <= 0)
+            else
             {
-                this.mahanal();
+                this.energy -= 1;
+                
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
         }
     }

@@ -5,14 +5,15 @@
 var matrix = [];
 var fr = 3;
 var side = 15;
-var qanak = 30;
+var qanak = 15;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
+var yntaniKendaniArr = [];
 var mardArr = [];
 var mutantArr = [];
 var treeArr = [];
-var xotakerQanak = 0;
+var xotakerQanak = 30;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var mutantQanak = 1;
@@ -307,17 +308,21 @@ function draw()
     //     treeArr[i].hivandutyun();
     // }
     
-    // for (var i in xotakerArr) 
-    // {
-    //     xotakerArr[i].weather();
-    //     xotakerArr[i].timeout();
-    //     xotakerArr[i].utel();
-    //     xotakerArr[i].hivandutyun();
-    // }
+    for (var i in xotakerArr) 
+    {
+        // xotakerArr[i].weather();
+        xotakerArr[i].timeout();
+        xotakerArr[i].utel();
+        // xotakerArr[i].hivandutyun();
+    }
 
     for (var i in mutantArr)
     {
         mutantArr[i].utel();
-        mutantArr[i].lvlChange();
+        
+        if(mutantArr != [])
+        {
+            mutantArr[i].lvlChange();
+        }
     }
 }
