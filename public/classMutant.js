@@ -95,6 +95,7 @@ class Mutant extends Class10 //not done
             {
                 matrix[this.y][this.x] = 0;
                 mutantArr.splice(i, 1);
+
                 // matrix[this.y][this.x] = 8;
                 // for(var i in this.directions)
                 // {
@@ -321,6 +322,8 @@ class Mutant extends Class10 //not done
         {
             this.sharjvel();
         }
+
+        this.lvlChange();
     }
 
     lvlChange() //done
@@ -340,7 +343,7 @@ class Mutant extends Class10 //not done
                 this.lvl = 2;   
                 this.lvlUpScore = 0;
                 this.energy = 20;
-            
+
                 if(this.energy > 20)
                 {
                     this.energy = 20;

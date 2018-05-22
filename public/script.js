@@ -12,8 +12,9 @@ var gishatichArr = [];
 var yntaniKendaniArr = [];
 var mardArr = [];
 var mutantArr = [];
+var virusZoneArr = [];
 var treeArr = [];
-var xotakerQanak = 30;
+var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var mutantQanak = 1;
@@ -308,21 +309,16 @@ function draw()
     //     treeArr[i].hivandutyun();
     // }
     
-    for (var i in xotakerArr) 
-    {
-        // xotakerArr[i].weather();
-        xotakerArr[i].timeout();
-        xotakerArr[i].utel();
-        // xotakerArr[i].hivandutyun();
-    }
+    // for (var i in xotakerArr) 
+    // {
+    //     // xotakerArr[i].weather();
+    //     xotakerArr[i].timeout();
+    //     xotakerArr[i].utel();
+    //     // xotakerArr[i].hivandutyun();
+    // }
 
     for (var i in mutantArr)
     {
         mutantArr[i].utel();
-        
-        if(mutantArr != [])
-        {
-            mutantArr[i].lvlChange();
-        }
     }
 }
