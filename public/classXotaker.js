@@ -69,22 +69,13 @@ class Xotaker extends Class10 //done
 
                 this.x = norx;
                 this.y = nory;
-
-                this.energy -= 1;
-                if(this.energy <= 0)
-                {
-                    this.mahanal();
-                }
             }
 
-            else
+            this.energy -= 1;
+            
+            if(this.energy <= 0)
             {
-                this.energy-= 1;
-
-                if(this.energy <= 0)
-                {
-                    this.mahanal();
-                }
+                this.mahanal();
             }
         }
     }
