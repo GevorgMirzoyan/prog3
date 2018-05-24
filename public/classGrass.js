@@ -1,8 +1,8 @@
 class Grass extends Class10 //not done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, weather) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, weather);
         this.multiply_bazmanal = 0;
     }
 
@@ -132,21 +132,42 @@ class Grass extends Class10 //not done
         }
     }
 
-    weatherChange() //done
+    weatherChange() //not done
     {
         if(this.hivandutyun_mahacu == false)
         {
-            console.log('weather change');
-            return super.weather();
+            console.log('about weather');
+            return super.weatherChange();
         }
     }
 
-    // weatherSelect() //not done
-    // {
-    //     if(this.hivandutyun_mahacu == false)
-    //     {
-    //         console.log('b')
-    //         return super.weatherChange(grassArr);
-    //     }
-    // }
+    weatherSwitch() //not done
+    {
+        if(this.hivandutyun_mahacu == false)
+        {
+            if(this.weather == 'spring')
+            {
+                console.log('spring - on');
+                matrix[this.y][this.x] = 1;
+            }
+
+            else if(this.weather == 'summer')
+            {
+                console.log('summer - on');
+                matrix[this.y][this.x] = 2;
+            }
+
+            else if(this.weather == 'autumn')
+            {
+                console.log('autumn - on');
+                matrix[this.y][this.x] = 3;
+            }
+
+            else if(this.weather == 'winter')
+            {
+                console.log('winter - on');
+                matrix[this.y][this.x] = 4;
+            }
+        }
+    }
 }

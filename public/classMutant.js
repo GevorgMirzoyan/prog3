@@ -112,19 +112,15 @@ class Mutant extends Class10 //not done
     antiVirus() //not done
     {
         this.virus_time = 0;
-
-        for(var i in virusZoneArr)
-        {
-            this.virus_time ++;
+        this.virus_time ++;
            
-            if(this.virus_time >= 5)
-            {
-                var a = virusZoneArr[i][1];
-                var b = virusZoneArr[i][0];
+        if(this.virus_time >= 5)
+        {
+            var a = virusZoneArr[i][1];
+            var b = virusZoneArr[i][0];
 
-                matrix[a][b] = 0;
-                virusZoneArr.splice(i, 1);
-            }
+            matrix[a][b] = 0;
+            virusZoneArr.splice(i, 1);    
         }
     }
 
@@ -154,11 +150,12 @@ class Mutant extends Class10 //not done
         var tree = this.yntrelVandak(5);
         var norVandak8 = random(tree);
         
-        if(norVandak)
+        if(norVandak) //error
         {
             this.energy += 1;
             matrix[this.y][this.x] = 8;
 
+            this.virus_time = 0;
             var cordX = this.x;
             var cordY = this.y;
 

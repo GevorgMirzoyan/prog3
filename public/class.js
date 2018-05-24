@@ -1,6 +1,6 @@
 class Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) //done
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, weather) //done
     {
         this.x = x;
         this.y = y;
@@ -8,10 +8,7 @@ class Class10 //done
         this.hivandutyun_mahacu = false;
         this.virus_time = 0;
         this.changeTime = 0;
-        this.spring = true;
-        this.summer = false;
-        this.autumn = false;
-        this.winter = false;
+        this.weather = 'spring';
     }
 
     yntrelVandak(ch) //done
@@ -35,61 +32,58 @@ class Class10 //done
         return found;
     }
 
-    weather() //done
+    weatherChange() //done
     {
-        if(this.spring == true)
+        console.log('weather change - off');
+        if(this.weather == 'spring')
+        {
+            this.changeTime ++;
+            
+            if(this.changeTime >= 10)
+            {
+                console.log('summer - off');
+                this.changeTime = 0;
+                this.weather = 'summer';
+            }
+        }
+
+        else if(this.weather == 'summer')
         {
             this.changeTime ++;
 
             if(this.changeTime >= 10)
             {
+                console.log('autumn - off');
                 this.changeTime = 0;
-
-                this.spring = false;
-                this.summer = true;
+                this.weather = 'autumn';
             }
         }
 
-        else if(this.summer == true)
+        else if(this.weather == 'autumn')
         {
             this.changeTime ++;
 
             if(this.changeTime >= 10)
             {
+                console.log('winter - off');
                 this.changeTime = 0;
-                
-                this.summer = false;
-                this.autumn = true;
+                this.weather = 'winter';
             }
         }
 
-        else if(this.autumn == true)
+        else if(this.weather == 'winter')
         {
             this.changeTime ++;
 
             if(this.changeTime >= 10)
             {
+                console.log('spring - off');
                 this.changeTime = 0;
-                
-                this.autumn = false;
-                this.winter = true;
+                this.weather = 'spring';
             }
         }
 
-        else if(this.winter == true)
-        {
-            this.changeTime ++;
-
-            if(this.changeTime >= 10)
-            {
-                this.changeTime = 0;
-                
-                this.winter = false;
-                this.spring = true;
-            }
-        }
-
-        return this.spring, this.summer, this.autumn, this.winter;
+        return this.weather;
     }
 }
 

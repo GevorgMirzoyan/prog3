@@ -18,7 +18,7 @@ var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeQanak = 0;
-var mutantQanak = 0;
+var mutantQanak = 1;
 
 function setup()
 {
@@ -280,10 +280,10 @@ function draw()
         }
     }
     
-    // for (var i in mutantArr)
-    // {
-    //     mutantArr[i].utel();
-    // }
+    for (var i in mutantArr)
+    {
+        mutantArr[i].utel();
+    }
 
     // for (var i in mardArr) 
     // {
@@ -295,7 +295,7 @@ function draw()
     
     for (var i in grassArr)
     {
-        // grassArr[i].weatherChange();
+        // grassArr[i].weatherSwitch();
         grassArr[i].bazmanal();
         // grassArr[i].hivandutyun();
     }
