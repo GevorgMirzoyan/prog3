@@ -116,12 +116,12 @@ class Mutant extends Class10 //not done
         for(var i in virusZoneArr)
         {
             this.virus_time ++;
-            var a = virusZoneArr[i][1];
-            var b = virusZoneArr[i][0];
-
+           
             if(this.virus_time >= 5)
             {
-                console.log(a,b);
+                var a = virusZoneArr[i][1];
+                var b = virusZoneArr[i][0];
+                
                 matrix[a][b] = 0;
                 virusZoneArr.splice(i, 1);
             }
