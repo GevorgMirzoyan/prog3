@@ -2,7 +2,7 @@ class Mard extends Class10 //done
 {
     constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, vandak_virus, virus_time, changeTime, spring, summer, autumn, winter);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter);
         this.energy = 50;
         this.axorjak = 0;
         this.wood = 5;

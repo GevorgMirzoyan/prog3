@@ -1,4 +1,4 @@
-class Mutant extends Class10 //not done
+class Mutant extends Class10 //done
 {
     constructor(x, y, virus_time) 
     {
@@ -130,7 +130,7 @@ class Mutant extends Class10 //not done
         }
     }
 
-    utel() //not done
+    utel() //done
     {
         var xot = this.yntrelVandak(1);
         var norVandak = random(xot);
@@ -223,7 +223,7 @@ class Mutant extends Class10 //not done
         {
             this.energy += 1;
             matrix[this.y][this.x] = 8;
-
+            
             if(this.lvl != 10)
             {
                 this.lvlUpScore += 1;
@@ -311,7 +311,7 @@ class Mutant extends Class10 //not done
 
             for (var i in treeArr) 
             {
-                if (this.x == treeArr[i].x && this.y == mardArr[i].y) 
+                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
                 {
                     treeArr.splice(i, 1);
                 }

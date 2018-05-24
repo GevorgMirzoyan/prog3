@@ -5,7 +5,7 @@
 var matrix = [];
 var fr = 3;
 var side = 15;
-var qanak = 15;
+var qanak = 10;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -17,8 +17,8 @@ var treeArr = [];
 var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
+var treeQanak = 0;
 var mutantQanak = 1;
-var treeCount = 0;
 
 function setup()
 {
@@ -98,7 +98,7 @@ function setup()
     }
 
     var i = 0;
-    while (i < treeCount)
+    while (i < treeQanak)
     {
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
@@ -110,12 +110,13 @@ function setup()
         }
     }
 
+    var i = 0;
     while (i < mutantQanak)
     {
         var x = Math.floor(random(qanak));
         var y = Math.floor(random(qanak));
 
-        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5) 
+        if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5)
         {
             matrix[y][x] = 9;
             i++;
@@ -279,15 +280,20 @@ function draw()
         }
     }
     
+    for (var i in mutantArr)
+    {
+        mutantArr[i].utel();
+    }
+
     // for (var i in mardArr) 
     // {
-    //     mardArr[i].weather();
+    //     // mardArr[i].weather();
     //     mardArr[i].timeout();
     //     mardArr[i].utel();
-    //     mardArr[i].hivandutyun();
+    //     // mardArr[i].hivandutyun();
     // }
     
-    for (var i in grassArr) 
+    for (var i in grassArr)
     {
         // grassArr[i].weatherChange();
         grassArr[i].bazmanal();
@@ -296,29 +302,24 @@ function draw()
     
     // for (var i in gishatichArr) 
     // {
-    //     gishatichArr[i].weather();
+    //     // gishatichArr[i].weather();
     //     gishatichArr[i].timeout();
     //     gishatichArr[i].utel();
-    //     gishatichArr[i].hivandutyun();
+    //     // gishatichArr[i].hivandutyun();
     // }
 
     // for (var i in treeArr) 
     // {
-    //     treeArr[i].weather();
+    //     // treeArr[i].weather();
     //     treeArr[i].bazmanal();
-    //     treeArr[i].hivandutyun();
+    //     // treeArr[i].hivandutyun();
     // }
     
-    // for (var i in xotakerArr) 
+    // for (var i in xotakerArr)
     // {
     //     // xotakerArr[i].weather();
     //     xotakerArr[i].timeout();
     //     xotakerArr[i].utel();
     //     // xotakerArr[i].hivandutyun();
     // }
-
-    for (var i in mutantArr)
-    {
-        mutantArr[i].utel();
-    }
 }
