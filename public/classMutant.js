@@ -1,4 +1,4 @@
-class Mutant extends Class10 //done
+class Mutant extends Class10 //not done
 {
     constructor(x, y, virus_time) 
     {
@@ -109,19 +109,21 @@ class Mutant extends Class10 //done
         }
     }
 
-    antiVirus() //done
+    antiVirus() //not done
     {
+        this.virus_time = 0;
+
         for(var i in virusZoneArr)
         {
             this.virus_time ++;
-            console.log('on - anti virus')
+            var a = virusZoneArr[i][1];
+            var b = virusZoneArr[i][0];
+
             if(this.virus_time >= 5)
             {
-                var a = virusZoneArr[i][0];
-                var b = virusZoneArr[i][1];
-                console.log("a: ", a);
-                console.log("b: ", b);
-                matrix[b][a] = 0;
+                console.log(a,b);
+                matrix[a][b] = 0;
+                virusZoneArr.splice(i, 1);
             }
         }
     }
@@ -157,13 +159,12 @@ class Mutant extends Class10 //done
             this.energy += 1;
             matrix[this.y][this.x] = 8;
 
-            var cordX = matrix[this.x];
-            var cordY = matrix[this.y];
-            this.cords = [cordY,cordX];
-            console.log(cordX, cordY, this.cords);
+            var cordX = this.x;
+            var cordY = this.y;
+
+            this.cords = [cordX,cordY]; 
             virusZoneArr.push(this.cords);
             this.cords = [];
-            console.log(this.cords, 'off');
 
             this.antiVirus();
 
