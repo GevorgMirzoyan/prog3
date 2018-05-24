@@ -121,7 +121,7 @@ class Mutant extends Class10 //not done
             {
                 var a = virusZoneArr[i][1];
                 var b = virusZoneArr[i][0];
-                
+
                 matrix[a][b] = 0;
                 virusZoneArr.splice(i, 1);
             }
