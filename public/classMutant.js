@@ -6,6 +6,7 @@ class Mutant extends Class10 //done
         this.energy = 10;
         this.lvlUpScore = 0;
         this.lvl = 1;
+        this.cords = [];
     }
 
     stanalNorKordinatner() 
@@ -110,22 +111,17 @@ class Mutant extends Class10 //done
 
     antiVirus() //done
     {
-        this.virus_time ++;
-
-        if(this.virus_time >= 5)
+        for(var i in virusZoneArr)
         {
-            for(var i in mutantArr)
+            this.virus_time ++;
+            console.log('on - anti virus')
+            if(this.virus_time >= 5)
             {
-                if (this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
-                {
-                   for(var i in this.directions)
-                    {
-                        this.directions[i][0] = 0;
-                        this.directions[i][1] = 0;
-                    }
-
-                    mutantArr.splice(i, 1);
-                }
+                var a = virusZoneArr[i][0];
+                var b = virusZoneArr[i][1];
+                console.log("a: ", a);
+                console.log("b: ", b);
+                matrix[b][a] = 0;
             }
         }
     }
@@ -160,6 +156,16 @@ class Mutant extends Class10 //done
         {
             this.energy += 1;
             matrix[this.y][this.x] = 8;
+
+            var cordX = matrix[this.x];
+            var cordY = matrix[this.y];
+            this.cords = [cordY,cordX];
+            console.log(cordX, cordY, this.cords);
+            virusZoneArr.push(this.cords);
+            this.cords = [];
+            console.log(this.cords, 'off');
+
+            this.antiVirus();
 
             if(this.lvl != 10)
             {

@@ -266,7 +266,7 @@ function draw()
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 8) //virus
+            if (matrix[y][x] == 8) //virusZone
             {
                 fill("black");
                 rect(x * side, y * side, side, side);
