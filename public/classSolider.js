@@ -1,4 +1,4 @@
-class Mutant extends Class10 //not done
+class Solider extends Class10 //not done
 {
     constructor(x, y, virus_time) 
     {
@@ -42,11 +42,14 @@ class Mutant extends Class10 //not done
             this.lvlUpScore = 0;
             matrix[this.y][this.x] = 8;
 
-            // var virus = new Virus(this.x,this.y);
-            // virusArr.push(virus);
-           
-            // virus.x = this.x;
-            // virus.y = this.y;
+            var cordX = this.x;
+            var cordY = this.y;
+
+            this.cords = [cordX,cordY]; 
+            virusZoneArr.push(this.cords);
+            this.cords = [];
+
+            this.antiVirus();
 
             var norx = norVandak[0];
             var nory = norVandak[1];
@@ -99,7 +102,7 @@ class Mutant extends Class10 //not done
     {
         for(var i in mutantArr)
         {
-            if(this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
+            if (this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
             {
                 matrix[this.y][this.x] = 0;
                 mutantArr.splice(i, 1);
@@ -112,6 +115,25 @@ class Mutant extends Class10 //not done
                 // }
 
                 // this.antiVirus();
+            }
+        }
+    }
+
+    antiVirus() //not done
+    {
+        var timer = 0;
+        console.log('anti virus')
+        for(var i in virusZoneArr)
+        {
+            timer ++;
+            console.log('timer', timer)
+            if(timer > 5)
+            {
+                var a = virusZoneArr[i][1];
+                var b = virusZoneArr[i][0];
+
+                matrix[a][b] = 0;
+                virusZoneArr.splice(i, 1);    
             }
         }
     }
@@ -147,11 +169,14 @@ class Mutant extends Class10 //not done
             this.energy += 1;
             matrix[this.y][this.x] = 8;
 
-            var virus = new Virus(this.x,this.y);
-            virusArr.push(virus);
+            var cordX = this.x;
+            var cordY = this.y;
 
-            virus.x = this.x;
-            virus.y = this.y;
+            this.cords = [cordX,cordY]; 
+            virusZoneArr.push(this.cords);
+            this.cords = [];
+
+            this.antiVirus();
 
             if(this.lvl != 10)
             {

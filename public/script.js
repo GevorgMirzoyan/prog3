@@ -12,13 +12,13 @@ var gishatichArr = [];
 var yntaniKendaniArr = [];
 var mardArr = [];
 var mutantArr = [];
-var virusZoneArr = [];
+var virusArr = [];
 var treeArr = [];
 var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeQanak = 0;
-var mutantQanak = 0;
+var mutantQanak = 1;
 
 function setup()
 {
@@ -266,7 +266,7 @@ function draw()
                 rect(x * side, y * side, side, side);
             }
 
-            if (matrix[y][x] == 8) //virusZone
+            if (matrix[y][x] == 8) //virus
             {
                 fill("black");
                 rect(x * side, y * side, side, side);
@@ -280,10 +280,15 @@ function draw()
         }
     }
     
-    // for (var i in mutantArr)
-    // {
-    //     mutantArr[i].utel();
-    // }
+    for (var i in mutantArr)
+    {
+        mutantArr[i].utel();
+    }
+
+    for(var i in virusArr)
+    {
+        virusArr[i].antiVirus();
+    }
 
     // for (var i in mardArr) 
     // {
@@ -295,7 +300,7 @@ function draw()
     
     for (var i in grassArr)
     {
-        grassArr[i].weatherSwitch();
+        // grassArr[i].weatherSwitch();
         grassArr[i].bazmanal();
         // grassArr[i].hivandutyun();
     }
