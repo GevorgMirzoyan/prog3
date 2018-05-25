@@ -15,7 +15,7 @@ var mutantArr = [];
 var virusArr = [];
 var treeArr = [];
 var xotakerQanak = 0;
-var gishatichQanak = 0;
+var gishatichQanak = 50;
 var mardQanak = 0;
 var treeQanak = 0;
 var mutantQanak = 1;
@@ -277,6 +277,12 @@ function draw()
                 fill("red");
                 rect(x * side, y * side, side, side);
             }
+
+            if (matrix[y][x] == 10) //virus_mutant
+            {
+                fill("black");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
     
@@ -305,13 +311,13 @@ function draw()
         // grassArr[i].hivandutyun();
     }
     
-    // for (var i in gishatichArr) 
-    // {
-    //     // gishatichArr[i].weather();
-    //     gishatichArr[i].timeout();
-    //     gishatichArr[i].utel();
-    //     // gishatichArr[i].hivandutyun();
-    // }
+    for (var i in gishatichArr) 
+    {
+        // gishatichArr[i].weather();
+        gishatichArr[i].timeout();
+        gishatichArr[i].utel();
+        // gishatichArr[i].hivandutyun();
+    }
 
     // for (var i in treeArr) 
     // {
@@ -321,7 +327,7 @@ function draw()
     // }
     
     // for (var i in xotakerArr)
-    // {
+    // {   
     //     // xotakerArr[i].weather();
     //     xotakerArr[i].timeout();
     //     xotakerArr[i].utel();

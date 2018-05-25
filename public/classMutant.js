@@ -1,4 +1,4 @@
-class Mutant extends Class10 //not done
+class Mutant extends Class10 //done
 {
     constructor(x, y, virus_time) 
     {
@@ -29,7 +29,7 @@ class Mutant extends Class10 //not done
         return super.yntrelVandak(ch);
     }
 
-    sharjvel() //not done
+    sharjvel() //done
     {
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
@@ -37,16 +37,20 @@ class Mutant extends Class10 //not done
         var virus = this.yntrelVandak(8);
         var norVandak2 = random(virus);
 
-        if (norVandak) 
+        var virus_mutant = this.yntrelVandak(10);
+        var norVandak3 = random(virus_mutant);
+
+        if (norVandak)
         {
             this.lvlUpScore = 0;
-            matrix[this.y][this.x] = 8;
 
-            // var virus = new Virus(this.x,this.y);
-            // virusArr.push(virus);
-           
-            // virus.x = this.x;
-            // virus.y = this.y;
+            if(matrix[this.y][this.x] != 10)
+            {
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+            }
 
             var norx = norVandak[0];
             var nory = norVandak[1];
@@ -64,13 +68,22 @@ class Mutant extends Class10 //not done
             }
         }
 
-        else if (norVandak2) 
+        else if (norVandak2 || norVandak3)
         {
             this.lvlUpScore = 0;
-            matrix[this.y][this.x] = 8;
-            var norx = norVandak2[0];
-            var nory = norVandak2[1];
+            
+            if(norVandak2)
+            {
+                var norx = norVandak2[0];
+                var nory = norVandak2[1];
+            }
 
+            if(norVandak3)
+            {
+                var norx = norVandak3[0];
+                var nory = norVandak3[1];
+            }
+           
             matrix[nory][norx] = 9;
 
             this.x = norx;
@@ -116,7 +129,7 @@ class Mutant extends Class10 //not done
         }
     }
 
-    utel() //not done
+    utel() //done
     {
         var xot = this.yntrelVandak(1);
         var norVandak = random(xot);
@@ -142,16 +155,17 @@ class Mutant extends Class10 //not done
         var tree = this.yntrelVandak(5);
         var norVandak8 = random(tree);
         
-        if(norVandak) //error
+        if(norVandak)
         {
             this.energy += 1;
-            matrix[this.y][this.x] = 8;
 
-            var virus = new Virus(this.x,this.y);
-            virusArr.push(virus);
+            if(matrix[this.y][this.x] != 10)
+            {
+                matrix[this.y][this.x] = 10;
 
-            virus.x = this.x;
-            virus.y = this.y;
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+            }
 
             if(this.lvl != 10)
             {
@@ -178,7 +192,14 @@ class Mutant extends Class10 //not done
         else if(norVandak2 || norVandak3)
         {
             this.energy += 1;
-            matrix[this.y][this.x] = 8;
+
+            if(matrix[this.y][this.x] != 10)
+            {
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+            }
 
             if(this.lvl != 10)
             {
@@ -214,7 +235,14 @@ class Mutant extends Class10 //not done
         else if(norVandak4 || norVandak5)
         {
             this.energy += 1;
-            matrix[this.y][this.x] = 8;
+
+            if(matrix[this.y][this.x] != 10)
+            {
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+            }
             
             if(this.lvl != 10)
             {
@@ -250,7 +278,14 @@ class Mutant extends Class10 //not done
         else if(norVandak6 || norVandak7)
         {
             this.energy += 1;
-            matrix[this.y][this.x] = 8;
+
+            if(matrix[this.y][this.x] != 10)
+            {
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+            }
 
             if(this.lvl != 10)
             {
@@ -286,7 +321,14 @@ class Mutant extends Class10 //not done
         else if(norVandak8)
         {
             this.energy += 1;
-            matrix[this.y][this.x] = 8;
+
+            if(matrix[this.y][this.x] != 10)
+            {
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+            }
 
             if(this.lvl != 10)
             {

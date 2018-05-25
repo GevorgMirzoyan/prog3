@@ -1,4 +1,4 @@
-class Virus extends Class10 //not done
+class Virus extends Class10 //done
 {
     constructor(x, y) 
     {
@@ -6,12 +6,11 @@ class Virus extends Class10 //not done
         this.timer = 0;
     }
 
-    antiVirus() //not done
+    antiVirus() //done
     {
-        matrix[this.x][this.y] = 8;
         this.timer ++;
 
-        if(this.timer >= 5)
+        if(this.timer >= 10)
         {
             for(var i in virusArr)
             {
