@@ -44,22 +44,22 @@ class Grass extends Class10 //not done
                 var norx = norVandak[0];
                 var nory = norVandak[1];
                 
-                if(this.spring == true)
+                if(this.weather == 'spring')
                 {
                     matrix[nory][norx] = 1;
                 }
 
-                else if(this.summer == true)
+                else if(this.weather == 'summer')
                 {
                     matrix[nory][norx] = 2;
                 }
 
-                else if(this.autumn == true)
+                else if(this.weather == 'autumn')
                 {
                     matrix[nory][norx] = 3;
                 }
 
-                else if(this.winter == true)
+                else if(this.weather == 'winter')
                 {
                     matrix[nory][norx] = 4;
                 } 
@@ -132,11 +132,10 @@ class Grass extends Class10 //not done
         }
     }
 
-    weatherChange() //not done
+    aboutWeather() //done
     {
         if(this.hivandutyun_mahacu == false)
         {
-            console.log('about weather');
             return super.weatherChange();
         }
     }
@@ -145,27 +144,25 @@ class Grass extends Class10 //not done
     {
         if(this.hivandutyun_mahacu == false)
         {
+            this.aboutWeather();
+
             if(this.weather == 'spring')
-            {
-                console.log('spring - on');
+            {      
                 matrix[this.y][this.x] = 1;
             }
 
             else if(this.weather == 'summer')
-            {
-                console.log('summer - on');
+            {       
                 matrix[this.y][this.x] = 2;
             }
 
             else if(this.weather == 'autumn')
-            {
-                console.log('autumn - on');
+            {         
                 matrix[this.y][this.x] = 3;
             }
 
             else if(this.weather == 'winter')
-            {
-                console.log('winter - on');
+            {            
                 matrix[this.y][this.x] = 4;
             }
         }

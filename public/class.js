@@ -34,14 +34,12 @@ class Class10 //done
 
     weatherChange() //done
     {
-        console.log('weather change - off');
         if(this.weather == 'spring')
         {
             this.changeTime ++;
             
             if(this.changeTime >= 10)
-            {
-                console.log('summer - off');
+            {              
                 this.changeTime = 0;
                 this.weather = 'summer';
             }
@@ -52,8 +50,7 @@ class Class10 //done
             this.changeTime ++;
 
             if(this.changeTime >= 10)
-            {
-                console.log('autumn - off');
+            {               
                 this.changeTime = 0;
                 this.weather = 'autumn';
             }
@@ -64,8 +61,7 @@ class Class10 //done
             this.changeTime ++;
 
             if(this.changeTime >= 10)
-            {
-                console.log('winter - off');
+            {                
                 this.changeTime = 0;
                 this.weather = 'winter';
             }
@@ -77,7 +73,6 @@ class Class10 //done
 
             if(this.changeTime >= 10)
             {
-                console.log('spring - off');
                 this.changeTime = 0;
                 this.weather = 'spring';
             }

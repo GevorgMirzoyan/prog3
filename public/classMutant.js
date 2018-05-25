@@ -29,7 +29,7 @@ class Mutant extends Class10 //not done
         return super.yntrelVandak(ch);
     }
 
-    sharjvel() //done
+    sharjvel() //not done
     {
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
@@ -41,6 +41,16 @@ class Mutant extends Class10 //not done
         {
             this.lvlUpScore = 0;
             matrix[this.y][this.x] = 8;
+
+            var cordX = this.x;
+            var cordY = this.y;
+
+            this.cords = [cordX,cordY]; 
+            virusZoneArr.push(this.cords);
+            this.cords = [];
+
+            this.antiVirus();
+
             var norx = norVandak[0];
             var nory = norVandak[1];
 
@@ -111,20 +121,24 @@ class Mutant extends Class10 //not done
 
     antiVirus() //not done
     {
-        this.virus_time = 0;
-        this.virus_time ++;
-           
-        if(this.virus_time >= 5)
+        var timer = 0;
+        console.log('anti virus')
+        for(var i in virusZoneArr)
         {
-            var a = virusZoneArr[i][1];
-            var b = virusZoneArr[i][0];
+            timer ++;
+            console.log('timer', timer)
+            if(timer > 5)
+            {
+                var a = virusZoneArr[i][1];
+                var b = virusZoneArr[i][0];
 
-            matrix[a][b] = 0;
-            virusZoneArr.splice(i, 1);    
+                matrix[a][b] = 0;
+                virusZoneArr.splice(i, 1);    
+            }
         }
     }
 
-    utel() //done
+    utel() //not done
     {
         var xot = this.yntrelVandak(1);
         var norVandak = random(xot);
@@ -155,7 +169,6 @@ class Mutant extends Class10 //not done
             this.energy += 1;
             matrix[this.y][this.x] = 8;
 
-            this.virus_time = 0;
             var cordX = this.x;
             var cordY = this.y;
 
