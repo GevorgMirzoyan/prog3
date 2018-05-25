@@ -420,7 +420,7 @@ class Mutant extends Class10 //done
                 }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 5)
+            else if(this.lvlUpScore > 20 && this.lvl == 5)
             {
                 this.lvl = 6;
                 this.lvlUpScore = 0;
@@ -432,7 +432,7 @@ class Mutant extends Class10 //done
                 }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 6)
+            else if(this.lvlUpScore > 20 && this.lvl == 6)
             {
                 this.lvl = 7;       
                 this.lvlUpScore = 0;
@@ -444,7 +444,7 @@ class Mutant extends Class10 //done
                 }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 7)
+            else if(this.lvlUpScore > 20 && this.lvl == 7)
             {
                 this.lvl = 8;
                 this.lvlUpScore = 0;
@@ -456,7 +456,7 @@ class Mutant extends Class10 //done
                 }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 8)
+            else if(this.lvlUpScore > 30 && this.lvl == 8)
             {
                 this.lvl = 9;
                 this.lvlUpScore = 0;
@@ -468,7 +468,7 @@ class Mutant extends Class10 //done
                 }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 9)
+            else if(this.lvlUpScore > 30 && this.lvl == 9)
             {
                 this.lvl = 10;
                 this.lvlUpScore = 0;
