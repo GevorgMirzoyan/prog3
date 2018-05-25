@@ -1,11 +1,12 @@
 class Solider extends Class10 //not done
 {
-    constructor(x, y) 
+    constructor(x, y, virus_time) 
     {
-        super(x, y);
+        super(x, y, virus_time);
         this.energy = 10;
         this.lvlUpScore = 0;
         this.lvl = 1;
+        this.ser = 1;
     }
 
     stanalNorKordinatner() 
@@ -19,6 +20,60 @@ class Solider extends Class10 //not done
             [this.x - 1, this.y + 1],
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1],
+
+            [this.x - 2, this.y - 2],
+            [this.x, this.y - 2],
+            [this.x + 2, this.y - 2],
+            [this.x - 2, this.y],
+            [this.x + 2, this.y],
+            [this.x - 2, this.y + 2],
+            [this.x, this.y + 2],
+            [this.x + 2, this.y + 2],
+
+            [this.x - 3, this.y - 3],
+            [this.x, this.y - 3],
+            [this.x + 3, this.y - 3],
+            [this.x - 3, this.y],
+            [this.x + 3, this.y],
+            [this.x - 3, this.y + 3],
+            [this.x, this.y + 3],
+            [this.x + 3, this.y + 3],
+
+            [this.x - 4, this.y - 4],
+            [this.x, this.y - 4],
+            [this.x + 4, this.y - 4],
+            [this.x - 4, this.y],
+            [this.x + 4, this.y],
+            [this.x - 4, this.y + 4],
+            [this.x, this.y + 4],
+            [this.x + 4, this.y + 4],
+
+            [this.x - 5, this.y - 5],
+            [this.x, this.y - 5],
+            [this.x + 5, this.y - 5],
+            [this.x - 5, this.y],
+            [this.x + 5, this.y],
+            [this.x - 5, this.y + 5],
+            [this.x, this.y + 5],
+            [this.x + 5, this.y + 5]
+            
+            [this.x - 6, this.y - 6],
+            [this.x, this.y - 6],
+            [this.x + 6, this.y - 6],
+            [this.x - 6, this.y],
+            [this.x + 6, this.y],
+            [this.x - 6, this.y + 6],
+            [this.x, this.y + 6],
+            [this.x + 6, this.y + 6]
+
+            [this.x - 7, this.y - 7],
+            [this.x, this.y - 7],
+            [this.x + 7, this.y - 7],
+            [this.x - 7, this.y],
+            [this.x + 7, this.y],
+            [this.x - 7, this.y + 7],
+            [this.x, this.y + 7],
+            [this.x + 7, this.y + 7]
         ];
     }
 
@@ -28,52 +83,20 @@ class Solider extends Class10 //not done
         return super.yntrelVandak(ch);
     }
 
-    sharjvel() //not done
+    sharjvel() //done
     {
         var datarkVandakner = this.yntrelVandak(0);
         var norVandak = random(datarkVandakner);
 
-        var virus = this.yntrelVandak(8);
-        var norVandak2 = random(virus);
-
         if (norVandak) 
         {
             this.lvlUpScore = 0;
-            matrix[this.y][this.x] = 8;
-
-            var cordX = this.x;
-            var cordY = this.y;
-
-            this.cords = [cordX,cordY]; 
-            virusZoneArr.push(this.cords);
-            this.cords = [];
-
-            this.antiVirus();
+            matrix[this.y][this.x] = 0;
 
             var norx = norVandak[0];
             var nory = norVandak[1];
 
-            matrix[nory][norx] = 9;
-
-            this.x = norx;
-            this.y = nory;
-
-            this.energy -= 1;
-
-            if(this.energy <= 0)
-            {
-                this.mahanal();
-            }
-        }
-
-        else if (norVandak2) 
-        {
-            this.lvlUpScore = 0;
-            matrix[this.y][this.x] = 8;
-            var norx = norVandak2[0];
-            var nory = norVandak2[1];
-
-            matrix[nory][norx] = 9;
+            matrix[nory][norx] = 11;
 
             this.x = norx;
             this.y = nory;
@@ -99,21 +122,12 @@ class Solider extends Class10 //not done
 
     mahanal() //done
     {
-        for(var i in mutantArr)
+        for(var i in soliderArr)
         {
-            if (this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
+            if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
             {
                 matrix[this.y][this.x] = 0;
-                mutantArr.splice(i, 1);
-
-                // matrix[this.y][this.x] = 8;
-                // for(var i in this.directions)
-                // {
-                //     this.directions[i][0] = 8;
-                //     this.directions[i][1] = 8;
-                // }
-
-                // this.antiVirus();
+                soliderArr.splice(i, 1);
             }
         }
     }
@@ -165,6 +179,164 @@ class Solider extends Class10 //not done
         }
 
         this.lvlChange();
+    }
+
+    bazmanal() //done
+    {
+        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
+        {
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
+            var norVandak3 = random(datarkVandakner);
+
+            var mard = this.yntrelVandak(4.5);
+            var norVandak2 = random(mard);
+        
+            if (norVandak2)
+            {
+                for(var i in mardArr)
+                {
+                    if(norVandak2[0] == mardArr[i].x && norVandak2[1] == mardArr[i].y)
+                    {
+                        var mard_igakan = mardArr[i];
+                    }
+                }
+
+                if(norVandak)
+                {
+                    this.bazmanal_timeout = false; 
+
+                    if(mard_igakan.bazmacox == false)
+                    {
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 11;
+           
+                            var norZinvor = new Solider(norx, nory);
+                            soliderArr.push(norZinvor);
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+
+                            var norMard = new Mard(norx, nory);
+                            mardArr.push(norMard);
+
+                            norMard.ser = 2 ;
+                        }
+                    }
+                    
+                    else if(mard_igakan.bazmacox == true)
+                    {
+                        mard_igakan.bazmacox = false;
+
+                        var norx = norVandak[0];
+                        var nory = norVandak[1];
+
+                        var r = Math.floor(random(5));
+            
+                        if(r >= 1)
+                        {
+                            matrix[nory][norx] = 11;
+           
+                            var norZinvor = new Solider(norx, nory);
+                            soliderArr.push(norZinvor);
+                        }
+                
+                        else
+                        {
+                            matrix[nory][norx] = 4.5;
+
+                            var norMard = new Mard(norx, nory);
+                            mardArr.push(norMard);
+
+                            norMard.ser = 2 ;
+                        }
+
+                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        {
+                            var norx = norVandak3[0];
+                            var nory = norVandak3[1];
+
+                            var r2 = Math.floor(random(5));
+                
+                            if(r >= 1)
+                            {
+                                matrix[nory][norx] = 11;
+            
+                                var norZinvor = new Solider(norx, nory);
+                                soliderArr.push(norZinvor);
+                            }
+                    
+                            else
+                            {
+                                matrix[nory][norx] = 4.5;
+
+                                var norMard = new Mard(norx, nory);
+                                mardArr.push(norMard);
+
+                                norMard.ser = 2 ;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    timeout() //done  timeout-45s
+    {
+        if(this.bazmanal_timeout == false && this.hivandutyun_mahacu == false)
+        {
+            this.timeout_time ++;
+            
+            if(this.timeout_time >= 30)
+            {
+                this.timeout_time = 0;
+                this.bazmanal_timeout = true;
+            }
+        }
+    }
+
+    hivandutyun() //done
+    {
+        this.hivandutyun_timeout ++;
+
+        if(this.hivandutyun_timeout >= 3)
+        {
+            this.hivandutyun_timeout = 0;
+
+            var r = Math.round(random(300));
+    
+            if(150 % r != 0 && r % 2 == 0)
+            {
+                this.hivandutyun_mahacu = true;
+                this.mahanal();
+            }
+        }
+    }
+
+    antiVirus() //done
+    {
+        this.virus_time ++;
+
+        if(this.virus_time >= 5)
+        {
+            for(var i in soliderArr)
+            {
+                if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    soliderArr.splice(i, 1);
+                }
+            }
+        }
     }
 
     lvlChange() //done

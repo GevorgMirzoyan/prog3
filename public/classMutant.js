@@ -1,4 +1,4 @@
-class Mutant extends Class10 //done
+class Mutant extends Class10 //not done
 {
     constructor(x, y, virus_time) 
     {
@@ -6,6 +6,7 @@ class Mutant extends Class10 //done
         this.energy = 10;
         this.lvlUpScore = 0;
         this.lvl = 1;
+        this.health = 10;
         this.cords = [];
     }
 
@@ -114,18 +115,13 @@ class Mutant extends Class10 //done
         {
             if(this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
             {
-                matrix[this.y][this.x] = 0;
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+                
                 mutantArr.splice(i, 1);
-
-                // matrix[this.y][this.x] = 8;
-                // for(var i in this.directions)
-                // {
-                //     this.directions[i][0] = 8;
-                //     this.directions[i][1] = 8;
-                // }
-
-                // this.antiVirus();
-            }
+            }        
         }
     }
 
@@ -370,6 +366,11 @@ class Mutant extends Class10 //done
                 {
                     this.energy = 10;
                 }
+
+                if(this.health > 10)
+                {
+                    this.energy = 10;
+                }
             }
 
             if(this.lvlUpScore > 10 && this.lvl == 1) 
@@ -377,10 +378,16 @@ class Mutant extends Class10 //done
                 this.lvl = 2;   
                 this.lvlUpScore = 0;
                 this.energy = 20;
+                this.health = 20;
 
                 if(this.energy > 20)
                 {
                     this.energy = 20;
+                }
+
+                if(this.health > 20)
+                {
+                    this.health = 20;
                 }
             }
 
@@ -389,10 +396,16 @@ class Mutant extends Class10 //done
                 this.lvl = 3;
                 this.lvlUpScore = 0;
                 this.energy = 30;
-                
+                this.health = 30;
+
                 if(this.energy > 30)
                 {
                     this.energy = 30;
+                }
+
+                if(this.health > 30)
+                {
+                    this.health = 30;
                 }
             }
 
@@ -401,10 +414,16 @@ class Mutant extends Class10 //done
                 this.lvl = 4;
                 this.lvlUpScore = 0;
                 this.energy = 40;
+                this.health = 40;
 
                 if(this.energy > 40)
                 {
                     this.energy = 40;
+                }
+
+                if(this.health > 40)
+                {
+                    this.health = 40;
                 }
             }
 
@@ -413,10 +432,16 @@ class Mutant extends Class10 //done
                 this.lvl = 5;
                 this.lvlUpScore = 0;
                 this.energy = 50;
+                this.health = 50;
 
                 if(this.energy > 50)
                 {
                     this.energy = 50;
+                }
+
+                if(this.health > 50)
+                {
+                    this.health = 50;
                 }
             }
 
@@ -425,10 +450,16 @@ class Mutant extends Class10 //done
                 this.lvl = 6;
                 this.lvlUpScore = 0;
                 this.energy = 60;
+                this.health = 60;
 
                 if(this.energy > 60)
                 {
                     this.energy = 60;
+                }
+
+                if(this.health > 60)
+                {
+                    this.health = 60;
                 }
             }
 
@@ -437,10 +468,16 @@ class Mutant extends Class10 //done
                 this.lvl = 7;       
                 this.lvlUpScore = 0;
                 this.energy = 70;
+                this.health = 70;
 
                 if(this.energy > 70)
                 {
                     this.energy = 70;
+                }
+
+                if(this.health > 70)
+                {
+                    this.health = 70;
                 }
             }
 
@@ -449,10 +486,16 @@ class Mutant extends Class10 //done
                 this.lvl = 8;
                 this.lvlUpScore = 0;
                 this.energy = 80;
+                this.health = 80;
 
                 if(this.energy > 80)
                 {
                     this.energy = 80;
+                }
+
+                if(this.health > 80)
+                {
+                    this.health = 80;
                 }
             }
 
@@ -461,10 +504,16 @@ class Mutant extends Class10 //done
                 this.lvl = 9;
                 this.lvlUpScore = 0;
                 this.energy = 90;
+                this.health = 90;
 
                 if(this.energy > 90)
                 {
                     this.energy = 90;
+                }
+
+                if(this.health > 90)
+                {
+                    this.health = 90;
                 }
             }
 
@@ -473,6 +522,7 @@ class Mutant extends Class10 //done
                 this.lvl = 10;
                 this.lvlUpScore = 0;
                 this.energy = 100;
+                this.health = 100;
             }
         }
 
@@ -481,6 +531,11 @@ class Mutant extends Class10 //done
             if(this.energy > 100)
             {
                 this.energy = 100;
+            }
+
+            if(this.health > 100)
+            {
+                this.health = 100;
             }
         }
     }
