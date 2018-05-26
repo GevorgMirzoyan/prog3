@@ -4,8 +4,8 @@
 
 var matrix = [];
 var fr = 3;
-var side = 30;
-var qanak = 15;
+var side = 20;
+var qanak = 50;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -15,12 +15,28 @@ var soliderArr = [];
 var mutantArr = [];
 var virusArr = [];
 var treeArr = [];
-var xotakerQanak = 0;
-var gishatichQanak = 0;
-var mardQanak = 0;
-var treeQanak = 0;
-var mutantQanak = 0;
-var soliderQanak = 0;
+var xotakerQanak = 100;
+var gishatichQanak = 100;
+var mardQanak = 100;
+var treeQanak = 100;
+var mutantQanak = 100;
+var soliderQanak = 100;
+
+var norXotakerner = 0;
+var norGishatichner = 0;
+var norMardik = 0;
+var norMutantner = 0;
+var norZinvorner = 0;
+
+var hinvandXotakerner = 0;
+var hinvandGishatichner = 0;
+var hinvandMardik = 0;
+var hinvandMutantner = 0;
+var hinvandZinvorner = 0;
+
+// var myJSON = JSON.stringify(norXotakerner);
+// window.location = "demo_json.php?x=" + myJSON;
+// document.getElementById("demo").innerHTML = myJSON;
 
 function setup()
 {
@@ -214,6 +230,7 @@ function setup()
         }
     }
 }
+
 var changeTime=0;
 var weather='spring';
 
@@ -242,7 +259,7 @@ function weatherChange() //done
         {
             weather = 'spring';
         }
-        
+
         changeTime = 0;
     }
 
@@ -267,25 +284,25 @@ function draw()
             {
                 if(window.weather == 'spring')
                 {
-                    fill("green");
+                    fill("#30ff30");
                     rect(x * side, y * side, side, side);
                 }
 
                 if(window.weather == 'summer')
                 {
-                    fill("red");
+                    fill("#008000");
                     rect(x * side, y * side, side, side);
                 }
 
                 if(window.weather == 'autumn')
                 {
-                    fill("yellow");
+                    fill("#ffe000");
                     rect(x * side, y * side, side, side);
                 }
 
                 if(window.weather == 'winter')
                 {
-                    fill("white");
+                    fill("#e0ffe0");
                     rect(x * side, y * side, side, side);
                 }
             }
@@ -370,30 +387,30 @@ function draw()
         }
     }
     
-    // for (var i in soliderArr)
-    // {
-    //     soliderArr[i].healthPlus();
-    //     soliderArr[i].utel();
-    // }
+    for (var i in soliderArr)
+    {
+        soliderArr[i].healthPlus();
+        soliderArr[i].utel();
+    }
 
-    // for (var i in mutantArr)
-    // {
-    //     mutantArr[i].healthPlus();
-    //     mutantArr[i].utel();
-    // }
+    for (var i in mutantArr)
+    {
+        mutantArr[i].healthPlus();
+        mutantArr[i].utel();
+    }
 
-    // for(var i in virusArr)
-    // {
-    //     virusArr[i].antiVirus();
-    // }
+    for(var i in virusArr)
+    {
+        virusArr[i].antiVirus();
+    }
 
-    // for (var i in mardArr) 
-    // {
-    //     // mardArr[i].weather();
-    //     mardArr[i].timeout();
-    //     mardArr[i].utel();
-    //     // mardArr[i].hivandutyun();
-    // }
+    for (var i in mardArr) 
+    {
+        // mardArr[i].weather();
+        mardArr[i].timeout();
+        mardArr[i].utel();
+        // mardArr[i].hivandutyun();
+    }
     
     for (var i in grassArr)
     {
@@ -401,26 +418,26 @@ function draw()
         // grassArr[i].hivandutyun();
     }
     
-    // for (var i in gishatichArr) 
-    // {
-    //     // gishatichArr[i].weather();
-    //     gishatichArr[i].timeout();
-    //     gishatichArr[i].utel();
-    //     // gishatichArr[i].hivandutyun();
-    // }
+    for (var i in gishatichArr) 
+    {
+        // gishatichArr[i].weather();
+        gishatichArr[i].timeout();
+        gishatichArr[i].utel();
+        // gishatichArr[i].hivandutyun();
+    }
 
-    // for (var i in treeArr) 
-    // {
-    //     // treeArr[i].weather();
-    //     treeArr[i].bazmanal();
-    //     // treeArr[i].hivandutyun();
-    // }
+    for (var i in treeArr) 
+    {
+        // treeArr[i].weather();
+        treeArr[i].bazmanal();
+        // treeArr[i].hivandutyun();
+    }
     
-    // for (var i in xotakerArr)
-    // {   
-    //     // xotakerArr[i].weather();
-    //     xotakerArr[i].timeout();
-    //     xotakerArr[i].utel();
-    //     // xotakerArr[i].hivandutyun();
-    // }
+    for (var i in xotakerArr)
+    {   
+        // xotakerArr[i].weather();
+        xotakerArr[i].timeout();
+        xotakerArr[i].utel();
+        // xotakerArr[i].hivandutyun();
+    }
 }

@@ -38,7 +38,7 @@ class Grass extends Class10 //not done
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
 
-            if (norVandak && this.multiply_bazmanal >= 10) 
+            if (norVandak && this.multiply_bazmanal >= 5) 
             {
                 this.multiply_bazmanal = 0;
                 var norx = norVandak[0];
