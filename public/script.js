@@ -15,7 +15,7 @@ var soliderArr = [];
 var mutantArr = [];
 var virusArr = [];
 var treeArr = [];
-var xotakerQanak = 0;
+var xotakerQanak = 30;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeQanak = 30;
@@ -459,11 +459,10 @@ function draw()
         // treeArr[i].hivandutyun();
     }
     
-    // for (var i in xotakerArr)
-    // {   
-    //     // xotakerArr[i].weather();
-    //     xotakerArr[i].timeout();
-    //     xotakerArr[i].utel();
-    //     // xotakerArr[i].hivandutyun();
-    // }
+    for (var i in xotakerArr)
+    {   
+        xotakerArr[i].timeout();
+        xotakerArr[i].utel();
+        // xotakerArr[i].hivandutyun();
+    }
 }

@@ -42,17 +42,17 @@ class Grass extends Class10 //done
 
             if(weather == 'spring')
             {
-                bazmanal_timeout = 10;
+                bazmanal_timeout = 3;
             }
 
             else if(weather == 'summer')
             {
-                bazmanal_timeout = 5;
+                bazmanal_timeout = 1;
             }
 
             else if(weather == 'autumn')
             {
-                bazmanal_timeout = 20;
+                bazmanal_timeout = 10;
             }
 
             if (norVandak && this.multiply_bazmanal >= bazmanal_timeout) 

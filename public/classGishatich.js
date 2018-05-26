@@ -55,7 +55,7 @@ class Gishatich extends Class10 //done
 
     sharjvel() //done
     {
-        if(this.hivandutyun_mahacu == false)
+        if(this.hivandutyun_mahacu == false && weather != 'winter')
         {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
@@ -140,13 +140,35 @@ class Gishatich extends Class10 //done
         }
     }
 
-    timeout() //done  timeout-20s
+    timeout() //done
     {
-        if(this.bazmanal_timeout == false && this.hivandutyun_mahacu == false)
+        if(this.bazmanal_timeout == false && this.hivandutyun_mahacu == false && weather != 'winter')
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 20)
+            var bazmanal_timeout = 0;
+
+            if(weather == 'spring')
+            {
+                bazmanal_timeout = 10;
+            }
+
+            else if(weather == 'summer')
+            {
+                bazmanal_timeout = 5;
+            }
+
+            else if(weather == 'autumn')
+            {
+                bazmanal_timeout = 15;
+            }
+
+            else if(weather == 'winter')
+            {
+                bazmanal_timeout = 20;
+            }
+
+            if(this.timeout_time >= bazmanal_timeout)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;
@@ -156,7 +178,7 @@ class Gishatich extends Class10 //done
 
     bazmanal() //done
     {
-        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
+        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false && weather != 'winter')
         {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
@@ -411,7 +433,7 @@ class Gishatich extends Class10 //done
 
     utel() //done
     {
-        if(this.hivandutyun_mahacu == false)
+        if(this.hivandutyun_mahacu == false && weather != 'winter')
         {
             if(this.yntaniKendani == false)
             {
