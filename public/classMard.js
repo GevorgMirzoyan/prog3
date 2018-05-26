@@ -426,6 +426,14 @@ class Mard extends Class10 //done
                     this.bazmacox = true;
                     this.axorjak = 0;
                 }
+
+                for (var i in grassArr) 
+                {
+                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
+                    {
+                        grassArr.splice(i, 1);
+                    }
+                }
             }
 
             else

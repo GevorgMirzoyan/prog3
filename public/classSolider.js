@@ -1,12 +1,16 @@
 class Solider extends Class10 //not done
 {
-    constructor(x, y, virus_time) 
+    constructor(x, y, virus_time, hivandutyun_timeout, hivandutyun_mahacu) 
     {
-        super(x, y, virus_time);
+        super(x, y, virus_time, hivandutyun_timeout, hivandutyun_mahacu);
         this.energy = 10;
         this.lvlUpScore = 0;
         this.lvl = 1;
+        this.power = 10;
         this.ser = 1;
+        this.axorjak = 0;
+        this.bazmacox = false;
+        this.health = 10;
     }
 
     stanalNorKordinatner() 
@@ -85,37 +89,40 @@ class Solider extends Class10 //not done
 
     sharjvel() //done
     {
-        var datarkVandakner = this.yntrelVandak(0);
-        var norVandak = random(datarkVandakner);
-
-        if (norVandak) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.lvlUpScore = 0;
-            matrix[this.y][this.x] = 0;
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
 
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-
-            matrix[nory][norx] = 11;
-
-            this.x = norx;
-            this.y = nory;
-
-            this.energy -= 1;
-
-            if(this.energy <= 0)
+            if (norVandak) 
             {
-                this.mahanal();
+                this.lvlUpScore = 0;
+                matrix[this.y][this.x] = 0;
+
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                matrix[nory][norx] = 11;
+
+                this.x = norx;
+                this.y = nory;
+
+                this.energy -= 1;
+
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
-        }
 
-        else
-        {
-            this.energy -= 1;
-
-            if(this.energy <= 0)
+            else
             {
-                this.mahanal();
+                this.energy -= 1;
+
+                if(this.energy <= 0)
+                {
+                    this.mahanal();
+                }
             }
         }
     }
@@ -134,51 +141,160 @@ class Solider extends Class10 //not done
 
     utel() //not done
     {
-        var mutant = this.yntrelVandak(9);
-        var norVandak = random(mutant);
-        
-        if(norVandak) 
+        if(this.hivandutyun_mahacu == false)
         {
-            this.energy += 1;
-            matrix[this.y][this.x] = 8;
+            var mutant = this.yntrelVandak(9);
+            var norVandak = random(mutant);
 
-            var cordX = this.x;
-            var cordY = this.y;
+            var xot = this.yntrelVandak(1);
+            var norVandak = random(xot);
 
-            this.cords = [cordX,cordY]; 
-            virusZoneArr.push(this.cords);
-            this.cords = [];
+            var xotaker = this.yntrelVandak(2);
+            var norVandak2 = random(xotaker);
 
-            this.antiVirus();
-
-            if(this.lvl != 10)
-            {
-                this.lvlUpScore += 1;
-            }
+            var xotaker2 = this.yntrelVandak(2.5);
+            var norVandak5 = random(xotaker2);
             
-            var norx = norVandak[0];
-            var nory = norVandak[1];
-
-            matrix[nory][norx] = 9;
-
-            this.x = norx;
-            this.y = nory;
-
-            for (var i in grassArr) 
+            if(norVandak)
             {
-                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
+                this.axorjak = 0;
+
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                this.x = norx;
+                this.y = nory;
+
+                for(var i in mutantArr)
                 {
-                    grassArr.splice(i, 1);
+                    if(this.x == mutantArr[i].x && this.y == mutantArr[i].y)
+                    {
+                        var mutant = mutantArr[i];
+                    }
+                }
+
+                mutant.health -= this.power;
+
+                if(mutant.mahanal == true)
+                {
+                    var score = 1;
+                    score *= mutant.lvl;
+                    this.lvlUpScore += score;
+                    
+                    var energy = 1;
+                    energy *= mutant.lvl;
+                    this.energy -= energy;
+
+                    if(this.energy <= 0)
+                    {
+                        this.mahanal();
+                    }
+                }
+
+                else if(mutant.mahanal == false)
+                {
+                    var score = 1;
+                    score *= mutant.lvl;
+                    this.lvlUpScore += score;
+                    
+                    var energy = 1;
+                    energy *= mutant.lvl;
+                    this.energy -= energy;
+
+                    if(this.energy <= 0)
+                    {
+                        this.mahanal();
+                    }
                 }
             }
-        }
 
-        else
-        {
-            this.sharjvel();
-        }
+            else if (norVandak2 || norVandak5) 
+            {
+                var axorjak = 1;
+                axorjak *= this.lvl;
+                this.axorjak += axorjak;
+                
+                var energy = 1;
+                energy *= this.lvl;
+                this.energy += energy;
 
-        this.lvlChange();
+                matrix[this.y][this.x] = 0;
+
+                if(norVandak2)
+                {
+                    var norx = norVandak2[0];
+                    var nory = norVandak2[1];
+                }
+
+                else if(norVandak5)
+                {
+                    var norx = norVandak5[0];
+                    var nory = norVandak5[1];
+                }
+
+                matrix[nory][norx] = 11;
+
+                this.x = norx;
+                this.y = nory;
+
+                if(this.axorjak >= 20)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+                
+                for (var i in xotakerArr) 
+                {
+                    if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
+                    {
+                        xotakerArr.splice(i, 1);
+                    }
+                }
+            }
+
+            else if (norVandak) 
+            {
+                var axorjak = 1;
+                axorjak *= this.lvl;
+                this.axorjak += axorjak;
+                
+                var energy = 1;
+                energy *= this.lvl;
+                this.energy += energy;
+
+                matrix[this.y][this.x] = 0;
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                matrix[nory][norx] = 11;
+                
+                this.x = norx;
+                this.y = nory;
+
+                for(var i in grassArr)
+                {
+                    if(this.x == grassArr[i].x && this.y == grassArr[i].y)
+                    {
+                        grassArr[i].splice(i, 1);
+                    }
+                }
+
+                if(this.axorjak >= 30)
+                {
+                    this.bazmacox = true;
+                    this.axorjak = 0;
+                    this.bazmanal();
+                }
+            }
+
+            else
+            {
+                this.sharjvel();
+            }
+
+            this.lvlChange();
+        }
     }
 
     bazmanal() //done
@@ -349,6 +465,11 @@ class Solider extends Class10 //not done
                 {
                     this.energy = 10;
                 }
+
+                if(this.power > 10)
+                {
+                    this.power = 10;
+                }
             }
 
             if(this.lvlUpScore > 10 && this.lvl == 1) 
@@ -356,10 +477,16 @@ class Solider extends Class10 //not done
                 this.lvl = 2;   
                 this.lvlUpScore = 0;
                 this.energy = 20;
+                this.power = 20;
 
                 if(this.energy > 20)
                 {
                     this.energy = 20;
+                }
+
+                if(this.power > 20)
+                {
+                    this.power = 20;
                 }
             }
 
@@ -368,10 +495,16 @@ class Solider extends Class10 //not done
                 this.lvl = 3;
                 this.lvlUpScore = 0;
                 this.energy = 30;
-                
+                this.power = 30;
+
                 if(this.energy > 30)
                 {
                     this.energy = 30;
+                }
+
+                if(this.power > 30)
+                {
+                    this.power = 30;
                 }
             }
 
@@ -380,10 +513,16 @@ class Solider extends Class10 //not done
                 this.lvl = 4;
                 this.lvlUpScore = 0;
                 this.energy = 40;
+                this.power = 40;
 
                 if(this.energy > 40)
                 {
                     this.energy = 40;
+                }
+
+                if(this.power > 40)
+                {
+                    this.power = 40;
                 }
             }
 
@@ -392,66 +531,97 @@ class Solider extends Class10 //not done
                 this.lvl = 5;
                 this.lvlUpScore = 0;
                 this.energy = 50;
+                this.power = 50;
 
                 if(this.energy > 50)
                 {
                     this.energy = 50;
                 }
+
+                if(this.power > 50)
+                {
+                    this.power = 50;
+                }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 5)
+            else if(this.lvlUpScore > 20 && this.lvl == 5)
             {
                 this.lvl = 6;
                 this.lvlUpScore = 0;
                 this.energy = 60;
+                this.power = 60;
 
                 if(this.energy > 60)
                 {
                     this.energy = 60;
                 }
+
+                if(this.power > 60)
+                {
+                    this.power = 60;
+                }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 6)
+            else if(this.lvlUpScore > 20 && this.lvl == 6)
             {
                 this.lvl = 7;       
                 this.lvlUpScore = 0;
                 this.energy = 70;
+                this.power = 70;
 
                 if(this.energy > 70)
                 {
                     this.energy = 70;
                 }
+
+                if(this.power > 70)
+                {
+                    this.power = 70;
+                }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 7)
+            else if(this.lvlUpScore > 20 && this.lvl == 7)
             {
                 this.lvl = 8;
                 this.lvlUpScore = 0;
                 this.energy = 80;
+                this.power = 80;
 
                 if(this.energy > 80)
                 {
                     this.energy = 80;
                 }
+
+                if(this.power > 80)
+                {
+                    this.power = 80;
+                }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 8)
+            else if(this.lvlUpScore > 30 && this.lvl == 8)
             {
                 this.lvl = 9;
                 this.lvlUpScore = 0;
                 this.energy = 90;
+                this.power = 90;
 
                 if(this.energy > 90)
                 {
                     this.energy = 90;
                 }
+
+                if(this.power > 90)
+                {
+                    this.power = 90;
+                }
             }
 
-            else if(this.lvlUpScore > 10 && this.lvl == 9)
+            else if(this.lvlUpScore > 30 && this.lvl == 9)
             {
                 this.lvl = 10;
                 this.lvlUpScore = 0;
                 this.energy = 100;
+                this.power = 100;
             }
         }
 
@@ -461,6 +631,20 @@ class Solider extends Class10 //not done
             {
                 this.energy = 100;
             }
+
+            if(this.power > 100)
+            {
+                this.power = 100;
+            }
         }
     }
 }
+
+// this.energy += 1;   
+            // for (var i in mutantArr) 
+            // {
+            //     if (this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
+            //     {
+            //         mutantArr.splice(i, 1);
+            //     }
+            // }

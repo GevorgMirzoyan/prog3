@@ -8,6 +8,7 @@ class Mutant extends Class10 //not done
         this.lvl = 1;
         this.health = 10;
         this.cords = [];
+        this.mahanal = false;
     }
 
     stanalNorKordinatner() 
@@ -115,6 +116,7 @@ class Mutant extends Class10 //not done
         {
             if(this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
             {
+                this.mahanal = true;
                 matrix[this.y][this.x] = 10;
 
                 var virus = new Virus(this.x,this.y);
