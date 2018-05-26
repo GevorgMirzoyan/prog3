@@ -1,8 +1,8 @@
 class Grass extends Class10 //not done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, weather) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, weather);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime);
         this.multiply_bazmanal = 0;
     }
 
@@ -44,25 +44,7 @@ class Grass extends Class10 //not done
                 var norx = norVandak[0];
                 var nory = norVandak[1];
                 
-                if(this.weather == 'spring')
-                {
-                    matrix[nory][norx] = 1;
-                }
-
-                else if(this.weather == 'summer')
-                {
-                    matrix[nory][norx] = 2;
-                }
-
-                else if(this.weather == 'autumn')
-                {
-                    matrix[nory][norx] = 3;
-                }
-
-                else if(this.weather == 'winter')
-                {
-                    matrix[nory][norx] = 4;
-                } 
+                matrix[nory][norx] = 1;
                 
                 var norXot = new Grass(norx, nory);
                 grassArr.push(norXot);
@@ -128,42 +110,6 @@ class Grass extends Class10 //not done
                     matrix[this.y][this.x] = 0;
                     grassArr.splice(i, 1);
                 }
-            }
-        }
-    }
-
-    aboutWeather() //done
-    {
-        if(this.hivandutyun_mahacu == false)
-        {
-            return super.weatherChange();
-        }
-    }
-
-    weatherSwitch() //not done
-    {
-        if(this.hivandutyun_mahacu == false)
-        {
-            this.aboutWeather();
-
-            if(this.weather == 'spring')
-            {      
-                matrix[this.y][this.x] = 1;
-            }
-
-            else if(this.weather == 'summer')
-            {       
-                matrix[this.y][this.x] = 2;
-            }
-
-            else if(this.weather == 'autumn')
-            {         
-                matrix[this.y][this.x] = 3;
-            }
-
-            else if(this.weather == 'winter')
-            {            
-                matrix[this.y][this.x] = 4;
             }
         }
     }
