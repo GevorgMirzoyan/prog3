@@ -4,8 +4,8 @@
 
 var matrix = [];
 var fr = 3;
-var side = 10;
-var qanak = 50;
+var side = 30;
+var qanak = 10;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -19,8 +19,8 @@ var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeQanak = 0;
-var mutantQanak = 0;
-var soliderQanak = 0;
+var mutantQanak = 1;
+var soliderQanak = 15;
 
 function setup()
 {
@@ -205,6 +205,12 @@ function setup()
                 var mutant = new Mutant(x,y);
                 mutantArr.push(mutant);
             }
+
+            if (matrix[y][x] == 11) 
+            {
+                var solider = new Solider(x,y);
+                soliderArr.push(solider);
+            }
         }
     }
 }
@@ -307,15 +313,22 @@ function draw()
         }
     }
     
-    // for (var i in mutantArr)
-    // {
-    //     mutantArr[i].utel();
-    // }
+    for (var i in soliderArr)
+    {
+        soliderArr[i].healthPlus();
+        soliderArr[i].utel();
+    }
 
-    // for(var i in virusArr)
-    // {
-    //     virusArr[i].antiVirus();
-    // }
+    for (var i in mutantArr)
+    {
+        mutantArr[i].healthPlus();
+        mutantArr[i].utel();
+    }
+
+    for(var i in virusArr)
+    {
+        virusArr[i].antiVirus();
+    }
 
     // for (var i in mardArr) 
     // {

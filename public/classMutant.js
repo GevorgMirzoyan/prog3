@@ -8,7 +8,8 @@ class Mutant extends Class10 //not done
         this.lvl = 1;
         this.health = 10;
         this.cords = [];
-        this.mahanal = false;
+        this.mahacox = false;
+        this.healthPlusTimer = 0;
     }
 
     stanalNorKordinatner() 
@@ -94,7 +95,7 @@ class Mutant extends Class10 //not done
             this.energy -= 1;
 
             if(this.energy <= 0)
-            {
+            {   
                 this.mahanal();
             }
         }
@@ -116,7 +117,7 @@ class Mutant extends Class10 //not done
         {
             if(this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
             {
-                this.mahanal = true;
+                this.mahacox = true;
                 matrix[this.y][this.x] = 10;
 
                 var virus = new Virus(this.x,this.y);
@@ -539,6 +540,34 @@ class Mutant extends Class10 //not done
             {
                 this.health = 100;
             }
+        }
+    }
+
+    healthPlus() //done
+    {
+        this.healthPlusTimer ++
+
+        var timer = 0;
+
+        if(this.lvl <= 5)
+        {
+            timer =  30;
+        }
+
+        else if(this.lvl > 5 && this.lvl <= 9)
+        {
+            timer =  20;
+        }
+
+        else if(this.lvl = 10)
+        {
+            timer =  10;
+        }
+
+        if(this.healthPlusTimer >= timer)
+        {
+            this.healthPlusTimer = 0;
+            this.health += 10;
         }
     }
 }

@@ -11,6 +11,7 @@ class Solider extends Class10 //not done
         this.axorjak = 0;
         this.bazmacox = false;
         this.health = 10;
+        this.healthPlusTimer = 0;
     }
 
     stanalNorKordinatner() 
@@ -59,25 +60,7 @@ class Solider extends Class10 //not done
             [this.x + 5, this.y],
             [this.x - 5, this.y + 5],
             [this.x, this.y + 5],
-            [this.x + 5, this.y + 5]
-            
-            [this.x - 6, this.y - 6],
-            [this.x, this.y - 6],
-            [this.x + 6, this.y - 6],
-            [this.x - 6, this.y],
-            [this.x + 6, this.y],
-            [this.x - 6, this.y + 6],
-            [this.x, this.y + 6],
-            [this.x + 6, this.y + 6]
-
-            [this.x - 7, this.y - 7],
-            [this.x, this.y - 7],
-            [this.x + 7, this.y - 7],
-            [this.x - 7, this.y],
-            [this.x + 7, this.y],
-            [this.x - 7, this.y + 7],
-            [this.x, this.y + 7],
-            [this.x + 7, this.y + 7]
+            [this.x + 5, this.y + 5]            
         ];
     }
 
@@ -97,6 +80,7 @@ class Solider extends Class10 //not done
             if (norVandak) 
             {
                 this.lvlUpScore = 0;
+                this.axorjak = 0;
                 matrix[this.y][this.x] = 0;
 
                 var norx = norVandak[0];
@@ -147,13 +131,13 @@ class Solider extends Class10 //not done
             var norVandak = random(mutant);
 
             var xot = this.yntrelVandak(1);
-            var norVandak = random(xot);
+            var norVandak4 = random(xot);
 
             var xotaker = this.yntrelVandak(2);
             var norVandak2 = random(xotaker);
 
             var xotaker2 = this.yntrelVandak(2.5);
-            var norVandak5 = random(xotaker2);
+            var norVandak3 = random(xotaker2);
             
             if(norVandak)
             {
@@ -161,9 +145,6 @@ class Solider extends Class10 //not done
 
                 var norx = norVandak[0];
                 var nory = norVandak[1];
-
-                this.x = norx;
-                this.y = nory;
 
                 for(var i in mutantArr)
                 {
@@ -175,8 +156,13 @@ class Solider extends Class10 //not done
 
                 mutant.health -= this.power;
 
-                if(mutant.mahanal == true)
+                if(mutant.mahacox == true)
                 {
+                    this.x = norx;
+                    this.y = nory;
+
+                    matrix[nory][norx] = 11;
+
                     var score = 1;
                     score *= mutant.lvl;
                     this.lvlUpScore += score;
@@ -187,28 +173,26 @@ class Solider extends Class10 //not done
 
                     if(this.energy <= 0)
                     {
+                        console.log('aasdadfsdfgdfhdfg')
                         this.mahanal();
                     }
                 }
 
-                else if(mutant.mahanal == false)
+                else if(mutant.mahacox == false)
                 {
-                    var score = 1;
-                    score *= mutant.lvl;
-                    this.lvlUpScore += score;
+                    var health = 5;
+                    health *= mutant.lvl;
+                    this.health -= health;
                     
-                    var energy = 1;
-                    energy *= mutant.lvl;
-                    this.energy -= energy;
-
-                    if(this.energy <= 0)
+                    if(this.health <= 0)
                     {
+                        console.log('a')
                         this.mahanal();
                     }
                 }
             }
 
-            else if (norVandak2 || norVandak5) 
+            else if (norVandak2 || norVandak3) 
             {
                 var axorjak = 1;
                 axorjak *= this.lvl;
@@ -226,16 +210,16 @@ class Solider extends Class10 //not done
                     var nory = norVandak2[1];
                 }
 
-                else if(norVandak5)
+                else if(norVandak3)
                 {
-                    var norx = norVandak5[0];
-                    var nory = norVandak5[1];
+                    var norx = norVandak3[0];
+                    var nory = norVandak3[1];
                 }
-
-                matrix[nory][norx] = 11;
 
                 this.x = norx;
                 this.y = nory;
+
+                matrix[nory][norx] = 11;
 
                 if(this.axorjak >= 20)
                 {
@@ -253,7 +237,7 @@ class Solider extends Class10 //not done
                 }
             }
 
-            else if (norVandak) 
+            else if (norVandak4) 
             {
                 var axorjak = 1;
                 axorjak *= this.lvl;
@@ -264,19 +248,19 @@ class Solider extends Class10 //not done
                 this.energy += energy;
 
                 matrix[this.y][this.x] = 0;
-                var norx = norVandak[0];
-                var nory = norVandak[1];
-
-                matrix[nory][norx] = 11;
+                var norx = norVandak4[0];
+                var nory = norVandak4[1];
                 
                 this.x = norx;
                 this.y = nory;
+
+                matrix[nory][norx] = 11;
 
                 for(var i in grassArr)
                 {
                     if(this.x == grassArr[i].x && this.y == grassArr[i].y)
                     {
-                        grassArr[i].splice(i, 1);
+                        grassArr.splice(i, 1);
                     }
                 }
 
@@ -638,13 +622,32 @@ class Solider extends Class10 //not done
             }
         }
     }
-}
 
-// this.energy += 1;   
-            // for (var i in mutantArr) 
-            // {
-            //     if (this.x == mutantArr[i].x && this.y == mutantArr[i].y) 
-            //     {
-            //         mutantArr.splice(i, 1);
-            //     }
-            // }
+    healthPlus() //done
+    {
+        this.healthPlusTimer ++
+
+        var timer = 0;
+
+        if(this.lvl <= 5)
+        {
+            timer =  30;
+        }
+
+        else if(this.lvl > 5 && this.lvl <= 9)
+        {
+            timer =  20;
+        }
+
+        else if(this.lvl = 10)
+        {
+            timer =  10;
+        }
+
+        if(this.healthPlusTimer >= timer)
+        {
+            this.healthPlusTimer = 0;
+            this.health += 10;
+        }
+    }
+}
