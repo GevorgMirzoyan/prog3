@@ -1,8 +1,8 @@
 class Solider extends Class10 //not done
 {
-    constructor(x, y, virus_time, hivandutyun_timeout, hivandutyun_mahacu) 
+    constructor(x, y) 
     {
-        super(x, y, virus_time, hivandutyun_timeout, hivandutyun_mahacu);
+        super(x, y);
         this.energy = 10;
         this.lvlUpScore = 0;
         this.lvl = 1;
@@ -141,7 +141,6 @@ class Solider extends Class10 //not done
             
             if(norVandak)
             {
-                console.log('mutant')
                 this.axorjak = 0;
 
                 var norx = norVandak[0];
@@ -680,9 +679,9 @@ class Solider extends Class10 //not done
             }
 
             if(this.health > 100)
-                {
-                    this.health = 100;
-                }
+            {
+                this.health = 100;
+            }
         }
     }
 

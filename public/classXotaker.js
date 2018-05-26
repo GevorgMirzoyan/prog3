@@ -1,8 +1,8 @@
 class Xotaker extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter)
+        super(x, y)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
@@ -90,13 +90,35 @@ class Xotaker extends Class10 //done
         }
     }
 
-    timeout() //done timeout-10s
+    timeout() //done
     {
         if(this.bazmanal_timeout == false && this.hivandutyun_mahacu == false)
         {
             this.timeout_time ++;
             
-            if(this.timeout_time >= 10)
+            var bazmanal_timeout = 0;
+
+            if(weather == 'spring')
+            {
+                bazmanal_timeout = 10;
+            }
+
+            else if(weather == 'summer')
+            {
+                bazmanal_timeout = 5;
+            }
+
+            else if(weather == 'autumn')
+            {
+                bazmanal_timeout = 15;
+            }
+
+            else if(weather == 'winter')
+            {
+                bazmanal_timeout = 20;
+            }
+
+            if(this.timeout_time >= bazmanal_timeout)
             {
                 this.timeout_time = 0;
                 this.bazmanal_timeout = true;
@@ -164,7 +186,7 @@ class Xotaker extends Class10 //done
                         }
                     }
                     
-                    if(xotaker_igakan.bazmacox == true)
+                    else if(xotaker_igakan.bazmacox == true)
                     {
                         xotaker_igakan.bazmacox = false;
 
@@ -369,7 +391,30 @@ class Xotaker extends Class10 //done
             if (norVandak) 
             {
                 this.axorjak += 1;
-                this.energy += 3;
+
+                var score_plus = 0;
+
+                if(weather == 'spring')
+                {
+                    score_plus = 2;
+                }
+
+                else if(weather == 'summer')
+                {
+                    score_plus = 3;
+                }
+
+                else if(weather == 'autumn')
+                {
+                    score_plus = 1;
+                }
+
+                else if(weather == 'winter')
+                {
+                    score_plus = 0.5;
+                }
+
+                this.energy += score_plus;
 
                 matrix[this.y][this.x] = 0;
                 var norx = norVandak[0];

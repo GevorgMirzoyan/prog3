@@ -1,8 +1,8 @@
-class Grass extends Class10 //not done
+class Grass extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime) 
+    constructor(x, y) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime);
+        super(x, y);
         this.multiply_bazmanal = 0;
     }
 
@@ -31,14 +31,31 @@ class Grass extends Class10 //not done
 
     bazmanal() //done
     {
-        if(this.hivandutyun_mahacu == false)
+        if(this.hivandutyun_mahacu == false && weather != 'winter')
         {
             this.multiply_bazmanal++;
 
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
 
-            if (norVandak && this.multiply_bazmanal >= 5) 
+            var bazmanal_timeout = 0;
+
+            if(weather == 'spring')
+            {
+                bazmanal_timeout = 10;
+            }
+
+            else if(weather == 'summer')
+            {
+                bazmanal_timeout = 5;
+            }
+
+            else if(weather == 'autumn')
+            {
+                bazmanal_timeout = 20;
+            }
+
+            if (norVandak && this.multiply_bazmanal >= bazmanal_timeout) 
             {
                 this.multiply_bazmanal = 0;
                 var norx = norVandak[0];

@@ -1,8 +1,8 @@
 class Tree extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter);
+        super(x, y);
         this.multiply = 0;
     }
 
@@ -31,14 +31,31 @@ class Tree extends Class10 //done
 
     bazmanal() //done
     {
-        if(this.hivandutyun_mahacu == false)
+        if(this.hivandutyun_mahacu == false && weather != 'winter')
         {
             this.multiply++;
 
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = random(datarkVandakner);
 
-            if (norVandak && this.multiply >= 30) 
+            var bazmanal_timeout = 0;
+
+            if(weather == 'spring')
+            {
+                bazmanal_timeout = 10;
+            }
+
+            else if(weather == 'summer')
+            {
+                bazmanal_timeout = 5;
+            }
+
+            else if(weather == 'autumn')
+            {
+                bazmanal_timeout = 20;
+            }
+
+            if (norVandak && this.multiply >= bazmanal_timeout) 
             {
                 this.multiply = 0;
 

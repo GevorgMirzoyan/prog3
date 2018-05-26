@@ -1,26 +1,27 @@
 class Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime) //done
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time) //done
     {
         this.x = x;
         this.y = y;
         this.hivandutyun_timeout = 0;
         this.hivandutyun_mahacu = false;
         this.virus_time = 0;
-        this.changeTime = 0;
-        this.weather = 'spring';
     }
 
     yntrelVandak(ch) //done
     {
         var found = [];
 
-        for (var i in this.directions) {
+        for (var i in this.directions)
+        {
             var x = this.directions[i][0];
             var y = this.directions[i][1];
 
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == ch) {
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) 
+            {
+                if (matrix[y][x] == ch) 
+                {
                     found.push(this.directions[i]);
                 }
             }
@@ -28,6 +29,4 @@ class Class10 //done
 
         return found;
     }
-
-    //window.weather = this.weather;
 }

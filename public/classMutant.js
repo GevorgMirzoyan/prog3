@@ -1,8 +1,8 @@
 class Mutant extends Class10 //not done
 {
-    constructor(x, y, virus_time) 
+    constructor(x, y) 
     {
-        super(x, y, virus_time);
+        super(x, y);
         this.energy = 10;
         this.lvlUpScore = 0;
         this.lvl = 1;
@@ -81,7 +81,7 @@ class Mutant extends Class10 //not done
                 var nory = norVandak2[1];
             }
 
-            if(norVandak3)
+            else if(norVandak3)
             {
                 var norx = norVandak3[0];
                 var nory = norVandak3[1];
@@ -95,7 +95,7 @@ class Mutant extends Class10 //not done
             this.energy -= 1;
 
             if(this.energy <= 0)
-            {   
+            {
                 this.mahanal();
             }
         }

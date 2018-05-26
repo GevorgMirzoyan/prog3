@@ -1,8 +1,8 @@
 class Gishatich extends Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter) 
+    constructor(x, y) 
     {
-        super(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time, changeTime, spring, summer, autumn, winter)
+        super(x, y)
         this.yntaniKendani = false;
         this.energy = 25;
         this.axorjak = 0;
@@ -214,7 +214,7 @@ class Gishatich extends Class10 //done
                         }
                     }
                     
-                    if(gishatich_igakan.bazmacox == true)
+                    else if(gishatich_igakan.bazmacox == true)
                     {
                         gishatich_igakan.bazmacox = false;
 
