@@ -4,8 +4,8 @@
 
 var matrix = [];
 var fr = 3;
-var side = 30;
-var qanak = 10;
+var side = 20;
+var qanak = 50;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -15,12 +15,12 @@ var soliderArr = [];
 var mutantArr = [];
 var virusArr = [];
 var treeArr = [];
-var xotakerQanak = 0;
-var gishatichQanak = 0;
-var mardQanak = 0;
-var treeQanak = 0;
-var mutantQanak = 1;
-var soliderQanak = 15;
+var xotakerQanak = 100;
+var gishatichQanak = 100;
+var mardQanak = 100;
+var treeQanak = 100;
+var mutantQanak = 100;
+var soliderQanak = 100;
 
 function setup()
 {
@@ -330,13 +330,13 @@ function draw()
         virusArr[i].antiVirus();
     }
 
-    // for (var i in mardArr) 
-    // {
-    //     // mardArr[i].weather();
-    //     mardArr[i].timeout();
-    //     mardArr[i].utel();
-    //     // mardArr[i].hivandutyun();
-    // }
+    for (var i in mardArr) 
+    {
+        // mardArr[i].weather();
+        mardArr[i].timeout();
+        mardArr[i].utel();
+        // mardArr[i].hivandutyun();
+    }
     
     for (var i in grassArr)
     {
@@ -345,26 +345,26 @@ function draw()
         // grassArr[i].hivandutyun();
     }
     
-    // for (var i in gishatichArr) 
-    // {
-    //     // gishatichArr[i].weather();
-    //     gishatichArr[i].timeout();
-    //     gishatichArr[i].utel();
-    //     // gishatichArr[i].hivandutyun();
-    // }
+    for (var i in gishatichArr) 
+    {
+        // gishatichArr[i].weather();
+        gishatichArr[i].timeout();
+        gishatichArr[i].utel();
+        // gishatichArr[i].hivandutyun();
+    }
 
-    // for (var i in treeArr) 
-    // {
-    //     // treeArr[i].weather();
-    //     treeArr[i].bazmanal();
-    //     // treeArr[i].hivandutyun();
-    // }
+    for (var i in treeArr) 
+    {
+        // treeArr[i].weather();
+        treeArr[i].bazmanal();
+        // treeArr[i].hivandutyun();
+    }
     
-    // for (var i in xotakerArr)
-    // {   
-    //     // xotakerArr[i].weather();
-    //     xotakerArr[i].timeout();
-    //     xotakerArr[i].utel();
-    //     // xotakerArr[i].hivandutyun();
-    // }
+    for (var i in xotakerArr)
+    {   
+        // xotakerArr[i].weather();
+        xotakerArr[i].timeout();
+        xotakerArr[i].utel();
+        // xotakerArr[i].hivandutyun();
+    }
 }

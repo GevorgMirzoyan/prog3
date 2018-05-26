@@ -141,6 +141,7 @@ class Solider extends Class10 //not done
             
             if(norVandak)
             {
+                console.log('mutant')
                 this.axorjak = 0;
 
                 var norx = norVandak[0];
@@ -148,9 +149,10 @@ class Solider extends Class10 //not done
 
                 for(var i in mutantArr)
                 {
-                    if(this.x == mutantArr[i].x && this.y == mutantArr[i].y)
+                    if(norx.x == mutantArr[i].x && nory.y == mutantArr[i].y)
                     {
                         var mutant = mutantArr[i];
+                        console.log(mutant)
                     }
                 }
 
@@ -158,6 +160,8 @@ class Solider extends Class10 //not done
 
                 if(mutant.mahacox == true)
                 {
+                    matrix[nory][norx] = 0;
+
                     this.x = norx;
                     this.y = nory;
 
@@ -167,9 +171,9 @@ class Solider extends Class10 //not done
                     score *= mutant.lvl;
                     this.lvlUpScore += score;
                     
-                    var energy = 1;
-                    energy *= mutant.lvl;
-                    this.energy -= energy;
+                    var energy2 = 1;
+                    energy2 *= mutant.lvl;
+                    this.energy -= energy2;
 
                     if(this.energy <= 0)
                     {
@@ -180,9 +184,9 @@ class Solider extends Class10 //not done
 
                 else if(mutant.mahacox == false)
                 {
-                    var health = 5;
-                    health *= mutant.lvl;
-                    this.health -= health;
+                    var health2 = 5;
+                    health2 *= mutant.lvl;
+                    this.health -= health2;
                     
                     if(this.health <= 0)
                     {
@@ -454,6 +458,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 10;
                 }
+
+                if(this.health > 10)
+                {
+                    this.health = 10;
+                }
             }
 
             if(this.lvlUpScore > 10 && this.lvl == 1) 
@@ -462,6 +471,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 20;
                 this.power = 20;
+                this.health = 20;
 
                 if(this.energy > 20)
                 {
@@ -472,6 +482,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 20;
                 }
+
+                if(this.health > 20)
+                {
+                    this.health = 20;
+                }
             }
 
             else if(this.lvlUpScore > 10 && this.lvl == 2)
@@ -480,6 +495,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 30;
                 this.power = 30;
+                this.health = 30;
 
                 if(this.energy > 30)
                 {
@@ -490,6 +506,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 30;
                 }
+
+                if(this.health > 30)
+                {
+                    this.health = 30;
+                }
             }
 
             else if(this.lvlUpScore > 10 && this.lvl == 3)
@@ -498,6 +519,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 40;
                 this.power = 40;
+                this.health = 40;
 
                 if(this.energy > 40)
                 {
@@ -508,6 +530,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 40;
                 }
+
+                if(this.health > 40)
+                {
+                    this.health = 40;
+                }
             }
 
             else if(this.lvlUpScore > 10 && this.lvl == 4)
@@ -516,6 +543,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 50;
                 this.power = 50;
+                this.health = 50;
 
                 if(this.energy > 50)
                 {
@@ -526,6 +554,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 50;
                 }
+
+                if(this.health > 50)
+                {
+                    this.health = 50;
+                }
             }
 
             else if(this.lvlUpScore > 20 && this.lvl == 5)
@@ -534,6 +567,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 60;
                 this.power = 60;
+                this.health = 60;
 
                 if(this.energy > 60)
                 {
@@ -544,6 +578,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 60;
                 }
+
+                if(this.health > 60)
+                {
+                    this.health = 60;
+                }
             }
 
             else if(this.lvlUpScore > 20 && this.lvl == 6)
@@ -552,6 +591,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 70;
                 this.power = 70;
+                this.health = 70;
 
                 if(this.energy > 70)
                 {
@@ -562,6 +602,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 70;
                 }
+
+                if(this.health > 70)
+                {
+                    this.health = 70;
+                }
             }
 
             else if(this.lvlUpScore > 20 && this.lvl == 7)
@@ -570,6 +615,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 80;
                 this.power = 80;
+                this.health = 80;
 
                 if(this.energy > 80)
                 {
@@ -580,6 +626,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 80;
                 }
+
+                if(this.health > 80)
+                {
+                    this.health = 80;
+                }
             }
 
             else if(this.lvlUpScore > 30 && this.lvl == 8)
@@ -588,6 +639,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 90;
                 this.power = 90;
+                this.health = 90;
 
                 if(this.energy > 90)
                 {
@@ -598,6 +650,11 @@ class Solider extends Class10 //not done
                 {
                     this.power = 90;
                 }
+
+                if(this.health > 90)
+                {
+                    this.health = 90;
+                }
             }
 
             else if(this.lvlUpScore > 30 && this.lvl == 9)
@@ -606,6 +663,7 @@ class Solider extends Class10 //not done
                 this.lvlUpScore = 0;
                 this.energy = 100;
                 this.power = 100;
+                this.health = 100;
             }
         }
 
@@ -620,6 +678,11 @@ class Solider extends Class10 //not done
             {
                 this.power = 100;
             }
+
+            if(this.health > 100)
+                {
+                    this.health = 100;
+                }
         }
     }
 

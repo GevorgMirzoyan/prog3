@@ -124,7 +124,19 @@ class Mutant extends Class10 //not done
                 virusArr.push(virus);
                 
                 mutantArr.splice(i, 1);
-            }        
+            }
+
+            else if(this.health <= 0)
+            {
+                this.mahacox = true;
+
+                matrix[this.y][this.x] = 10;
+
+                var virus = new Virus(this.x,this.y);
+                virusArr.push(virus);
+                
+                mutantArr.splice(i, 1);
+            }
         }
     }
 
