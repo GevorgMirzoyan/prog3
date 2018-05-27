@@ -10,7 +10,29 @@ class Virus extends Class10 //done
     {
         this.timer ++;
 
-        if(this.timer >= 10)
+        var antiVirus_timeout = 0;
+
+        if(weather == 'spring')
+        {
+            antiVirus_timeout = 10;
+        }
+
+        else if(weather == 'summer')
+        {
+            antiVirus_timeout = 5;
+        }
+
+        else if(weather == 'autumn')
+        {
+            antiVirus_timeout = 15;
+        }
+
+        else if(weather == 'winter')
+        {
+            antiVirus_timeout = 20;
+        }
+
+        if(this.timer >= antiVirus_timeout)
         {
             for(var i in virusArr)
             {
