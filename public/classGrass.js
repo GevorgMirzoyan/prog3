@@ -1,4 +1,4 @@
-class Grass extends Class10 //done
+class Grass extends Class10 //not done
 {
     constructor(x, y) 
     {
@@ -69,17 +69,59 @@ class Grass extends Class10 //done
         }
     }
 
-    hivandutyun() //done
+    hivandutyun() //not done
     {
         this.hivandutyun_timeout ++;
 
-        if(this.hivandutyun_timeout >= 3)
+        var hivandutyun_repeat = 0;
+
+        if(weather == 'spring')
+        {
+            hivandutyun_repeat = 75;
+        }
+
+        else if(weather == 'summer')
+        {
+            hivandutyun_repeat = 100;
+        }
+
+        else if(weather == 'autumn')
+        {
+            hivandutyun_repeat = 50;
+        }
+
+        else if(weather == 'winter')
+        {
+            hivandutyun_repeat = 25;
+        }
+        
+        var numArr = [];
+
+        for(var a = 0; a < 1001; a++)
+        {
+            var num = a;
+            arr.push(num);
+        }
+
+        if(this.hivandutyun_timeout >= hivandutyun_repeat)
         {
             this.hivandutyun_timeout = 0;
 
-            var r = Math.round(random(300));
+            var randomArr = [];
+            var bool = false;
+
+            for(var r = 0; r < 101; r++)
+            {
+                var rand = Math.round(random(1001));
+                randomArr.push(rand);
+            }
+
+            for(var i = 0; i < 50; i ++)
+            {
+
+            }
     
-            if(150 % r != 0 && r % 2 == 0)
+            if(bool == true)
             {
                 this.hivandutyun_mahacu = true;
                 this.mahanal();

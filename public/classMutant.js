@@ -77,6 +77,14 @@ class Mutant extends Class10 //not done
             {
                 this.lvlUpScore = 0;
                 
+                if(matrix[this.y][this.x] != 10)
+                {
+                    matrix[this.y][this.x] = 10;
+
+                    var virus = new Virus(this.x,this.y);
+                    virusArr.push(virus);
+                }
+
                 if(norVandak2)
                 {
                     var norx = norVandak2[0];
