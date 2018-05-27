@@ -74,33 +74,43 @@ class Grass extends Class10 //not done
         this.hivandutyun_timeout ++;
 
         var hivandutyun_repeat = 0;
+        var numCount = 0;
+        var randomNumCount = 0;
 
         if(weather == 'spring')
         {
-            hivandutyun_repeat = 75;
+            hivandutyun_repeat = 10;
+            numCount = 2000;
+            randomNumCount = 150;
         }
 
         else if(weather == 'summer')
         {
-            hivandutyun_repeat = 100;
+            hivandutyun_repeat = 10;
+            numCount = 3000;
+            randomNumCount = 100;
         }
 
         else if(weather == 'autumn')
         {
-            hivandutyun_repeat = 50;
+            hivandutyun_repeat = 10;
+            numCount = 1500;
+            randomNumCount = 250;
         }
 
         else if(weather == 'winter')
         {
-            hivandutyun_repeat = 25;
+            hivandutyun_repeat = 10;
+            numCount = 1000;
+            randomNumCount = 200;
         }
         
         var numArr = [];
 
-        for(var a = 0; a < 1001; a++)
+        for(var a = 0; a < numCount; a++) //Numbers Array
         {
             var num = a;
-            arr.push(num);
+            numArr.push(num);
         }
 
         if(this.hivandutyun_timeout >= hivandutyun_repeat)
@@ -110,20 +120,27 @@ class Grass extends Class10 //not done
             var randomArr = [];
             var bool = false;
 
-            for(var r = 0; r < 101; r++)
+            for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(random(1001));
+                var rand = Math.round(random(numCount));
                 randomArr.push(rand);
             }
-
-            for(var i = 0; i < 50; i ++)
+            
+            for(var i in randomArr) //Comparison of Arrays
             {
-
+                var b = Math.round(random(numCount));
+                
+                if(randomArr[i] == numArr[b])
+                {
+                    console.log('I find it', randomArr[i], numArr[b])
+                    bool = true;
+                }
             }
-    
+            
             if(bool == true)
             {
                 this.hivandutyun_mahacu = true;
+                bool = false;
                 this.mahanal();
             }
         }

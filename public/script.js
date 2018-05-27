@@ -4,8 +4,8 @@
 
 var matrix = [];
 var fr = 3;
-var side = 15;
-var qanak = 30;
+var side = 100;
+var qanak = 1;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -155,7 +155,7 @@ function setup()
     }
 
     frameRate(fr);
-    createCanvas(matrix[0].length * side, matrix.length * side);
+    createCanvas(matrix[0].length * (side + 1), matrix.length * (side + 1));
     background('#acacac');
 
     for (var y = 0; y < matrix.length; ++y) 
@@ -238,7 +238,7 @@ function weatherChange() //done
 {
     changeTime++;
 
-    if (changeTime >= 30) 
+    if (changeTime >= 50) 
     {
         if (weather == 'spring') 
         {
