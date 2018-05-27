@@ -8,35 +8,35 @@ class Virus extends Class10 //done
 
     antiVirus() //done
     {
-        this.timer ++;
+        this.virus_time ++;
 
-        var antiVirus_timeout = 0;
+        var virus_off = 0;
 
         if(weather == 'spring')
         {
-            antiVirus_timeout = 10;
+            virus_off = 10;
         }
 
         else if(weather == 'summer')
         {
-            antiVirus_timeout = 5;
+            virus_off = 5;
         }
 
         else if(weather == 'autumn')
         {
-            antiVirus_timeout = 15;
+            virus_off = 20;
         }
 
         else if(weather == 'winter')
         {
-            antiVirus_timeout = 20;
+            virus_off = 30;
         }
 
-        if(this.timer >= antiVirus_timeout)
+        if(this.virus_time >= virus_off)
         {
             for(var i in virusArr)
             {
-                if(this.x == virusArr[i].x && this.y == virusArr[i].y)
+                if (this.x == virusArr[i].x && this.y == virusArr[i].y) 
                 {
                     matrix[this.y][this.x] = 0;
                     virusArr.splice(i, 1);

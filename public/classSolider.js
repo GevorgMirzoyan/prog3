@@ -1,4 +1,4 @@
-class Solider extends Class10 //not done
+class Solider extends Class10 //done
 {
     constructor(x, y) 
     {
@@ -123,7 +123,7 @@ class Solider extends Class10 //not done
         }
     }
 
-    utel() //not done
+    utel() //done
     {
         if(this.hivandutyun_mahacu == false)
         {
@@ -433,15 +433,74 @@ class Solider extends Class10 //not done
     {
         this.hivandutyun_timeout ++;
 
-        if(this.hivandutyun_timeout >= 3)
+        var hivandutyun_repeat = 0;
+        var numCount = 0;
+        var randomNumCount = 0;
+
+        if(weather == 'spring')
+        {
+            hivandutyun_repeat = 60;
+            numCount = 2000;
+            randomNumCount = 150;
+        }
+
+        else if(weather == 'summer')
+        {
+            hivandutyun_repeat = 80;
+            numCount = 3000;
+            randomNumCount = 100;
+        }
+
+        else if(weather == 'autumn')
+        {
+            hivandutyun_repeat = 40;
+            numCount = 1500;
+            randomNumCount = 250;
+        }
+
+        else if(weather == 'winter')
+        {
+            hivandutyun_repeat = 30;
+            numCount = 1000;
+            randomNumCount = 200;
+        }
+        
+        var numArr = [];
+
+        for(var a = 0; a < numCount; a++) //Numbers Array
+        {
+            var num = a;
+            numArr.push(num);
+        }
+
+        if(this.hivandutyun_timeout >= hivandutyun_repeat)
         {
             this.hivandutyun_timeout = 0;
 
-            var r = Math.round(random(300));
-    
-            if(150 % r != 0 && r % 2 == 0)
+            var randomArr = [];
+            var bool = false;
+
+            for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
+            {
+                var rand = Math.round(random(numCount));
+                randomArr.push(rand);
+            }
+            
+            for(var i in randomArr) //Comparison of Arrays
+            {
+                var b = Math.round(random(numCount));
+                
+                if(randomArr[i] == numArr[b])
+                {
+                    console.log('I find it', randomArr[i], numArr[b])
+                    bool = true;
+                }
+            }
+            
+            if(bool == true)
             {
                 this.hivandutyun_mahacu = true;
+                bool = false;
                 this.mahanal();
             }
         }
@@ -451,7 +510,29 @@ class Solider extends Class10 //not done
     {
         this.virus_time ++;
 
-        if(this.virus_time >= 5)
+        var virus_off = 0;
+
+        if(weather == 'spring')
+        {
+            virus_off = 10;
+        }
+
+        else if(weather == 'summer')
+        {
+            virus_off = 5;
+        }
+
+        else if(weather == 'autumn')
+        {
+            virus_off = 20;
+        }
+
+        else if(weather == 'winter')
+        {
+            virus_off = 30;
+        }
+
+        if(this.virus_time >= virus_off)
         {
             for(var i in soliderArr)
             {

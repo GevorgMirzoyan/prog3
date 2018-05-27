@@ -1,4 +1,4 @@
-class Mutant extends Class10 //not done
+class Mutant extends Class10 //not don (mutating)
 {
     constructor(x, y) 
     {

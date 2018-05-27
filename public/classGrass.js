@@ -1,4 +1,4 @@
-class Grass extends Class10 //not done
+class Grass extends Class10 //done
 {
     constructor(x, y) 
     {
@@ -69,7 +69,7 @@ class Grass extends Class10 //not done
         }
     }
 
-    hivandutyun() //not done
+    hivandutyun() //done
     {
         this.hivandutyun_timeout ++;
 
@@ -79,28 +79,28 @@ class Grass extends Class10 //not done
 
         if(weather == 'spring')
         {
-            hivandutyun_repeat = 10;
+            hivandutyun_repeat = 60;
             numCount = 2000;
             randomNumCount = 150;
         }
 
         else if(weather == 'summer')
         {
-            hivandutyun_repeat = 10;
+            hivandutyun_repeat = 80;
             numCount = 3000;
             randomNumCount = 100;
         }
 
         else if(weather == 'autumn')
         {
-            hivandutyun_repeat = 10;
+            hivandutyun_repeat = 40;
             numCount = 1500;
             randomNumCount = 250;
         }
 
         else if(weather == 'winter')
         {
-            hivandutyun_repeat = 10;
+            hivandutyun_repeat = 30;
             numCount = 1000;
             randomNumCount = 200;
         }
@@ -177,7 +177,29 @@ class Grass extends Class10 //not done
     {
         this.virus_time ++;
 
-        if(this.virus_time >= 5)
+        var virus_off = 0;
+
+        if(weather == 'spring')
+        {
+            virus_off = 10;
+        }
+
+        else if(weather == 'summer')
+        {
+            virus_off = 5;
+        }
+
+        else if(weather == 'autumn')
+        {
+            virus_off = 20;
+        }
+
+        else if(weather == 'winter')
+        {
+            virus_off = 30;
+        }
+
+        if(this.virus_time >= virus_off)
         {
             for(var i in grassArr)
             {
