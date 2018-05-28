@@ -14,13 +14,20 @@ global.treeQanak = 1;
 global.mutantQanak = 1;
 global.soliderQanak = 1;
 
+function getRandomNum(max) 
+{
+    var r = Math.round(getRandomNum() * (max - 0 + 1)) + 0;
+
+    return r;
+}
+
 for (var a = 0; a < qanak; ++a) 
 {
   matrix[a] = [];
 
     for (var b = 0; b < qanak; ++b) 
     {
-      matrix[a][b] = Math.round(Math.random(1));
+      matrix[a][b] = Math.round(getRandomNum(1));
     }
 }
 
@@ -28,9 +35,9 @@ for (var a = 0; a < qanak; ++a)
 
     while (i < xotakerQanak)
     {
-      var x = Math.floor(Math.random(qanak));
-      var y = Math.floor(Math.random(qanak));
-      var r = Math.floor(Math.random(5));
+      var x = Math.floor(getRandomNum(qanak));
+      var y = Math.floor(getRandomNum(qanak));
+      var r = Math.floor(getRandomNum(5));
         
       if(r > 1)
       {
@@ -49,11 +56,11 @@ for (var a = 0; a < qanak; ++a)
 
     while (i2 < gishatichQanak)
     {
-      var x = Math.floor(Math.random(qanak));
-      var y = Math.floor(Math.random(qanak));
+      var x = Math.floor(getRandomNum(qanak));
+      var y = Math.floor(getRandomNum(qanak));
         
       
-        var r = Math.floor(Math.random(5));
+        var r = Math.floor(getRandomNum(5));
         
         if(r > 1)
         {
@@ -72,12 +79,12 @@ for (var a = 0; a < qanak; ++a)
 
     while (i3 < mardQanak)
     {
-      var x = Math.floor(Math.random(qanak));
-      var y = Math.floor(Math.random(qanak));
+      var x = Math.floor(getRandomNum(qanak));
+      var y = Math.floor(getRandomNum(qanak));
         
       if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5) 
       {
-        var r = Math.floor(Math.random(5));
+        var r = Math.floor(getRandomNum(5));
         
         if(r >= 1)
         {
@@ -97,8 +104,8 @@ for (var a = 0; a < qanak; ++a)
 
     while (i4 < treeQanak)
     {
-      var x = Math.floor(Math.random(qanak));
-      var y = Math.floor(Math.random(qanak));
+      var x = Math.floor(getRandomNum(qanak));
+      var y = Math.floor(getRandomNum(qanak));
         
       if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5) 
       {
@@ -112,8 +119,8 @@ for (var a = 0; a < qanak; ++a)
 
     while (i5 < mutantQanak)
     {
-      var x = Math.floor(Math.random(qanak));
-      var y = Math.floor(Math.random(qanak));
+      var x = Math.floor(getRandomNum(qanak));
+      var y = Math.floor(getRandomNum(qanak));
         
       if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5)
       {
@@ -126,8 +133,8 @@ for (var a = 0; a < qanak; ++a)
 
     while (i6 < soliderQanak)
     {
-      var x = Math.floor(Math.random(qanak));
-      var y = Math.floor(Math.random(qanak));
+      var x = Math.floor(getRandomNum(qanak));
+      var y = Math.floor(getRandomNum(qanak));
         
       if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5 && matrix [y][x] != 9)
       {
