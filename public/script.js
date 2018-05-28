@@ -1,5 +1,5 @@
 var socket = io();
-// socket = io.connect('http://localhost:3000');
+socket = io.connect('http://localhost:3000');
 
 var matrix = [];
 var fr = 10;
@@ -12,21 +12,21 @@ var side = 15;
 function setup()
 {
     frameRate(fr);
-    createCanvas(matrix[0].length * side + 1, matrix.length * side + 1);
+    createCanvas(1000, 1000);
     background('#acacac');
 }
     
-socket.on('send matrix', function(matrix) 
+socket.on('send matrix', function(data) 
 {
-    weatherChange();
-
+    matrix = data;
+    
     for (var y = 0; y < matrix.length; y++) 
     {
         for (var x = 0; x < matrix[y].length; x++) 
         {
             if (matrix[y][x] == 0) //datark vandak
             {
-                if(weather == 'winter')
+                if(window.weather == 'winter')
                 {
                     fill("white");
                     rect(x * side, y * side, side, side);

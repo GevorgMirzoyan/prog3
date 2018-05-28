@@ -3,24 +3,24 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var fs = require('fs');
+
 global.matrix = [];
+global.qanak = 50;
 
-var qanak = 50;
-
-global.xotakerQanak = 0;
-global.gishatichQanak = 0;
-global.mardQanak = 0;
-global.treeQanak = 0;
-global.mutantQanak = 0;
-global.soliderQanak = 0;
+global.xotakerQanak = 1;
+global.gishatichQanak = 1;
+global.mardQanak = 1;
+global.treeQanak = 1;
+global.mutantQanak = 1;
+global.soliderQanak = 1;
 
 for (var a = 0; a < qanak; ++a) 
 {
-    matrix[a] = [];
+  matrix[a] = [];
 
     for (var b = 0; b < qanak; ++b) 
     {
-        matrix[a][b] = Math.round(Math.random(1));
+      matrix[a][b] = Math.round(Math.random(1));
     }
 }
 
@@ -32,7 +32,7 @@ for (var a = 0; a < qanak; ++a)
       var y = Math.floor(Math.random(qanak));
       var r = Math.floor(Math.random(5));
         
-      if(r >= 1)
+      if(r > 1)
       {
         matrix[y][x] = 2;
       }
@@ -44,19 +44,18 @@ for (var a = 0; a < qanak; ++a)
 
       i++;
     }
-        
-    var i = 0;
 
-    while (i < gishatichQanak)
+    var i2 = 0;
+
+    while (i2 < gishatichQanak)
     {
       var x = Math.floor(Math.random(qanak));
       var y = Math.floor(Math.random(qanak));
         
-      if (matrix[y][x] != 2 && matrix[y][x] != 2.5) 
-      {
+      
         var r = Math.floor(Math.random(5));
         
-        if(r >= 1)
+        if(r > 1)
         {
           matrix[y][x] = 3;
         }
@@ -68,11 +67,10 @@ for (var a = 0; a < qanak; ++a)
 
         i++;
       }
-    }
-        
-    var i = 0;
 
-    while (i < mardQanak)
+    var i3 = 0;
+
+    while (i3 < mardQanak)
     {
       var x = Math.floor(Math.random(qanak));
       var y = Math.floor(Math.random(qanak));
@@ -95,9 +93,9 @@ for (var a = 0; a < qanak; ++a)
       }
     }
         
-    var i = 0;
+    var i4 = 0;
 
-    while (i < treeQanak)
+    while (i4 < treeQanak)
     {
       var x = Math.floor(Math.random(qanak));
       var y = Math.floor(Math.random(qanak));
@@ -110,9 +108,9 @@ for (var a = 0; a < qanak; ++a)
       }
     }
         
-    var i = 0;
+    var i5 = 0;
 
-    while (i < mutantQanak)
+    while (i5 < mutantQanak)
     {
       var x = Math.floor(Math.random(qanak));
       var y = Math.floor(Math.random(qanak));
@@ -124,9 +122,9 @@ for (var a = 0; a < qanak; ++a)
       }
     }
         
-    var i = 0;
+    var i6 = 0;
 
-    while (i < soliderQanak)
+    while (i6 < soliderQanak)
     {
       var x = Math.floor(Math.random(qanak));
       var y = Math.floor(Math.random(qanak));
@@ -137,12 +135,6 @@ for (var a = 0; a < qanak; ++a)
         i++;
       }
     }
-    
-app.use(express.static("."));
-app.get('/', function (req, res) {
-  res.redirect('index.html');
-});
-server.listen(3000);
 
 global.Class10 = require("./public/class.js");
 global.Grass = require("./public/classGrass.js");
@@ -154,8 +146,11 @@ global.Mutant = require("./public/classMutant.js");
 global.Solider = require("./public/classSolider.js");
 global.Virus = require("./public/classVirus.js");
 
-global.changeTime = 0;
-global.weather = 'spring';
+app.use(express.static("."));
+app.get('/', function (req, res) {
+res.redirect('index.html');
+});
+server.listen(3000);
 
 global.grassArr = [];
 global.xotakerArr = [];
@@ -251,40 +246,32 @@ for (var y = 0; y < matrix.length; ++y)
     }
 }
 
-function weatherChange()
-{
-    changeTime++;
-
-    if (changeTime >= 90) 
-    {
-        if (weather == 'spring') 
-        {
-            weather = 'summer';
-        }
-
-        else if (weather == 'summer') 
-        {
-            weather = 'autumn';
-        }
-
-        else if (weather == 'autumn') 
-        {
-            weather = 'winter';
-        }
-
-        else if (weather == 'winter') 
-        {
-            weather = 'spring';
-        }
-        
-        changeTime = 0;
-    }
-    
-    return weather;
-}
-
+global.weather = 'spring';
 
 setInterval(function () 
+{
+  if (weather == 'spring') 
+  {
+    weather = 'summer';
+  }
+
+  else if (weather == 'summer') 
+  {
+    weather = 'autumn';
+  }
+
+  else if (weather == 'autumn') 
+  {
+    weather = 'winter';
+  }
+
+  else if (weather == 'winter') 
+  {
+    weather = 'spring';
+  }
+}, 90000)
+
+setInterval(function (matrix) 
 {
   for (var i in soliderArr)
   {
@@ -342,17 +329,15 @@ setInterval(function ()
     xotakerArr[i].hivandutyun();
     xotakerArr[i].mahanal();
   }
-
   io.sockets.emit('send matrix', matrix);
 }, 1000)
 
 
-// io.on('connection', function (socket) {
-//   for (var i in cords) {
-//     io.sockets.emit("staci kordinatnnery", cords[i]);
-//   }
-//   socket.on("nor kordinater", function (data) {
-//     cords.push(data);
-//     io.sockets.emit("staci kordinatnnery", data);
+//   io.on('connection', function (matrix) {
+//     io.sockets.emit('send matrix', matrix);
+
+//   socket.on("send matrix", function (matrix){
+//     io.sockets.emit("send matrix", matrix);
 //   })
 // });
+// })
