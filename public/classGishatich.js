@@ -1,4 +1,4 @@
-class Gishatich extends Class10 //done
+module.exports = class Gishatich extends global.Class10 //done
 {
     constructor(x, y) 
     {
@@ -59,10 +59,10 @@ class Gishatich extends Class10 //done
         if(this.hivandutyun_mahacu == false && weather != 'winter')
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
+            var norVandak = this.getRandom(datarkVandakner);
 
             var xot = this.yntrelVandak(1);
-            var norVandak2 = random(xot);
+            var norVandak2 = this.getRandom(xot);
 
             this.axorjak = 0;
 
@@ -182,15 +182,15 @@ class Gishatich extends Class10 //done
         if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false && weather != 'winter')
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
-            var norVandak3 = random(datarkVandakner);
+            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak3 = this.getRandom(datarkVandakner);
 
             var xotaker = this.yntrelVandak(2);
-            var norVandak4 = random(xotaker);
-            var norVandak5 = random(xotaker);
+            var norVandak4 = this.getRandom(xotaker);
+            var norVandak5 = this.getRandom(xotaker);
 
             var gishatich = this.yntrelVandak(3.5);
-            var norVandak2 = random(gishatich);
+            var norVandak2 = this.getRandom(gishatich);
         
             if (norVandak2)
             {
@@ -211,7 +211,7 @@ class Gishatich extends Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -244,7 +244,7 @@ class Gishatich extends Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -274,7 +274,7 @@ class Gishatich extends Class10 //done
                             var norx = norVandak3[0];
                             var nory = norVandak3[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -311,7 +311,7 @@ class Gishatich extends Class10 //done
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -353,7 +353,7 @@ class Gishatich extends Class10 //done
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -392,7 +392,7 @@ class Gishatich extends Class10 //done
                             var norx = norVandak5[0];
                             var nory = norVandak5[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -439,13 +439,13 @@ class Gishatich extends Class10 //done
             if(this.yntaniKendani == false)
             {
                 var xotaker = this.yntrelVandak(2);
-                var norVandak = random(xotaker);
+                var norVandak = this.getRandom(xotaker);
 
                 var xotaker2 = this.yntrelVandak(2.5);
-                var norVandak3 = random(xotaker2);
+                var norVandak3 = this.getRandom(xotaker2);
 
                 var mard = this.yntrelVandak(4.5);
-                var norVandak2 = random(mard);
+                var norVandak2 = this.getRandom(mard);
 
                 if (norVandak || norVandak3) 
                 {
@@ -564,10 +564,10 @@ class Gishatich extends Class10 //done
             else if(this.yntaniKendani == true)
             {
                 var xotaker = this.yntrelVandak(2);
-                var norVandak = random(xotaker);
+                var norVandak = this.getRandom(xotaker);
 
                 var xotaker2 = this.yntrelVandak(2.5);
-                var norVandak2 = random(xotaker2);
+                var norVandak2 = this.getRandom(xotaker2);
 
                 if (norVandak || norVandak2) 
                 {
@@ -689,13 +689,13 @@ class Gishatich extends Class10 //done
 
             for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(random(numCount));
+                var rand = Math.round(this.getRandom(numCount));
                 randomArr.push(rand);
             }
             
             for(var i in randomArr) //Comparison of Arrays
             {
-                var b = Math.round(random(numCount));
+                var b = Math.round(this.getRandom(numCount));
                 
                 if(randomArr[i] == numArr[b])
                 {

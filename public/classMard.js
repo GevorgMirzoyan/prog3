@@ -1,4 +1,4 @@
-class Mard extends Class10 //done
+module.exports = class Mard extends global.Class10 //done
 {
     constructor(x, y) 
     {
@@ -162,22 +162,22 @@ class Mard extends Class10 //done
         if(this.hivandutyun_mahacu == false)
         {
             var xot = this.yntrelVandak(1);
-            var norVandak = random(xot);
+            var norVandak = this.getRandom(xot);
 
             var xotaker = this.yntrelVandak(2);
-            var norVandak2 = random(xotaker);
+            var norVandak2 = this.getRandom(xotaker);
 
             var xotaker2 = this.yntrelVandak(2.5);
-            var norVandak5 = random(xotaker2);
+            var norVandak5 = this.getRandom(xotaker2);
 
             var gishatich = this.yntrelVandak(3);
-            var norVandak3 = random(gishatich);
+            var norVandak3 = this.getRandom(gishatich);
 
             var gishatich2 = this.yntrelVandak(3.5);
-            var norVandak6 = random(gishatich2);
+            var norVandak6 = this.getRandom(gishatich2);
 
             var tree = this.yntrelVandak(5);
-            var norVandak4 = random(tree);
+            var norVandak4 = this.getRandom(tree);
 
             if(norVandak3 || norVandak6)
             {
@@ -277,7 +277,7 @@ class Mard extends Class10 //done
 
                 else
                 {
-                    var i = Math.round(random(10));
+                    var i = Math.round(this.getRandom(10));
 
                     if (i >= 3) 
                     {
@@ -495,19 +495,19 @@ class Mard extends Class10 //done
         if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
-            var norVandak3 = random(datarkVandakner);
+            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak3 = this.getRandom(datarkVandakner);
 
             var xot = this.yntrelVandak(1);
-            var norVandak6 = random(xot);
-            var norVandak7 = random(xot);
+            var norVandak6 = this.getRandom(xot);
+            var norVandak7 = this.getRandom(xot);
 
             var xotaker = this.yntrelVandak(2);
-            var norVandak4 = random(xotaker);
-            var norVandak5 = random(xotaker);
+            var norVandak4 = this.getRandom(xotaker);
+            var norVandak5 = this.getRandom(xotaker);
 
             var mard = this.yntrelVandak(4.5);
-            var norVandak2 = random(mard);
+            var norVandak2 = this.getRandom(mard);
         
             if (norVandak2)
             {
@@ -528,7 +528,7 @@ class Mard extends Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -561,7 +561,7 @@ class Mard extends Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -591,7 +591,7 @@ class Mard extends Class10 //done
                             var norx = norVandak3[0];
                             var nory = norVandak3[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -628,7 +628,7 @@ class Mard extends Class10 //done
                         var norx = norVandak6[0];
                         var nory = norVandak6[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -661,7 +661,7 @@ class Mard extends Class10 //done
                         var norx = norVandak6[0];
                         var nory = norVandak6[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -691,7 +691,7 @@ class Mard extends Class10 //done
                             var norx = norVandak7[0];
                             var nory = norVandak7[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -728,7 +728,7 @@ class Mard extends Class10 //done
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -770,7 +770,7 @@ class Mard extends Class10 //done
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -809,7 +809,7 @@ class Mard extends Class10 //done
                             var norx = norVandak5[0];
                             var nory = norVandak5[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -902,13 +902,13 @@ class Mard extends Class10 //done
 
             for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(random(numCount));
+                var rand = Math.round(this.getRandom(numCount));
                 randomArr.push(rand);
             }
             
             for(var i in randomArr) //Comparison of Arrays
             {
-                var b = Math.round(random(numCount));
+                var b = Math.round(this.getRandom(numCount));
                 
                 if(randomArr[i] == numArr[b])
                 {

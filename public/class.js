@@ -1,4 +1,4 @@
-class Class10 //done
+module.exports = class Class10 //done
 {
     constructor(x, y) //done
     {
@@ -28,5 +28,13 @@ class Class10 //done
         }
 
         return found;
+    }
+
+    getRandom(array) //done
+    {
+        var random = Math.round(Math.random() * array.length);
+        var object = array[random];
+
+        return object;
     }
 }

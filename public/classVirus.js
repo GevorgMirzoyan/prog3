@@ -1,4 +1,4 @@
-class Virus extends Class10 //done
+module.exports = class Virus extends global.Class10 //done
 {
     constructor(x, y) 
     {

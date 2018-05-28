@@ -1,4 +1,4 @@
-class Tree extends Class10 //done
+module.exports = class Tree extends global.Class10 //done
 {
     constructor(x, y) 
     {
@@ -36,7 +36,7 @@ class Tree extends Class10 //done
             this.multiply++;
 
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
+            var norVandak = this.getRandom(datarkVandakner);
 
             var bazmanal_timeout = 0;
 
@@ -122,13 +122,13 @@ class Tree extends Class10 //done
 
             for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(random(numCount));
+                var rand = Math.round(this.getRandom(numCount));
                 randomArr.push(rand);
             }
             
             for(var i in randomArr) //Comparison of Arrays
             {
-                var b = Math.round(random(numCount));
+                var b = Math.round(this.getRandom(numCount));
                 
                 if(randomArr[i] == numArr[b])
                 {

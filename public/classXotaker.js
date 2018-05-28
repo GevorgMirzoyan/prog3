@@ -1,4 +1,4 @@
-class Xotaker extends Class10 //done
+module.exports = class Xotaker extends global.Class10 //done
 {
     constructor(x, y) 
     {
@@ -49,7 +49,7 @@ class Xotaker extends Class10 //done
         if(this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
+            var norVandak = this.getRandom(datarkVandakner);
 
             if (norVandak) 
             {
@@ -82,7 +82,7 @@ class Xotaker extends Class10 //done
             else
             {
                 this.energy -= 1;
-                
+
                 if(this.energy <= 0)
                 {
                     this.energy_zero = true;
@@ -132,15 +132,15 @@ class Xotaker extends Class10 //done
         if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
-            var norVandak3 = random(datarkVandakner);
+            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak3 = this.getRandom(datarkVandakner);
 
             var xot = this.yntrelVandak(1);
-            var norVandak4 = random(xot);
-            var norVandak5 = random(xot);
+            var norVandak4 = this.getRandom(xot);
+            var norVandak5 = this.getRandom(xot);
         
             var xotaker = this.yntrelVandak(2.5);
-            var norVandak2 = random(xotaker);
+            var norVandak2 = this.getRandom(xotaker);
         
             if (norVandak2)
             {
@@ -163,7 +163,7 @@ class Xotaker extends Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -197,7 +197,7 @@ class Xotaker extends Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -227,7 +227,7 @@ class Xotaker extends Class10 //done
                             var norx = norVandak3[0];
                             var nory = norVandak3[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -266,7 +266,7 @@ class Xotaker extends Class10 //done
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -309,7 +309,7 @@ class Xotaker extends Class10 //done
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
-                        var r = Math.floor(random(5));
+                        var r = Math.floor(this.getRandom(5));
             
                         if(r >= 1)
                         {
@@ -348,7 +348,7 @@ class Xotaker extends Class10 //done
                             var norx = norVandak5[0];
                             var nory = norVandak5[1];
 
-                            var r2 = Math.floor(random(5));
+                            var r2 = Math.floor(this.getRandom(5));
                 
                             if(r2 >= 1)
                             {
@@ -393,7 +393,7 @@ class Xotaker extends Class10 //done
         if(this.hivandutyun_mahacu == false)
         {
             var xoter = this.yntrelVandak(1);
-            var norVandak = random(xoter);
+            var norVandak = this.getRandom(xoter);
 
             if (norVandak) 
             {
@@ -527,13 +527,13 @@ class Xotaker extends Class10 //done
 
             for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(random(numCount));
+                var rand = Math.round(this.getRandom(numCount));
                 randomArr.push(rand);
             }
             
             for(var i in randomArr) //Comparison of Arrays
             {
-                var b = Math.round(random(numCount));
+                var b = Math.round(this.getRandom(numCount));
                 
                 if(randomArr[i] == numArr[b])
                 {
