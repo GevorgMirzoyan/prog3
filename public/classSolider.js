@@ -12,6 +12,7 @@ class Solider extends Class10 //done
         this.bazmacox = false;
         this.health = 10;
         this.healthPlusTimer = 0;
+        this.energy_zero = false;
     }
 
     stanalNorKordinatner() 
@@ -95,7 +96,7 @@ class Solider extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
 
@@ -105,34 +106,22 @@ class Solider extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
         }
     }
-
-    mahanal() //done
-    {
-        for(var i in soliderArr)
-        {
-            if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
-            {
-                matrix[this.y][this.x] = 0;
-                soliderArr.splice(i, 1);
-            }
-        }
-    }
-
+    
     utel() //done
     {
         if(this.hivandutyun_mahacu == false)
         {
             var mutant = this.yntrelVandak(9);
             var norVandak = random(mutant);
-
+            
             var xot = this.yntrelVandak(1);
             var norVandak4 = random(xot);
-
+            
             var xotaker = this.yntrelVandak(2);
             var norVandak2 = random(xotaker);
 
@@ -142,10 +131,10 @@ class Solider extends Class10 //done
             if(norVandak)
             {
                 this.axorjak = 0;
-
+                
                 var norx = norVandak[0];
                 var nory = norVandak[1];
-
+                
                 for(var i in mutantArr)
                 {
                     if(norx.x == mutantArr[i].x && nory.y == mutantArr[i].y)
@@ -156,7 +145,7 @@ class Solider extends Class10 //done
                 }
 
                 mutant.health -= this.power;
-
+                
                 if(mutant.mahacox == true)
                 {
                     matrix[nory][norx] = 0;
@@ -176,8 +165,7 @@ class Solider extends Class10 //done
 
                     if(this.energy <= 0)
                     {
-                        console.log('aasdadfsdfgdfhdfg')
-                        this.mahanal();
+                        this.energy_zero = true;
                     }
                 }
 
@@ -190,7 +178,7 @@ class Solider extends Class10 //done
                     if(this.health <= 0)
                     {
                         console.log('a')
-                        this.mahanal();
+                        this.energy_zero = true;
                     }
                 }
             }
@@ -427,123 +415,7 @@ class Solider extends Class10 //done
                 this.bazmanal_timeout = true;
             }
         }
-    }
-
-    hivandutyun() //done
-    {
-        this.hivandutyun_timeout ++;
-
-        var hivandutyun_repeat = 0;
-        var numCount = 0;
-        var randomNumCount = 0;
-
-        if(weather == 'spring')
-        {
-            hivandutyun_repeat = 60;
-            numCount = 2000;
-            randomNumCount = 150;
-        }
-
-        else if(weather == 'summer')
-        {
-            hivandutyun_repeat = 80;
-            numCount = 3000;
-            randomNumCount = 100;
-        }
-
-        else if(weather == 'autumn')
-        {
-            hivandutyun_repeat = 40;
-            numCount = 1500;
-            randomNumCount = 250;
-        }
-
-        else if(weather == 'winter')
-        {
-            hivandutyun_repeat = 30;
-            numCount = 1000;
-            randomNumCount = 200;
-        }
-        
-        var numArr = [];
-
-        for(var a = 0; a < numCount; a++) //Numbers Array
-        {
-            var num = a;
-            numArr.push(num);
-        }
-
-        if(this.hivandutyun_timeout >= hivandutyun_repeat)
-        {
-            this.hivandutyun_timeout = 0;
-
-            var randomArr = [];
-            var bool = false;
-
-            for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
-            {
-                var rand = Math.round(random(numCount));
-                randomArr.push(rand);
-            }
-            
-            for(var i in randomArr) //Comparison of Arrays
-            {
-                var b = Math.round(random(numCount));
-                
-                if(randomArr[i] == numArr[b])
-                {
-                    console.log('I find it', randomArr[i], numArr[b])
-                    bool = true;
-                }
-            }
-            
-            if(bool == true)
-            {
-                this.hivandutyun_mahacu = true;
-                bool = false;
-                this.mahanal();
-            }
-        }
-    }
-
-    antiVirus() //done
-    {
-        this.virus_time ++;
-
-        var virus_off = 0;
-
-        if(weather == 'spring')
-        {
-            virus_off = 10;
-        }
-
-        else if(weather == 'summer')
-        {
-            virus_off = 5;
-        }
-
-        else if(weather == 'autumn')
-        {
-            virus_off = 20;
-        }
-
-        else if(weather == 'winter')
-        {
-            virus_off = 30;
-        }
-
-        if(this.virus_time >= virus_off)
-        {
-            for(var i in soliderArr)
-            {
-                if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    soliderArr.splice(i, 1);
-                }
-            }
-        }
-    }
+    }    
 
     lvlChange() //done
     {
@@ -813,6 +685,149 @@ class Solider extends Class10 //done
         {
             this.healthPlusTimer = 0;
             this.health += 10;
+        }
+    }
+
+    hivandutyun() //done
+    {
+        this.hivandutyun_timeout ++;
+
+        var hivandutyun_repeat = 0;
+        var numCount = 0;
+        var randomNumCount = 0;
+
+        if(weather == 'spring')
+        {
+            hivandutyun_repeat = 60;
+            numCount = 2000;
+            randomNumCount = 150;
+        }
+
+        else if(weather == 'summer')
+        {
+            hivandutyun_repeat = 80;
+            numCount = 3000;
+            randomNumCount = 100;
+        }
+
+        else if(weather == 'autumn')
+        {
+            hivandutyun_repeat = 40;
+            numCount = 1500;
+            randomNumCount = 250;
+        }
+
+        else if(weather == 'winter')
+        {
+            hivandutyun_repeat = 30;
+            numCount = 1000;
+            randomNumCount = 200;
+        }
+        
+        var numArr = [];
+
+        for(var a = 0; a < numCount; a++) //Numbers Array
+        {
+            var num = a;
+            numArr.push(num);
+        }
+
+        if(this.hivandutyun_timeout >= hivandutyun_repeat)
+        {
+            this.hivandutyun_timeout = 0;
+
+            var randomArr = [];
+            var bool = false;
+
+            for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
+            {
+                var rand = Math.round(random(numCount));
+                randomArr.push(rand);
+            }
+            
+            for(var i in randomArr) //Comparison of Arrays
+            {
+                var b = Math.round(random(numCount));
+                
+                if(randomArr[i] == numArr[b])
+                {
+                    console.log('I find it', randomArr[i], numArr[b])
+                    bool = true;
+                }
+            }
+            
+            if(bool == true)
+            {
+                this.hivandutyun_mahacu = true;
+                bool = false;
+            }
+        }
+    }
+
+    mahanal() //done
+    {
+        if(this.hivandutyun_mahacu == true)
+        {
+            for(var i in soliderArr)
+            {
+                if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 8;
+                    this.antiVirus();
+                }
+            }
+        }
+
+        else if(this.energy_zero == true)
+        {
+            for(var i in soliderArr)
+            {
+                if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    soliderArr.splice(i, 1);
+                    break;
+                }
+            }
+        }
+    }
+
+    antiVirus() //done
+    {
+        this.virus_time ++;
+
+        var virus_off = 0;
+
+        if(weather == 'spring')
+        {
+            virus_off = 10;
+        }
+
+        else if(weather == 'summer')
+        {
+            virus_off = 5;
+        }
+
+        else if(weather == 'autumn')
+        {
+            virus_off = 20;
+        }
+
+        else if(weather == 'winter')
+        {
+            virus_off = 30;
+        }
+
+        if(this.virus_time >= virus_off)
+        {
+            for(var i in soliderArr)
+            {
+                if (this.x == soliderArr[i].x && this.y == soliderArr[i].y) 
+                {
+                    matrix[this.y][this.x] = 0;
+                    soliderArr.splice(i, 1);
+                }
+            }
         }
     }
 }

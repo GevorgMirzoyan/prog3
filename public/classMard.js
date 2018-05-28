@@ -10,6 +10,7 @@ class Mard extends Class10 //done
         this.bazmacox = false;
         this.timeout_time = 0;
         this.bazmanal_timeout = true;
+        this.energy_zero = false;
     }
 
     stanalNorKordinatner() 
@@ -140,7 +141,7 @@ class Mard extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
 
@@ -150,7 +151,7 @@ class Mard extends Class10 //done
                 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
         }
@@ -229,7 +230,7 @@ class Mard extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
 
@@ -270,7 +271,7 @@ class Mard extends Class10 //done
 
                     if(this.energy <= 0)
                     {
-                        this.mahanal();
+                        this.energy_zero = true;
                     }
                 }
 
@@ -338,7 +339,7 @@ class Mard extends Class10 //done
 
                     else 
                     {
-                        this.mahanal();
+                        this.energy_zero = true;
 
                         gishatich.axorjak += 1;
                         gishatich.energy += 3;
@@ -920,7 +921,6 @@ class Mard extends Class10 //done
             {
                 this.hivandutyun_mahacu = true;
                 bool = false;
-                this.mahanal();
             }
         }
     }
@@ -939,7 +939,7 @@ class Mard extends Class10 //done
             }
         }
 
-        else
+        else if(this.energy_zero == true)
         {
             for(var i in mardArr)
             {
@@ -947,6 +947,7 @@ class Mard extends Class10 //done
                 {
                     matrix[this.y][this.x] = 0;
                     mardArr.splice(i, 1);
+                    break;
                 }
             }
         }
