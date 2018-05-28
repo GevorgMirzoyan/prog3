@@ -38,7 +38,7 @@ module.exports = class Class10 //done
         return object;
     }
 
-    getRandomNum(max) 
+    getRandomNum(max) //done
     {
         var r = Math.round(Math.random() * (max - 0 + 1)) + 0;
 

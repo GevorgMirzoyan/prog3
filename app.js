@@ -10,7 +10,7 @@ global.qanak = 50;
 global.xotakerQanak = 0;
 global.gishatichQanak = 0;
 global.mardQanak = 0;
-global.treeQanak = 0;
+global.treeQanak = 100;
 global.mutantQanak = 0;
 global.soliderQanak = 0;
 

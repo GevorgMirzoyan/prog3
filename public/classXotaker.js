@@ -159,7 +159,7 @@ module.exports = class Xotaker extends global.Class10 //done
                     if(xotaker_igakan.bazmacox == false)
                     {
                         norXotakerner ++;
-                        console.log(norXotakerner)
+                        
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
@@ -263,9 +263,7 @@ module.exports = class Xotaker extends global.Class10 //done
                     this.bazmanal_timeout = false; 
 
                     if(xotaker_igakan.bazmacox == false)
-                    {
-                        norXotakerner ++;
-                        
+                    {  
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
@@ -284,6 +282,8 @@ module.exports = class Xotaker extends global.Class10 //done
                         var norXotaker = new Xotaker(norx, nory);                       
                         xotakerArr.push(norXotaker);
                 
+                        norXotakerner ++;
+
                         if(matrix[nory][norx] == 2)
                         {
                             norXotaker.ser = 1;
@@ -308,7 +308,7 @@ module.exports = class Xotaker extends global.Class10 //done
                     {
                         norXotakerner ++;
                         xotaker_igakan.bazmacox = false;
-                        console.log(norXotakerner)
+                       
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
@@ -326,6 +326,8 @@ module.exports = class Xotaker extends global.Class10 //done
                 
                         var norXotaker = new Xotaker(norx, nory);
                         xotakerArr.push(norXotaker);
+
+                        norXotakerner ++;
                 
                         if(matrix[nory][norx] == 2)
                         {
@@ -365,6 +367,8 @@ module.exports = class Xotaker extends global.Class10 //done
                     
                             var norXotaker2 = new Xotaker(norx, nory);
                             xotakerArr.push(norXotaker2);
+
+                            norXotakerner ++;
                     
                             if(matrix[nory][norx] == 2)
                             {
@@ -540,7 +544,7 @@ module.exports = class Xotaker extends global.Class10 //done
                 
                 if(randomArr[i] == numArr[b])
                 {
-                    console.log('I find it', randomArr[i], numArr[b])
+                    hivandXotakerner ++;
                     bool = true;
                 }
             }
@@ -562,7 +566,7 @@ module.exports = class Xotaker extends global.Class10 //done
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                 {
                     matrix[this.y][this.x] = 8;
-                    this.antiVirus();
+                    xotakerArr.splice(i, 1);
                     break;
                 }
             }
@@ -577,45 +581,6 @@ module.exports = class Xotaker extends global.Class10 //done
                     matrix[this.y][this.x] = 0;
                     xotakerArr.splice(i, 1);
                     break;
-                }
-            }
-        }
-    }
-
-    antiVirus() //done
-    {
-        this.virus_time ++;
-
-        var virus_off = 0;
-
-        if(weather == 'spring')
-        {
-            virus_off = 10;
-        }
-
-        else if(weather == 'summer')
-        {
-            virus_off = 5;
-        }
-
-        else if(weather == 'autumn')
-        {
-            virus_off = 20;
-        }
-
-        else if(weather == 'winter')
-        {
-            virus_off = 30;
-        }
-
-        if(this.virus_time >= virus_off)
-        {
-            for(var i in xotakerArr)
-            {
-                if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    xotakerArr.splice(i, 1);
                 }
             }
         }

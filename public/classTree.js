@@ -65,6 +65,8 @@ module.exports = class Tree extends global.Class10 //done
 
                 var newTree = new Tree(norx, nory);
                 treeArr.push(newTree);
+
+                norTsarer ++;
             }
         }
     }
@@ -138,6 +140,7 @@ module.exports = class Tree extends global.Class10 //done
             
             if(bool == true)
             {
+                hivandTsarer ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
                 this.mahanal();
@@ -154,51 +157,12 @@ module.exports = class Tree extends global.Class10 //done
                 if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
                 {
                     matrix[this.y][this.x] = 8;
-                    this.antiVirus();
+                    treeArr.splice(i, 1);
                 }
             }
         }
 
         else
-        {
-            for(var i in treeArr)
-            {
-                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    treeArr.splice(i, 1);
-                }
-            }
-        }
-    }
-
-    antiVirus() //done
-    {
-        this.virus_time ++;
-
-        var virus_off = 0;
-
-        if(weather == 'spring')
-        {
-            virus_off = 10;
-        }
-
-        else if(weather == 'summer')
-        {
-            virus_off = 5;
-        }
-
-        else if(weather == 'autumn')
-        {
-            virus_off = 20;
-        }
-
-        else if(weather == 'winter')
-        {
-            virus_off = 30;
-        }
-
-        if(this.virus_time >= virus_off)
         {
             for(var i in treeArr)
             {

@@ -225,6 +225,8 @@ module.exports = class Gishatich extends global.Class10 //done
                 
                         var norGishatich = new Gishatich(norx, nory);
                         gishatichArr.push(norGishatich);
+
+                        norGishatichner ++;
                 
                         if(matrix[nory][norx] == 3)
                         {
@@ -258,6 +260,8 @@ module.exports = class Gishatich extends global.Class10 //done
                 
                         var norGishatich = new Gishatich(norx, nory);
                         gishatichArr.push(norGishatich);
+
+                        norGishatichner ++;
                 
                         if(matrix[nory][norx] == 3)
                         {
@@ -288,6 +292,8 @@ module.exports = class Gishatich extends global.Class10 //done
                     
                             var norGishatich2 = new Gishatich(norx, nory);
                             gishatichArr.push(norGishatich2);
+
+                            norGishatichner ++;
                     
                             if(matrix[nory][norx] == 3)
                             {
@@ -705,6 +711,7 @@ module.exports = class Gishatich extends global.Class10 //done
             
             if(bool == true)
             {
+                hivandGishatichner ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
             }
@@ -720,7 +727,7 @@ module.exports = class Gishatich extends global.Class10 //done
                 if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
                 {
                     matrix[this.y][this.x] = 8;
-                    this.antiVirus();
+                    gishatichArr.splice(i, 1);
                 }
             }
         }
@@ -734,45 +741,6 @@ module.exports = class Gishatich extends global.Class10 //done
                     matrix[this.y][this.x] = 0;
                     gishatichArr.splice(i, 1);
                     break;
-                }
-            }
-        }
-    }
-
-    antiVirus() //done
-    {
-        this.virus_time ++;
-
-        var virus_off = 0;
-
-        if(weather == 'spring')
-        {
-            virus_off = 10;
-        }
-
-        else if(weather == 'summer')
-        {
-            virus_off = 5;
-        }
-
-        else if(weather == 'autumn')
-        {
-            virus_off = 20;
-        }
-
-        else if(weather == 'winter')
-        {
-            virus_off = 30;
-        }
-
-        if(this.virus_time >= virus_off)
-        {
-            for(var i in gishatichArr)
-            {
-                if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    gishatichArr.splice(i, 1);
                 }
             }
         }

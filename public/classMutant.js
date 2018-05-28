@@ -76,6 +76,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
 
                 var norx = norVandak[0];
@@ -105,6 +107,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
 
                 if(norVandak2)
@@ -157,6 +161,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                 var virus = new Virus(this.x,this.y);
                 virusArr.push(virus);
+
+                norVirusner ++;
                 
                 mutantArr.splice(i, 1);
             }
@@ -169,6 +175,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                 var virus = new Virus(this.x,this.y);
                 virusArr.push(virus);
+
+                norVirusner ++;
                 
                 mutantArr.splice(i, 1);
             }
@@ -232,6 +240,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                 var norMutant = new Mutant(norx, nory);
                 mutantArr.push(norMutant);
+
+                norMutantner ++;
             }
                     
             else if(norVandak2)
@@ -246,6 +256,7 @@ module.exports = class Mutant extends global.Class10 //done
                 var norMutant = new Mutant(norx, nory);
                 mutantArr.push(norMutant);
 
+                norMutantner ++;
                 norMutant.lvlUpScore ++;
 
                 for(var i in grassArr)

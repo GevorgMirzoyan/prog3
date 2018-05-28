@@ -542,6 +542,8 @@ module.exports = class Mard extends global.Class10 //done
                 
                         var norMard = new Mard(norx, nory);
                         mardArr.push(norMard);
+
+                        norMardik ++;
                 
                         if(matrix[nory][norx] == 4)
                         {
@@ -575,6 +577,8 @@ module.exports = class Mard extends global.Class10 //done
                 
                         var norMard = new Mard(norx, nory);
                         mardArr.push(norMard);
+
+                        norMardik ++;
                 
                         if(matrix[nory][norx] == 4)
                         {
@@ -605,6 +609,8 @@ module.exports = class Mard extends global.Class10 //done
                     
                             var norMard = new Mard(norx, nory);
                             mardArr.push(norMard);
+
+                            norMardik ++;
                     
                             if(matrix[nory][norx] == 4)
                             {
@@ -642,6 +648,8 @@ module.exports = class Mard extends global.Class10 //done
                 
                         var norMard = new Mard(norx, nory);
                         mardArr.push(norMard);
+
+                        norMardik ++;
                 
                         if(matrix[nory][norx] == 4)
                         {
@@ -675,6 +683,8 @@ module.exports = class Mard extends global.Class10 //done
                 
                         var norMard = new Mard(norx, nory);
                         mardArr.push(norMard);
+
+                        norMardik ++;
                 
                         if(matrix[nory][norx] == 4)
                         {
@@ -705,6 +715,8 @@ module.exports = class Mard extends global.Class10 //done
                     
                             var norMard = new Mard(norx, nory);
                             mardArr.push(norMard);
+
+                            norMardik ++;
                     
                             if(matrix[nory][norx] == 4)
                             {
@@ -742,6 +754,8 @@ module.exports = class Mard extends global.Class10 //done
                 
                         var norMard = new Mard(norx, nory);                       
                         mardArr.push(norMard);
+
+                        norMardik ++;
                 
                         if(matrix[nory][norx] == 4)
                         {
@@ -784,6 +798,8 @@ module.exports = class Mard extends global.Class10 //done
                 
                         var norMard = new Mard(norx, nory);
                         mardArr.push(norMard);
+
+                        norMardik ++;
                 
                         if(matrix[nory][norx] == 4)
                         {
@@ -823,6 +839,8 @@ module.exports = class Mard extends global.Class10 //done
                     
                             var norMard2 = new Mard(norx, nory);
                             mardArr.push(norMard2);
+
+                            norMardik ++;
                     
                             if(matrix[nory][norx] == 4)
                             {
@@ -918,6 +936,7 @@ module.exports = class Mard extends global.Class10 //done
             
             if(bool == true)
             {
+                hivandMardik ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
             }
@@ -933,7 +952,7 @@ module.exports = class Mard extends global.Class10 //done
                 if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
                 {
                     matrix[this.y][this.x] = 8;
-                    this.antiVirus();
+                    mardArr.splice(i, 1);
                 }
             }
         }
@@ -947,45 +966,6 @@ module.exports = class Mard extends global.Class10 //done
                     matrix[this.y][this.x] = 0;
                     mardArr.splice(i, 1);
                     break;
-                }
-            }
-        }
-    }
-
-    antiVirus() //done
-    {
-        this.virus_time ++;
-
-        var virus_off = 0;
-
-        if(weather == 'spring')
-        {
-            virus_off = 10;
-        }
-
-        else if(weather == 'summer')
-        {
-            virus_off = 5;
-        }
-
-        else if(weather == 'autumn')
-        {
-            virus_off = 20;
-        }
-
-        else if(weather == 'winter')
-        {
-            virus_off = 30;
-        }
-
-        if(this.virus_time >= virus_off)
-        {
-            for(var i in mardArr)
-            {
-                if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    mardArr.splice(i, 1);
                 }
             }
         }
