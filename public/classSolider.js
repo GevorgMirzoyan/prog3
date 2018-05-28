@@ -76,7 +76,7 @@ module.exports = class Solider extends global.Class10 //done
         if(this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak = this.getRandomArr(datarkVandakner);
 
             if (norVandak) 
             {
@@ -117,16 +117,16 @@ module.exports = class Solider extends global.Class10 //done
         if(this.hivandutyun_mahacu == false)
         {
             var mutant = this.yntrelVandak(9);
-            var norVandak = this.getRandom(mutant);
+            var norVandak = this.getRandomArr(mutant);
             
             var xot = this.yntrelVandak(1);
-            var norVandak4 = this.getRandom(xot);
+            var norVandak4 = this.getRandomArr(xot);
             
             var xotaker = this.yntrelVandak(2);
-            var norVandak2 = this.getRandom(xotaker);
+            var norVandak2 = this.getRandomArr(xotaker);
 
             var xotaker2 = this.yntrelVandak(2.5);
-            var norVandak3 = this.getRandom(xotaker2);
+            var norVandak3 = this.getRandomArr(xotaker2);
             
             if(norVandak)
             {
@@ -290,11 +290,11 @@ module.exports = class Solider extends global.Class10 //done
         if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = this.getRandom(datarkVandakner);
-            var norVandak3 = this.getRandom(datarkVandakner);
+            var norVandak = this.getRandomArr(datarkVandakner);
+            var norVandak3 = this.getRandomArr(datarkVandakner);
 
             var mard = this.yntrelVandak(4.5);
-            var norVandak2 = this.getRandom(mard);
+            var norVandak2 = this.getRandomArr(mard);
         
             if (norVandak2)
             {
@@ -315,7 +315,7 @@ module.exports = class Solider extends global.Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(this.getRandom(5));
+                        var r = Math.floor(this.getRandomNum(5));
             
                         if(r >= 1)
                         {
@@ -343,7 +343,7 @@ module.exports = class Solider extends global.Class10 //done
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
-                        var r = Math.floor(this.getRandom(5));
+                        var r = Math.floor(this.getRandomNum(5));
             
                         if(r >= 1)
                         {
@@ -368,7 +368,7 @@ module.exports = class Solider extends global.Class10 //done
                             var norx = norVandak3[0];
                             var nory = norVandak3[1];
 
-                            var r2 = Math.floor(this.getRandom(5));
+                            var r2 = Math.floor(this.getRandomNum(5));
                 
                             if(r >= 1)
                             {
@@ -754,7 +754,7 @@ module.exports = class Solider extends global.Class10 //done
 
             for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(this.getRandom(numCount));
+                var rand = Math.round(this.getRandomNum(numCount));
                 randomArr.push(rand);
             }
             
@@ -764,7 +764,6 @@ module.exports = class Solider extends global.Class10 //done
                 
                 if(randomArr[i] == numArr[b])
                 {
-                    console.log('I find it', randomArr[i], numArr[b])
                     bool = true;
                 }
             }

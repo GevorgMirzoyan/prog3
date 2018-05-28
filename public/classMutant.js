@@ -57,13 +57,13 @@ module.exports = class Mutant extends global.Class10 //done
         if(weather != 'winter')
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak = this.getRandomArr(datarkVandakner);
 
             var virus = this.yntrelVandak(8);
-            var norVandak2 = this.getRandom(virus);
+            var norVandak2 = this.getRandomArr(virus);
 
             var virus_mutant = this.yntrelVandak(10);
-            var norVandak3 = this.getRandom(virus_mutant);
+            var norVandak3 = this.getRandomArr(virus_mutant);
 
             if (norVandak)
             {
@@ -216,10 +216,10 @@ module.exports = class Mutant extends global.Class10 //done
         if(this.duplicate_timeout == true)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak = this.getRandomArr(datarkVandakner);
 
             var xot = this.yntrelVandak(1);
-            var norVandak2 = this.getRandom(xot);
+            var norVandak2 = this.getRandomArr(xot);
 
             if(norVandak)
             {
@@ -264,28 +264,28 @@ module.exports = class Mutant extends global.Class10 //done
         if(weather != 'winter')
         {
             var xot = this.yntrelVandak(1);
-            var norVandak = this.getRandom(xot);
+            var norVandak = this.getRandomArr(xot);
 
             var xotaker = this.yntrelVandak(2);
-            var norVandak2 = this.getRandom(xotaker);
+            var norVandak2 = this.getRandomArr(xotaker);
 
             var xotaker2 = this.yntrelVandak(2.5);
-            var norVandak3 = this.getRandom(xotaker2);
+            var norVandak3 = this.getRandomArr(xotaker2);
 
             var gishatich = this.yntrelVandak(3);
-            var norVandak4 = this.getRandom(gishatich);
+            var norVandak4 = this.getRandomArr(gishatich);
 
             var gishatich2 = this.yntrelVandak(3.5);
-            var norVandak5 = this.getRandom(gishatich2);
+            var norVandak5 = this.getRandomArr(gishatich2);
 
             var mard = this.yntrelVandak(4)
-            var norVandak6 = this.getRandom(mard);
+            var norVandak6 = this.getRandomArr(mard);
 
             var mard2 = this.yntrelVandak(4.5)
-            var norVandak7 = this.getRandom(mard2);
+            var norVandak7 = this.getRandomArr(mard2);
 
             var tree = this.yntrelVandak(5);
-            var norVandak8 = this.getRandom(tree);
+            var norVandak8 = this.getRandomArr(tree);
 
             if(norVandak6 || norVandak7)
             {

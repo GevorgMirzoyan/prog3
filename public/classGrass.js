@@ -36,7 +36,7 @@ module.exports = class Grass extends global.Class10 //done
             this.multiply_bazmanal++;
 
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = this.getRandom(datarkVandakner);
+            var norVandak = this.getRandomArr(datarkVandakner);
 
             var bazmanal_timeout = 0;
 
@@ -122,17 +122,16 @@ module.exports = class Grass extends global.Class10 //done
 
             for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
             {
-                var rand = Math.round(this.getRandom(numCount));
+                var rand = Math.round(this.getRandomNum(numCount));
                 randomArr.push(rand);
             }
             
             for(var i in randomArr) //Comparison of Arrays
             {
-                var b = Math.round(this.getRandom(numCount));
+                var b = Math.round(this.getRandomNum(numCount));
                 
                 if(randomArr[i] == numArr[b])
                 {
-                    console.log('I find it', randomArr[i], numArr[b])
                     bool = true;
                 }
             }

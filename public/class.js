@@ -30,11 +30,18 @@ module.exports = class Class10 //done
         return found;
     }
 
-    getRandom(array) //done
+    getRandomArr(array) //done
     {
         var random = Math.round(Math.random() * array.length);
         var object = array[random];
 
         return object;
+    }
+
+    getRandomNum(max) 
+    {
+        var r = Math.round(Math.random() * (max - 0 + 1)) + 0;
+
+        return r;
     }
 }
