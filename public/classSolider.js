@@ -369,32 +369,35 @@ module.exports = class Solider extends global.Class10 //done
                             norMardik ++;
                         }
 
-                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        if(norVandak3)
                         {
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
-
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r >= 1)
+                            if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
                             {
-                                matrix[nory][norx] = 11;
-            
-                                var norZinvor = new Solider(norx, nory);
-                                soliderArr.push(norZinvor);
+                                var norx = norVandak3[0];
+                                var nory = norVandak3[1];
 
-                                norZinvorner ++;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 4.5;
+                                if(r >= 1)
+                                {
+                                    matrix[nory][norx] = 11;
+                
+                                    var norZinvor = new Solider(norx, nory);
+                                    soliderArr.push(norZinvor);
 
-                                var norMard = new Mard(norx, nory);
-                                mardArr.push(norMard);
+                                    norZinvorner ++;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 4.5;
 
-                                norMard.ser = 2 ;
-                                norMardik ++;
+                                    var norMard = new Mard(norx, nory);
+                                    mardArr.push(norMard);
+
+                                    norMard.ser = 2 ;
+                                    norMardik ++;
+                                }
                             }
                         }
                     }

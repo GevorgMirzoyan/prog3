@@ -273,36 +273,39 @@ module.exports = class Gishatich extends global.Class10 //done
                             norGishatich.ser = 2 ;
                         }
 
-                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        if(norVandak3)
                         {
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
+                            if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                            {
+                                var norx = norVandak3[0];
+                                var nory = norVandak3[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 3;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 3.5;
-                            }
-                    
-                            var norGishatich2 = new Gishatich(norx, nory);
-                            gishatichArr.push(norGishatich2);
+                                if(r2 >= 1)
+                                {
+                                    matrix[nory][norx] = 3;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 3.5;
+                                }
+                        
+                                var norGishatich2 = new Gishatich(norx, nory);
+                                gishatichArr.push(norGishatich2);
 
-                            norGishatichner ++;
-                    
-                            if(matrix[nory][norx] == 3)
-                            {
-                                norGishatich2.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norGishatich2.ser = 2 ;
+                                norGishatichner ++;
+                        
+                                if(matrix[nory][norx] == 3)
+                                {
+                                    norGishatich2.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norGishatich2.ser = 2 ;
+                                }
                             }
                         }
                     }
@@ -331,6 +334,8 @@ module.exports = class Gishatich extends global.Class10 //done
                 
                         var norGishatich = new Gishatich(norx, nory);                       
                         gishatichArr.push(norGishatich);
+
+                        norGishatichner ++;
                 
                         if(matrix[nory][norx] == 3)
                         {
@@ -373,6 +378,8 @@ module.exports = class Gishatich extends global.Class10 //done
                 
                         var norGishatich = new Gishatich(norx, nory);
                         gishatichArr.push(norGishatich);
+
+                        norGishatichner ++;
                 
                         if(matrix[nory][norx] == 3)
                         {
@@ -393,42 +400,47 @@ module.exports = class Gishatich extends global.Class10 //done
                             }
                         }
 
-                        if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                        if(norVandak4)
                         {
-                            var norx = norVandak5[0];
-                            var nory = norVandak5[1];
+                            if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                            {
+                                var norx = norVandak5[0];
+                                var nory = norVandak5[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 3;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 3.5;
-                            }
-                    
-                            var norGishatich2 = new Xotaker(norx, nory);
-                            gishatichArr.push(norGishatich2);
-                    
-                            if(matrix[nory][norx] == 3)
-                            {
-                                norGishatich2.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norGishatich2.ser = 2 ;
-                            }
-
-                            for(var i in xotakerArr)
-                            {
-                                if(norGishatich2.x == xotakerArr[i].x && norGishatich2.y == xotakerArr[i].y)
+                                if(r2 >= 1)
                                 {
-                                    xotakerArr.splice(i, 1);
-                                    norGishatich2.axorjak += 1;
+                                    matrix[nory][norx] = 3;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 3.5;
+                                }
+                        
+                                var norGishatich2 = new Xotaker(norx, nory);
+                                gishatichArr.push(norGishatich2);
+                            
+                                norGishatichner ++;
+                        
+                                if(matrix[nory][norx] == 3)
+                                {
+                                    norGishatich2.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norGishatich2.ser = 2 ;
+                                }
+
+                                for(var i in xotakerArr)
+                                {
+                                    if(norGishatich2.x == xotakerArr[i].x && norGishatich2.y == xotakerArr[i].y)
+                                    {
+                                        xotakerArr.splice(i, 1);
+                                        norGishatich2.axorjak += 1;
+                                    }
                                 }
                             }
                         }

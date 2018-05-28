@@ -590,36 +590,39 @@ module.exports = class Mard extends global.Class10 //done
                             norMard.ser = 2 ;
                         }
 
-                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        if(norVandak3)
                         {
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
+                            if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                            {
+                                var norx = norVandak3[0];
+                                var nory = norVandak3[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 4;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 4.5;
-                            }
-                    
-                            var norMard = new Mard(norx, nory);
-                            mardArr.push(norMard);
+                                if(r2 >= 1)
+                                {
+                                    matrix[nory][norx] = 4;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 4.5;
+                                }
+                        
+                                var norMard = new Mard(norx, nory);
+                                mardArr.push(norMard);
 
-                            norMardik ++;
-                    
-                            if(matrix[nory][norx] == 4)
-                            {
-                                norMard.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norMard.ser = 2 ;
+                                norMardik ++;
+                        
+                                if(matrix[nory][norx] == 4)
+                                {
+                                    norMard.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norMard.ser = 2 ;
+                                }
                             }
                         }
                     }
@@ -696,36 +699,39 @@ module.exports = class Mard extends global.Class10 //done
                             norMard.ser = 2 ;
                         }
 
-                        if(norVandak6[0] != norVandak7[0] && norVandak6[1] != norVandak7[1])
+                        if(norVandak6)
                         {
-                            var norx = norVandak7[0];
-                            var nory = norVandak7[1];
+                            if(norVandak6[0] != norVandak7[0] && norVandak6[1] != norVandak7[1])
+                            {
+                                var norx = norVandak7[0];
+                                var nory = norVandak7[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 4;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 4.5;
-                            }
-                    
-                            var norMard = new Mard(norx, nory);
-                            mardArr.push(norMard);
+                                if(r2 >= 1)
+                                {
+                                    matrix[nory][norx] = 4;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 4.5;
+                                }
+                        
+                                var norMard = new Mard(norx, nory);
+                                mardArr.push(norMard);
 
-                            norMardik ++;
-                    
-                            if(matrix[nory][norx] == 4)
-                            {
-                                norMard.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norMard.ser = 2 ;
+                                norMardik ++;
+                        
+                                if(matrix[nory][norx] == 4)
+                                {
+                                    norMard.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norMard.ser = 2 ;
+                                }
                             }
                         }
                     }
@@ -820,44 +826,47 @@ module.exports = class Mard extends global.Class10 //done
                             }
                         }
 
-                        if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                        if(norVandak4)
                         {
-                            var norx = norVandak5[0];
-                            var nory = norVandak5[1];
+                            if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                            {
+                                var norx = norVandak5[0];
+                                var nory = norVandak5[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 4;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 4.5;
-                            }
-                    
-                            var norMard2 = new Mard(norx, nory);
-                            mardArr.push(norMard2);
-
-                            norMardik ++;
-                    
-                            if(matrix[nory][norx] == 4)
-                            {
-                                norMard2.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norMard2.ser = 2 ;
-                            }
-
-                            for(var i in xotakerArr)
-                            {
-                                if(norMard2.x == xotakerArr[i].x && norMard2.y == xotakerArr[i].y)
+                                if(r2 >= 1)
                                 {
-                                    mardArr.splice(i, 1);
-                                    norMard2.axorjak += 1;
+                                    matrix[nory][norx] = 4;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 4.5;
+                                }
+                        
+                                var norMard2 = new Mard(norx, nory);
+                                mardArr.push(norMard2);
+
+                                norMardik ++;
+                        
+                                if(matrix[nory][norx] == 4)
+                                {
+                                    norMard2.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norMard2.ser = 2 ;
+                                }
+
+                                for(var i in xotakerArr)
+                                {
+                                    if(norMard2.x == xotakerArr[i].x && norMard2.y == xotakerArr[i].y)
+                                    {
+                                        mardArr.splice(i, 1);
+                                        norMard2.axorjak += 1;
+                                    }
                                 }
                             }
                         }

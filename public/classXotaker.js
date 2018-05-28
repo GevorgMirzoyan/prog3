@@ -178,6 +178,8 @@ module.exports = class Xotaker extends global.Class10 //done
                         var norXotaker = new Xotaker(norx, nory);
                         xotakerArr.push(norXotaker);
                 
+                        norXotakerner ++;
+
                         if(matrix[nory][norx] == 2)
                         {
                             norXotaker.ser = 1;
@@ -211,6 +213,8 @@ module.exports = class Xotaker extends global.Class10 //done
                 
                         var norXotaker = new Xotaker(norx, nory);
                         xotakerArr.push(norXotaker);
+
+                        norXotakerner ++;
                 
                         if(matrix[nory][norx] == 2)
                         {
@@ -348,44 +352,47 @@ module.exports = class Xotaker extends global.Class10 //done
                             }
                         }
 
-                        if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                        if(norVandak4)
                         {
-                            var norx = norVandak5[0];
-                            var nory = norVandak5[1];
+                            if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                            {
+                                var norx = norVandak5[0];
+                                var nory = norVandak5[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 2;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 2.5;
-                            }
-                    
-                            var norXotaker2 = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker2);
-
-                            norXotakerner ++;
-                    
-                            if(matrix[nory][norx] == 2)
-                            {
-                                norXotaker2.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norXotaker2.ser = 2 ;
-                            }
-
-                            for(var i in grassArr)
-                            {
-                                if(norXotaker2.x == grassArr[i].x && norXotaker2.y == grassArr[i].y)
+                                if(r2 >= 1)
                                 {
-                                    grassArr.splice(i, 1);
-                                    norXotaker2.axorjak += 1;
+                                    matrix[nory][norx] = 2;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 2.5;
+                                }
+                        
+                                var norXotaker2 = new Xotaker(norx, nory);
+                                xotakerArr.push(norXotaker2);
+
+                                norXotakerner ++;
+                        
+                                if(matrix[nory][norx] == 2)
+                                {
+                                    norXotaker2.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norXotaker2.ser = 2 ;
+                                }
+
+                                for(var i in grassArr)
+                                {
+                                    if(norXotaker2.x == grassArr[i].x && norXotaker2.y == grassArr[i].y)
+                                    {
+                                        grassArr.splice(i, 1);
+                                        norXotaker2.axorjak += 1;
+                                    }
                                 }
                             }
                         }
