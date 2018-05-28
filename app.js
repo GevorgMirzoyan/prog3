@@ -283,7 +283,7 @@ setInterval(function ()
   {
     weather = 'spring';
   }
-}, 3000)
+}, 60000)
 
 setInterval(function () 
 {
