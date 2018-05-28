@@ -7,12 +7,12 @@ var fs = require('fs');
 global.matrix = [];
 global.qanak = 50;
 
-global.xotakerQanak = 0;
-global.gishatichQanak = 0;
-global.mardQanak = 0;
-global.treeQanak = 100;
-global.mutantQanak = 0;
-global.soliderQanak = 0;
+global.xotakerQanak = 200;
+global.gishatichQanak = 150;
+global.mardQanak = 30;
+global.treeQanak = 300;
+global.mutantQanak = 10;
+global.soliderQanak = 30;
 
 function random(max) 
 {
@@ -283,7 +283,7 @@ setInterval(function ()
   {
     weather = 'spring';
   }
-}, 5000)
+}, 3000)
 
 setInterval(function () 
 {

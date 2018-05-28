@@ -55,7 +55,7 @@ socket.on('send matrix', function(matrix, weather)
 
                 if(info_weather == 'autumn')
                 {
-                    fill("#ffe000");
+                    fill("#c8d123");
                     rect(x * side, y * side, side, side);
                 }
 
@@ -74,70 +74,37 @@ socket.on('send matrix', function(matrix, weather)
             
             else if (matrix2[y][x] == 2.5) //xotaker_igakan
             {
-                fill("pink");
+                fill("#fa00ff");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix2[y][x] == 3) //gishatich_arakan
             {
-                fill("red");
+                fill("#ff5000");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix2[y][x] == 3.5) //gishatich_igakan
             {
-                fill("black");
+                fill("#9825ed");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix2[y][x] == 4) //mard_arakan
             {
-                fill("red");
+                fill("#840000");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix2[y][x] == 4.5) //mard_igakan
             {
-                fill("pink");
+                fill("#54078c");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix2[y][x] == 5) //tree
             {
-                if(window.weather == 'spring')
-                {
-                    fill("red");
-                    rect(x * side, y * side, side, side);
-                }
-
-                if(window.weather == 'summer')
-                {
-                    fill("yellow");
-                    rect(x * side, y * side, side, side);
-                }
-
-                if(window.weather == 'autumn')
-                {
-                    fill("blue");
-                    rect(x * side, y * side, side, side);
-                }
-
-                if(window.weather == 'winter')
-                {
-                    fill("black");
-                    rect(x * side, y * side, side, side);
-                }
-            }
-            
-            else if (matrix2[y][x] == 6) //water
-            {
-                fill("blue");
-                rect(x * side, y * side, side, side);
-            }
-            
-            else if (matrix2[y][x] == 7) //vandak
-            {
-                fill("black");
+                fill("brown");
                 rect(x * side, y * side, side, side);
             }
 
@@ -155,7 +122,7 @@ socket.on('send matrix', function(matrix, weather)
 
             else if (matrix2[y][x] == 10) //virus_mutant
             {
-                fill("black");
+                fill("#162118");
                 rect(x * side, y * side, side, side);
             }
 

@@ -319,6 +319,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
 
                 if(this.lvl != 10)
@@ -346,6 +348,8 @@ module.exports = class Mutant extends global.Class10 //done
                         {
                             var mutant = new Mutant(norx, nory);
                             mutantArr.push(mutant);
+
+                            norMutantner ++;
                         }
 
                         mardArr.splice(i, 1);
@@ -374,6 +378,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
                 
                 if(this.lvl != 10)
@@ -401,6 +407,8 @@ module.exports = class Mutant extends global.Class10 //done
                         {
                             var mutant = new Mutant(norx, nory);
                             mutantArr.push(mutant);
+
+                            norMutantner ++;
                         }
 
                         gishatichArr.splice(i, 1);
@@ -429,6 +437,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
 
                 if(this.lvl != 10)
@@ -456,6 +466,8 @@ module.exports = class Mutant extends global.Class10 //done
                         {
                             var mutant = new Mutant(norx, nory);
                             mutantArr.push(mutant);
+
+                            norMutantner ++;
                         }
 
                         xotakerArr.splice(i, 1);
@@ -484,6 +496,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
 
                 if(this.lvl != 10)
@@ -503,12 +517,6 @@ module.exports = class Mutant extends global.Class10 //done
                 {
                     if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                     {
-                        if(this.lvl >= 9)
-                        {
-                            var mutant = new Mutant(norx, nory);
-                            mutantArr.push(mutant);
-                        }
-
                         grassArr.splice(i, 1);
                     }
                 }
@@ -535,6 +543,8 @@ module.exports = class Mutant extends global.Class10 //done
 
                     var virus = new Virus(this.x,this.y);
                     virusArr.push(virus);
+
+                    norVirusner ++;
                 }
 
                 if(this.lvl != 10)

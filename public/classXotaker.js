@@ -551,13 +551,13 @@ module.exports = class Xotaker extends global.Class10 //done
                 
                 if(randomArr[i] == numArr[b])
                 {
-                    hivandXotakerner ++;
                     bool = true;
                 }
             }
             
             if(bool == true)
             {
+                hivandXotakerner ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
             }
