@@ -7,12 +7,12 @@ var fs = require('fs');
 global.matrix = [];
 global.qanak = 50;
 
-global.xotakerQanak = 50;
-global.gishatichQanak = 50;
-global.mardQanak = 50;
-global.treeQanak = 50;
-global.mutantQanak = 50;
-global.soliderQanak = 50;
+global.xotakerQanak = 0;
+global.gishatichQanak = 0;
+global.mardQanak = 0;
+global.treeQanak = 0;
+global.mutantQanak = 0;
+global.soliderQanak = 0;
 
 function random(max) 
 {
@@ -172,17 +172,21 @@ global.mutantArr = [];
 global.virusArr = [];
 global.treeArr = [];
 
+global.norXoter = 0;
+global.norTsarer = 0;
 global.norXotakerner = 0;
 global.norGishatichner = 0;
 global.norMardik = 0;
 global.norMutantner = 0;
 global.norZinvorner = 0;
+global.norVirusner = 0;
 
-global.hinvandXotakerner = 0;
-global.hinvandGishatichner = 0;
-global.hinvandMardik = 0;
-global.hinvandMutantner = 0;
-global.hinvandZinvorner = 0;
+global.hivandXoter = 0;
+global.hivandTsarer = 0;
+global.hivandXotakerner = 0;
+global.hivandGishatichner = 0;
+global.hivandMardik = 0;
+global.hivandZinvorner = 0;
 
 for (var y = 0; y < matrix.length; ++y) 
 {
@@ -293,14 +297,22 @@ setInterval(function ()
           }
       }
   }
-}, 60000)
+}, 30000)
 
 setInterval(function () 
 {
   global.file = "data.json"
   global.text = "Xoteri qanak" + '-' + grassArr.length + "\nXotakernei qanak" + '-' + xotakerArr.length + "\nGishatichneri qanak"
-                + '-' + gishatichArr.length + "\nMardik" + '-' + mardArr.length + "\nMutantneri qanak" + '-' + mutantArr.length
-                + "\nZinvorner" + '-' + soliderArr.length + "\nVirusner" + '-' + virusArr.length; 
+                + '-' + gishatichArr.length + "\nMardik" + '-' + mardArr.length + "\nMutantner" + '-' + mutantArr.length
+                + "\nZinvorner" + '-' + soliderArr.length + "\nVirusner" + '-' + virusArr.length + "\nTsarer" + '-' + treeArr.length
+
+                + "\n\nNor xoter" + '-' + norXoter + "\nNor tsarer" + '-' + norTsarer + "\nNor xotakerner" + '-' + norXotakerner
+                + "\nNor gishatichner" + '-' + norGishatichner + "\nNor mardik" + '-' + norMardik + "\nNor mutantner" + '-' + norMutantner
+                + "\nNor zinvorner" + '-' + norZinvorner + "\nNor virusner" + '-' + norVirusner
+
+                + "\n\nHivand xoter" + '-' + hivandXoter + "\nHivand tsarer" + '-' + hivandTsarer + "\nHivand xotakerner" + '-' + hivandXotakerner
+                + "\nHivand gishatichner" + '-' + hivandGishatichner + "\nHivand mardik" + '-' + hivandMardik
+                + "\nHivand zinvorner" + '-' + hivandZinvorner;
 
   fs.writeFileSync(file, text);
 }, 1000)

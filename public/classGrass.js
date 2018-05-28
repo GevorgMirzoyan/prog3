@@ -65,6 +65,8 @@ module.exports = class Grass extends global.Class10 //done
                 
                 var norXot = new Grass(norx, nory);
                 grassArr.push(norXot);
+
+                norXoter ++;
             }
         }
     }
@@ -138,6 +140,7 @@ module.exports = class Grass extends global.Class10 //done
             
             if(bool == true)
             {
+                hivandXoter ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
                 this.mahanal();
@@ -154,7 +157,7 @@ module.exports = class Grass extends global.Class10 //done
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                 {
                     matrix[this.y][this.x] = 8;
-                    this.antiVirus();
+                    grassArr.splice(i, 1)
                 }
             }
         }
@@ -166,46 +169,6 @@ module.exports = class Grass extends global.Class10 //done
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                 {
                     matrix[this.y][this.x] = 0;
-                    grassArr.splice(i, 1);
-                }
-            }
-        }
-    }
-
-    antiVirus() //done
-    {
-        this.virus_time ++;
-
-        var virus_off = 0;
-
-        if(weather == 'spring')
-        {
-            virus_off = 10;
-        }
-
-        else if(weather == 'summer')
-        {
-            virus_off = 5;
-        }
-
-        else if(weather == 'autumn')
-        {
-            virus_off = 20;
-        }
-
-        else if(weather == 'winter')
-        {
-            virus_off = 30;
-        }
-        
-        if(this.virus_time >= virus_off)
-        {
-            for(var i in grassArr)
-            {
-                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    console.log(grassArr[i], 'asfddddddddd')
                     grassArr.splice(i, 1);
                 }
             }
