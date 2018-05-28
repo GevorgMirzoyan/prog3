@@ -19,7 +19,6 @@ function random(max)
     return Math.round(Math.random() * max);
 }
 
-
 function getRandomNum(max) 
 {
     return Math.floor(Math.random() * max);
@@ -280,7 +279,31 @@ setInterval(function ()
   {
     weather = 'spring';
   }
-}, 90000)
+}, 5000)
+
+setInterval(function () 
+{
+  for (var y in matrix) 
+  {
+      for (var x in matrix[y]) 
+      {
+          if (matrix[y][x] == 8) 
+          {
+              matrix[y][x] = 0;
+          }
+      }
+  }
+}, 60000)
+
+setInterval(function () 
+{
+  global.file = "data.json"
+  global.text = "Xoteri qanak" + '-' + grassArr.length + "\nXotakernei qanak" + '-' + xotakerArr.length + "\nGishatichneri qanak"
+                + '-' + gishatichArr.length + "\nMardik" + '-' + mardArr.length + "\nMutantneri qanak" + '-' + mutantArr.length
+                + "\nZinvorner" + '-' + soliderArr.length + "\nVirusner" + '-' + virusArr.length; 
+
+  fs.writeFileSync(file, text);
+}, 1000)
 
 setInterval(function (matrix) 
 {

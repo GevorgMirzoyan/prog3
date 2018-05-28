@@ -159,7 +159,7 @@ socket.on('send matrix', function(matrix, weather)
                 rect(x * side, y * side, side, side);
             }
 
-            else if (matrix2[y][x] == 11) //virus_mutant
+            else if (matrix2[y][x] == 11) //solider
             {
                 fill("blue");
                 rect(x * side, y * side, side, side);

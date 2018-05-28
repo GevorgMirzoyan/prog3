@@ -197,7 +197,7 @@ module.exports = class Grass extends global.Class10 //done
         {
             virus_off = 30;
         }
-
+        
         if(this.virus_time >= virus_off)
         {
             for(var i in grassArr)
@@ -205,6 +205,7 @@ module.exports = class Grass extends global.Class10 //done
                 if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                 {
                     matrix[this.y][this.x] = 0;
+                    console.log(grassArr[i], 'asfddddddddd')
                     grassArr.splice(i, 1);
                 }
             }

@@ -193,7 +193,7 @@ module.exports = class Xotaker extends global.Class10 //done
                     {
                         norXotakerner ++;
                         xotaker_igakan.bazmacox = false;
-                        console.log(norXotakerner)
+                        
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
@@ -222,34 +222,37 @@ module.exports = class Xotaker extends global.Class10 //done
                             norXotaker.ser = 2 ;
                         }
 
-                        if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                        if(norVandak3)
                         {
-                            var norx = norVandak3[0];
-                            var nory = norVandak3[1];
+                            if(norVandak3[0] != norVandak[0] && norVandak3[1] != norVandak[1])
+                            {
+                                var norx = norVandak3[0];
+                                var nory = norVandak3[1];
 
-                            var r2 = Math.floor(this.getRandomNum(5));
-                
-                            if(r2 >= 1)
-                            {
-                                matrix[nory][norx] = 2;
-                            }
+                                var r2 = Math.floor(this.getRandomNum(5));
                     
-                            else
-                            {
-                                matrix[nory][norx] = 2.5;
-                            }
-                    
-                            var norXotaker2 = new Xotaker(norx, nory);
-                            xotakerArr.push(norXotaker2);
-                    
-                            if(matrix[nory][norx] == 2)
-                            {
-                                norXotaker2.ser = 1;
-                            }
-                    
-                            else
-                            {
-                                norXotaker2.ser = 2 ;
+                                if(r2 >= 1)
+                                {
+                                    matrix[nory][norx] = 2;
+                                }
+                        
+                                else
+                                {
+                                    matrix[nory][norx] = 2.5;
+                                }
+                        
+                                var norXotaker2 = new Xotaker(norx, nory);
+                                xotakerArr.push(norXotaker2);
+                        
+                                if(matrix[nory][norx] == 2)
+                                {
+                                    norXotaker2.ser = 1;
+                                }
+                        
+                                else
+                                {
+                                    norXotaker2.ser = 2 ;
+                                }
                             }
                         }
                     }
@@ -262,7 +265,7 @@ module.exports = class Xotaker extends global.Class10 //done
                     if(xotaker_igakan.bazmacox == false)
                     {
                         norXotakerner ++;
-                        console.log(norXotakerner)
+                        
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
