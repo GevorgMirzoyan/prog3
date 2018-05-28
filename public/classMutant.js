@@ -1,4 +1,4 @@
-class Mutant extends Class10 //not don (mutating)
+class Mutant extends Class10 //done
 {
     constructor(x, y) 
     {
@@ -242,17 +242,18 @@ class Mutant extends Class10 //not don (mutating)
                     var nory = norVandak3[1];
                 }
 
-                matrix[nory][norx] = 9;
-
-                this.x = norx;
-                this.y = nory;
-
                 for (var i in xotakerArr) 
                 {
                     if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                     {
                         xotakerArr.splice(i, 1);
                     }
+                }
+
+                if(this.lvl >= 7)
+                {
+                    var mutant = new Mutant(norx, nory);
+                    mutantArr.push(mutant);
                 }
             }
 
@@ -285,17 +286,18 @@ class Mutant extends Class10 //not don (mutating)
                     var nory = norVandak5[1];
                 }
 
-                matrix[nory][norx] = 9;
-
-                this.x = norx;
-                this.y = nory;
-
                 for (var i in gishatichArr) 
                 {
                     if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
                     {
                         gishatichArr.splice(i, 1);
                     }
+                }
+
+                if(this.lvl >= 7)
+                {
+                    var mutant = new Mutant(norx, nory);
+                    mutantArr.push(mutant);
                 }
             }
 
@@ -328,17 +330,18 @@ class Mutant extends Class10 //not don (mutating)
                     var nory = norVandak7[1];
                 }
 
-                matrix[nory][norx] = 9;
-
-                this.x = norx;
-                this.y = nory;
-
                 for (var i in mardArr) 
                 {
                     if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
                     {
                         mardArr.splice(i, 1);
                     }
+                }
+
+                if(this.lvl >= 7)
+                {
+                    var mutant = new Mutant(norx, nory);
+                    mutantArr.push(mutant);
                 }
             }
 

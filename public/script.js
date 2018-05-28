@@ -4,8 +4,8 @@
 
 var matrix = [];
 var fr = 3;
-var side = 10;
-var qanak = 50;
+var side = 15;
+var qanak = 30;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -15,12 +15,12 @@ var soliderArr = [];
 var mutantArr = [];
 var virusArr = [];
 var treeArr = [];
-var xotakerQanak = 10;
-var gishatichQanak = 10;
-var mardQanak = 10;
-var treeQanak = 10;
-var mutantQanak = 10;
-var soliderQanak = 10;
+var xotakerQanak = 0;
+var gishatichQanak = 150;
+var mardQanak = 0;
+var treeQanak = 0;
+var mutantQanak = 0;
+var soliderQanak = 0;
 
 var norXotakerner = 0;
 var norGishatichner = 0;
@@ -34,9 +34,9 @@ var hinvandMardik = 0;
 var hinvandMutantner = 0;
 var hinvandZinvorner = 0;
 
-// var myJSON = JSON.stringify(norXotakerner);
-// window.location = "demo_json.php?x=" + myJSON;
-// document.getElementById("demo").innerHTML = myJSON;
+// var norXotakernerJSON = JSON.stringify(norXotakerner);
+// window.location = "package.json" + norXotakernerJSON;
+//document.getElementById("demo").innerHTML = norXotakernerJSON;
 
 function setup()
 {
@@ -417,34 +417,34 @@ function draw()
         }
     }
     
-    for (var i in soliderArr)
-    {
-        soliderArr[i].healthPlus();
-        soliderArr[i].utel();
-    }
+    // for (var i in soliderArr)
+    // {
+    //     soliderArr[i].healthPlus();
+    //     soliderArr[i].utel();
+    // }
 
-    for (var i in mutantArr)
-    {
-        mutantArr[i].healthPlus();
-        mutantArr[i].utel();
-    }
+    // for (var i in mutantArr)
+    // {
+    //     mutantArr[i].healthPlus();
+    //     mutantArr[i].utel();
+    // }
 
-    for(var i in virusArr)
-    {
-        virusArr[i].antiVirus();
-    }
+    // for(var i in virusArr)
+    // {
+    //     virusArr[i].antiVirus();
+    // }
 
-    for (var i in mardArr) 
-    {
-        mardArr[i].timeout();
-        mardArr[i].utel();
-        mardArr[i].hivandutyun();
-    }
+    // for (var i in mardArr) 
+    // {
+    //     mardArr[i].timeout();
+    //     mardArr[i].utel();
+    //     mardArr[i].hivandutyun();
+    // }
     
     for (var i in grassArr)
     {
         grassArr[i].bazmanal();
-        grassArr[i].hivandutyun();
+        // grassArr[i].hivandutyun();
     }
     
     for (var i in gishatichArr) 
@@ -452,18 +452,20 @@ function draw()
         gishatichArr[i].timeout();
         gishatichArr[i].utel();
         gishatichArr[i].hivandutyun();
+        gishatichArr[i].mahanal();
     }
 
-    for (var i in treeArr) 
-    {
-        treeArr[i].bazmanal();
-        treeArr[i].hivandutyun();
-    }
+    // for (var i in treeArr) 
+    // {
+    //     treeArr[i].bazmanal();
+    //     treeArr[i].hivandutyun();
+    // }
     
-    for (var i in xotakerArr)
-    {   
-        xotakerArr[i].timeout();
-        xotakerArr[i].utel();
-        xotakerArr[i].hivandutyun();
-    }
+    // for (var i in xotakerArr)
+    // {   
+    //     xotakerArr[i].timeout();
+    //     xotakerArr[i].utel();
+    //     xotakerArr[i].hivandutyun();
+    //     xotakerArr[i].mahanal();
+    // }
 }

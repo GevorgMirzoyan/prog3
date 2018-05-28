@@ -10,6 +10,7 @@ class Gishatich extends Class10 //done
         this.bazmacox = false;
         this.timeout_time = 0;
         this.bazmanal_timeout = true;
+        this.energy_zero = false;
     }
 
     stanalNorKordinatner() 
@@ -88,7 +89,7 @@ class Gishatich extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
 
@@ -124,17 +125,17 @@ class Gishatich extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
 
             else
             {
                 this.energy -= 1;
-                
+
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
         }
@@ -491,14 +492,14 @@ class Gishatich extends Class10 //done
                         }
                     }
 
-                    if(this.axorjak >= 5 && this.ser == 1)
+                    if(this.axorjak >= 7 && this.ser == 1)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;
                         this.bazmanal();
                     }
 
-                    else if(this.axorjak >= 5 && this.ser == 2)
+                    else if(this.axorjak >= 7 && this.ser == 2)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;           
@@ -540,14 +541,14 @@ class Gishatich extends Class10 //done
                         }
                     }
 
-                    if(this.axorjak >= 5 && this.ser == 1)
+                    if(this.axorjak >= 7 && this.ser == 1)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;
                         this.bazmanal();
                     }
 
-                    else if(this.axorjak >= 5 && this.ser == 2)
+                    else if(this.axorjak >= 7 && this.ser == 2)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;           
@@ -613,14 +614,14 @@ class Gishatich extends Class10 //done
                         }
                     }
 
-                    if(this.axorjak >= 5 && this.ser == 1)
+                    if(this.axorjak >= 7 && this.ser == 1)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;
                         this.bazmanal();
                     }
 
-                    else if(this.axorjak >= 5 && this.ser == 2)
+                    else if(this.axorjak >= 7 && this.ser == 2)
                     {
                         this.bazmacox = true;
                         this.axorjak = 0;
@@ -707,7 +708,6 @@ class Gishatich extends Class10 //done
             {
                 this.hivandutyun_mahacu = true;
                 bool = false;
-                this.mahanal();
             }
         }
     }
@@ -726,7 +726,7 @@ class Gishatich extends Class10 //done
             }
         }
 
-        else
+        else if(this.energy_zero == true)
         {
             for(var i in gishatichArr)
             {
@@ -734,6 +734,7 @@ class Gishatich extends Class10 //done
                 {
                     matrix[this.y][this.x] = 0;
                     gishatichArr.splice(i, 1);
+                    break;
                 }
             }
         }

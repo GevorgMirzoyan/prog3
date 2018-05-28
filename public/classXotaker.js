@@ -9,6 +9,7 @@ class Xotaker extends Class10 //done
         this.bazmacox = false;
         this.timeout_time = 0;
         this.bazmanal_timeout = true;
+        this.energy_zero = false;
     }
 
     stanalNorKordinatner() 
@@ -74,18 +75,18 @@ class Xotaker extends Class10 //done
 
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
+                    this.energy_zero = true;
                 }
             }
 
             else
             {
                 this.energy -= 1;
-
+                
                 if(this.energy <= 0)
                 {
-                    this.mahanal();
-                }   
+                    this.energy_zero = true;
+                }
             }
         }
     }
@@ -157,6 +158,8 @@ class Xotaker extends Class10 //done
 
                     if(xotaker_igakan.bazmacox == false)
                     {
+                        norXotakerner ++;
+                        console.log(norXotakerner)
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
@@ -188,8 +191,9 @@ class Xotaker extends Class10 //done
                     
                     else if(xotaker_igakan.bazmacox == true)
                     {
+                        norXotakerner ++;
                         xotaker_igakan.bazmacox = false;
-
+                        console.log(norXotakerner)
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
@@ -257,6 +261,8 @@ class Xotaker extends Class10 //done
 
                     if(xotaker_igakan.bazmacox == false)
                     {
+                        norXotakerner ++;
+                        console.log(norXotakerner)
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
@@ -297,8 +303,9 @@ class Xotaker extends Class10 //done
                     
                     else if(xotaker_igakan.bazmacox == true)
                     {
+                        norXotakerner ++;
                         xotaker_igakan.bazmacox = false;
-
+                        console.log(norXotakerner)
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
@@ -478,22 +485,22 @@ class Xotaker extends Class10 //done
         if(weather == 'spring')
         {
             hivandutyun_repeat = 60;
-            numCount = 2000;
-            randomNumCount = 150;
+            numCount = 2500;
+            randomNumCount = 75;
         }
 
         else if(weather == 'summer')
         {
             hivandutyun_repeat = 80;
             numCount = 3000;
-            randomNumCount = 100;
+            randomNumCount = 50;
         }
 
         else if(weather == 'autumn')
         {
             hivandutyun_repeat = 40;
             numCount = 1500;
-            randomNumCount = 250;
+            randomNumCount = 150;
         }
 
         else if(weather == 'winter')
@@ -539,7 +546,6 @@ class Xotaker extends Class10 //done
             {
                 this.hivandutyun_mahacu = true;
                 bool = false;
-                this.mahanal();
             }
         }
     }
@@ -554,11 +560,12 @@ class Xotaker extends Class10 //done
                 {
                     matrix[this.y][this.x] = 8;
                     this.antiVirus();
+                    break;
                 }
             }
         }
 
-        else
+        else if(this.energy_zero == true)
         {
             for(var i in xotakerArr)
             {
@@ -566,6 +573,7 @@ class Xotaker extends Class10 //done
                 {
                     matrix[this.y][this.x] = 0;
                     xotakerArr.splice(i, 1);
+                    break;
                 }
             }
         }
