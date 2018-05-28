@@ -155,9 +155,12 @@ class Solider extends Class10 //done
 
                     matrix[nory][norx] = 11;
 
-                    var score = 1;
-                    score *= mutant.lvl;
-                    this.lvlUpScore += score;
+                    if(this.lvl != 10)
+                    {
+                        var score = 1;
+                        score *= mutant.lvl;
+                        this.lvlUpScore += score;
+                    }
                     
                     var energy2 = 1;
                     energy2 *= mutant.lvl;
@@ -177,7 +180,6 @@ class Solider extends Class10 //done
                     
                     if(this.health <= 0)
                     {
-                        console.log('a')
                         this.energy_zero = true;
                     }
                 }
@@ -185,6 +187,11 @@ class Solider extends Class10 //done
 
             else if (norVandak2 || norVandak3) 
             {
+                if(this.lvl != 10)
+                {
+                    this.lvlUpScore += 1;
+                }
+
                 var axorjak = 1;
                 axorjak *= this.lvl;
                 this.axorjak += axorjak;
@@ -212,7 +219,7 @@ class Solider extends Class10 //done
 
                 matrix[nory][norx] = 11;
 
-                if(this.axorjak >= 20)
+                if(this.axorjak >= 30)
                 {
                     this.bazmacox = true;
                     this.axorjak = 0;
@@ -230,6 +237,11 @@ class Solider extends Class10 //done
 
             else if (norVandak4) 
             {
+                if(this.lvl != 10)
+                {
+                    this.lvlUpScore += 1;
+                }
+
                 var axorjak = 1;
                 axorjak *= this.lvl;
                 this.axorjak += axorjak;
@@ -239,6 +251,7 @@ class Solider extends Class10 //done
                 this.energy += energy;
 
                 matrix[this.y][this.x] = 0;
+
                 var norx = norVandak4[0];
                 var nory = norVandak4[1];
                 

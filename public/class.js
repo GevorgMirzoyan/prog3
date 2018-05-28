@@ -1,6 +1,6 @@
 class Class10 //done
 {
-    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu, virus_time) //done
+    constructor(x, y) //done
     {
         this.x = x;
         this.y = y;

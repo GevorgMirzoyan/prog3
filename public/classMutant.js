@@ -5,11 +5,13 @@ class Mutant extends Class10 //done
         super(x, y);
         this.energy = 10;
         this.lvlUpScore = 0;
-        this.lvl = 1;
+        this.lvl = 7;
         this.health = 10;
         this.cords = [];
         this.mahacox = false;
         this.healthPlusTimer = 0;
+        this.duplicate_timeout = false;
+        this.duplicate_score = 0;
     }
 
     stanalNorKordinatner() 
@@ -23,6 +25,24 @@ class Mutant extends Class10 //done
             [this.x - 1, this.y + 1],
             [this.x, this.y + 1],
             [this.x + 1, this.y + 1],
+
+            [this.x - 2, this.y - 2],
+            [this.x, this.y - 2],
+            [this.x + 2, this.y - 2],
+            [this.x - 2, this.y],
+            [this.x + 2, this.y],
+            [this.x - 2, this.y + 2],
+            [this.x, this.y + 2],
+            [this.x + 2, this.y + 2],
+
+            [this.x - 3, this.y - 3],
+            [this.x, this.y - 3],
+            [this.x + 3, this.y - 3],
+            [this.x - 3, this.y],
+            [this.x + 3, this.y],
+            [this.x - 3, this.y + 3],
+            [this.x, this.y + 3],
+            [this.x + 3, this.y + 3],
         ];
     }
 
@@ -47,6 +67,7 @@ class Mutant extends Class10 //done
 
             if (norVandak)
             {
+                this.duplicate_score = 0;
                 this.lvlUpScore = 0;
 
                 if(matrix[this.y][this.x] != 10)
@@ -75,6 +96,7 @@ class Mutant extends Class10 //done
 
             else if (norVandak2 || norVandak3)
             {
+                this.duplicate_score = 0;
                 this.lvlUpScore = 0;
                 
                 if(matrix[this.y][this.x] != 10)
@@ -112,6 +134,8 @@ class Mutant extends Class10 //done
 
             else
             {
+                this.duplicate_score = 0;
+                this.lvlUpScore = 0;
                 this.energy -= 1;
 
                 if(this.energy <= 0)
@@ -151,6 +175,90 @@ class Mutant extends Class10 //done
         }
     }
 
+    timeout() //done
+    {
+        if(this.duplicate_timeout == false)
+        {
+            this.timeout_time ++;
+             
+            var bazmanal_timeout = 0;
+
+            if(weather == 'spring')
+            {
+                bazmanal_timeout = 10;
+            }
+
+            else if(weather == 'summer')
+            {
+                bazmanal_timeout = 5;
+            }
+
+            else if(weather == 'autumn')
+            {
+                bazmanal_timeout = 15;
+            }
+
+            else if(weather == 'winter')
+            {
+                bazmanal_timeout = 20;
+            }
+
+            if(this.timeout_time >= bazmanal_timeout)
+            {
+                this.timeout_time = 0;
+                this.duplicate_timeout = true;
+            }
+        }
+    }
+
+    bazmanal() //done
+    {
+        if(this.duplicate_timeout == true)
+        {
+            var datarkVandakner = this.yntrelVandak(0);
+            var norVandak = random(datarkVandakner);
+
+            var xot = this.yntrelVandak(1);
+            var norVandak2 = random(xot);
+
+            if(norVandak)
+            {
+                this.duplicate_timeout = false; 
+                
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                matrix[nory][norx] = 9;
+
+                var norMutant = new Mutant(norx, nory);
+                mutantArr.push(norMutant);
+            }
+                    
+            else if(norVandak2)
+            {
+                this.duplicate_timeout = false; 
+                
+                var norx = norVandak2[0];
+                var nory = norVandak2[1];
+
+                matrix[nory][norx] = 9;
+
+                var norMutant = new Mutant(norx, nory);
+                mutantArr.push(norMutant);
+
+                norMutant.lvlUpScore ++;
+
+                for(var i in grassArr)
+                {
+                    if(norx.x == grassArr[i].x && nory.y == grassArr[i].y)
+                    {
+                        grassArr.splice(i, 1);
+                    }
+                }
+            }
+        }
+    }
+
     utel() //done
     {
         if(weather != 'winter')
@@ -178,132 +286,21 @@ class Mutant extends Class10 //done
 
             var tree = this.yntrelVandak(5);
             var norVandak8 = random(tree);
-            
-            if(norVandak)
+
+            if(norVandak6 || norVandak7)
             {
                 this.energy += 1;
 
-                if(matrix[this.y][this.x] != 10)
+                if(this.lvl >= 5)
                 {
-                    matrix[this.y][this.x] = 10;
-
-                    var virus = new Virus(this.x,this.y);
-                    virusArr.push(virus);
+                    this.duplicate_score ++;                    
                 }
 
-                if(this.lvl != 10)
+                if(this.duplicate_score >= 30)
                 {
-                    this.lvlUpScore += 1;
+                    this.duplicate_score = 0;
+                    this.bazmanal();
                 }
-                
-                var norx = norVandak[0];
-                var nory = norVandak[1];
-
-                matrix[nory][norx] = 9;
-
-                this.x = norx;
-                this.y = nory;
-
-                for (var i in grassArr) 
-                {
-                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
-                    {
-                        grassArr.splice(i, 1);
-                    }
-                }
-            }
-
-            else if(norVandak2 || norVandak3)
-            {
-                this.energy += 1;
-
-                if(matrix[this.y][this.x] != 10)
-                {
-                    matrix[this.y][this.x] = 10;
-
-                    var virus = new Virus(this.x,this.y);
-                    virusArr.push(virus);
-                }
-
-                if(this.lvl != 10)
-                {
-                    this.lvlUpScore += 1;
-                }
-                
-                if(norVandak2)
-                {
-                    var norx = norVandak2[0];
-                    var nory = norVandak2[1];
-                }
-
-                else if(norVandak3)
-                {
-                    var norx = norVandak3[0];
-                    var nory = norVandak3[1];
-                }
-
-                for (var i in xotakerArr) 
-                {
-                    if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
-                    {
-                        xotakerArr.splice(i, 1);
-                    }
-                }
-
-                if(this.lvl >= 7)
-                {
-                    var mutant = new Mutant(norx, nory);
-                    mutantArr.push(mutant);
-                }
-            }
-
-            else if(norVandak4 || norVandak5)
-            {
-                this.energy += 1;
-
-                if(matrix[this.y][this.x] != 10)
-                {
-                    matrix[this.y][this.x] = 10;
-
-                    var virus = new Virus(this.x,this.y);
-                    virusArr.push(virus);
-                }
-                
-                if(this.lvl != 10)
-                {
-                    this.lvlUpScore += 1;
-                }
-                
-                if(norVandak4)
-                {
-                    var norx = norVandak4[0];
-                    var nory = norVandak4[1];
-                }
-
-                else if(norVandak5)
-                {
-                    var norx = norVandak5[0];
-                    var nory = norVandak5[1];
-                }
-
-                for (var i in gishatichArr) 
-                {
-                    if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
-                    {
-                        gishatichArr.splice(i, 1);
-                    }
-                }
-
-                if(this.lvl >= 7)
-                {
-                    var mutant = new Mutant(norx, nory);
-                    mutantArr.push(mutant);
-                }
-            }
-
-            else if(norVandak6 || norVandak7)
-            {
-                this.energy += 1;
 
                 if(matrix[this.y][this.x] != 10)
                 {
@@ -334,20 +331,192 @@ class Mutant extends Class10 //done
                 {
                     if (this.x == mardArr[i].x && this.y == mardArr[i].y) 
                     {
+                        if(this.lvl >= 9)
+                        {
+                            var mutant = new Mutant(norx, nory);
+                            mutantArr.push(mutant);
+                        }
+
                         mardArr.splice(i, 1);
                     }
                 }
+            }
 
-                if(this.lvl >= 7)
+            else if(norVandak4 || norVandak5)
+            {
+                this.energy += 1;
+
+                if(this.lvl >= 5)
                 {
-                    var mutant = new Mutant(norx, nory);
-                    mutantArr.push(mutant);
+                    this.duplicate_score ++;                    
+                }
+
+                if(this.duplicate_score >= 30)
+                {
+                    this.duplicate_score = 0;
+                    this.bazmanal();
+                }
+
+                if(matrix[this.y][this.x] != 10)
+                {
+                    matrix[this.y][this.x] = 10;
+
+                    var virus = new Virus(this.x,this.y);
+                    virusArr.push(virus);
+                }
+                
+                if(this.lvl != 10)
+                {
+                    this.lvlUpScore += 1;
+                }
+                
+                if(norVandak4)
+                {
+                    var norx = norVandak4[0];
+                    var nory = norVandak4[1];
+                }
+
+                else if(norVandak5)
+                {
+                    var norx = norVandak5[0];
+                    var nory = norVandak5[1];
+                }
+
+                for (var i in gishatichArr) 
+                {
+                    if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) 
+                    {
+                        if(this.lvl >= 9)
+                        {
+                            var mutant = new Mutant(norx, nory);
+                            mutantArr.push(mutant);
+                        }
+
+                        gishatichArr.splice(i, 1);
+                    }
+                }
+            }
+
+            else if(norVandak2 || norVandak3)
+            {
+                this.energy += 1;
+
+                if(this.lvl >= 5)
+                {
+                    this.duplicate_score ++;                    
+                }
+
+                if(this.duplicate_score >= 30)
+                {
+                    this.duplicate_score = 0;
+                    this.bazmanal();
+                }
+
+                if(matrix[this.y][this.x] != 10)
+                {
+                    matrix[this.y][this.x] = 10;
+
+                    var virus = new Virus(this.x,this.y);
+                    virusArr.push(virus);
+                }
+
+                if(this.lvl != 10)
+                {
+                    this.lvlUpScore += 1;
+                }
+                
+                if(norVandak2)
+                {
+                    var norx = norVandak2[0];
+                    var nory = norVandak2[1];
+                }
+
+                else if(norVandak3)
+                {
+                    var norx = norVandak3[0];
+                    var nory = norVandak3[1];
+                }
+
+                for (var i in xotakerArr) 
+                {
+                    if (norx == xotakerArr[i].x && nory == xotakerArr[i].y) 
+                    {
+                        if(this.lvl >= 9)
+                        {
+                            var mutant = new Mutant(norx, nory);
+                            mutantArr.push(mutant);
+                        }
+
+                        xotakerArr.splice(i, 1);
+                    }
+                }
+            }
+
+            else if(norVandak)
+            {
+                this.energy += 1;
+
+                if(this.lvl >= 5)
+                {
+                    this.duplicate_score ++;                    
+                }
+
+                if(this.duplicate_score >= 30)
+                {
+                    this.duplicate_score = 0;
+                    this.bazmanal();
+                }
+
+                if(matrix[this.y][this.x] != 10)
+                {
+                    matrix[this.y][this.x] = 10;
+
+                    var virus = new Virus(this.x,this.y);
+                    virusArr.push(virus);
+                }
+
+                if(this.lvl != 10)
+                {
+                    this.lvlUpScore += 1;
+                }
+                
+                var norx = norVandak[0];
+                var nory = norVandak[1];
+
+                matrix[nory][norx] = 9;
+
+                this.x = norx;
+                this.y = nory;
+
+                for (var i in grassArr) 
+                {
+                    if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
+                    {
+                        if(this.lvl >= 9)
+                        {
+                            var mutant = new Mutant(norx, nory);
+                            mutantArr.push(mutant);
+                        }
+
+                        grassArr.splice(i, 1);
+                    }
                 }
             }
 
             else if(norVandak8)
             {
                 this.energy += 1;
+
+                if(this.lvl >= 7)
+                {
+                    this.duplicate_score ++;
+                }
+
+                if(this.duplicate_score >= 30)
+                {
+                    this.duplicate_score = 0;
+                    this.bazmanal();
+                }
 
                 if(matrix[this.y][this.x] != 10)
                 {

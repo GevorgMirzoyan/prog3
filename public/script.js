@@ -5,7 +5,7 @@
 var matrix = [];
 var fr = 3;
 var side = 15;
-var qanak = 30;
+var qanak = 10;
 var grassArr = [];
 var xotakerArr = [];
 var gishatichArr = [];
@@ -19,8 +19,8 @@ var xotakerQanak = 0;
 var gishatichQanak = 0;
 var mardQanak = 0;
 var treeQanak = 0;
-var mutantQanak = 0;
-var soliderQanak = 10;
+var mutantQanak = 1;
+var soliderQanak = 0;
 
 var norXotakerner = 0;
 var norGishatichner = 0;
@@ -417,25 +417,25 @@ function draw()
         }
     }
     
-    for (var i in soliderArr)
+    // for (var i in soliderArr)
+    // {
+    //     soliderArr[i].timeout();
+    //     soliderArr[i].healthPlus();
+    //     soliderArr[i].utel();
+    //     soliderArr[i].hivandutyun();
+    //     soliderArr[i].mahanal();
+    // }
+
+    for (var i in mutantArr)
     {
-        soliderArr[i].timeout();
-        soliderArr[i].healthPlus();
-        soliderArr[i].utel();
-        soliderArr[i].hivandutyun();
-        soliderArr[i].mahanal();
+        mutantArr[i].healthPlus();
+        mutantArr[i].utel();
     }
 
-    // for (var i in mutantArr)
-    // {
-    //     mutantArr[i].healthPlus();
-    //     mutantArr[i].utel();
-    // }
-
-    // for(var i in virusArr)
-    // {
-    //     virusArr[i].antiVirus();
-    // }
+    for(var i in virusArr)
+    {
+        virusArr[i].antiVirus();
+    }
 
     // for (var i in mardArr) 
     // {
@@ -448,7 +448,7 @@ function draw()
     for (var i in grassArr)
     {
         grassArr[i].bazmanal();
-        grassArr[i].hivandutyun();
+        // grassArr[i].hivandutyun();
     }
     
     // for (var i in gishatichArr) 
@@ -465,11 +465,11 @@ function draw()
     //     treeArr[i].hivandutyun();
     // }
     
-    // for (var i in xotakerArr)
-    // {   
-    //     xotakerArr[i].timeout();
-    //     xotakerArr[i].utel();
-    //     xotakerArr[i].hivandutyun();
-    //     xotakerArr[i].mahanal();
-    // }
+    for (var i in xotakerArr)
+    {   
+        xotakerArr[i].timeout();
+        xotakerArr[i].utel();
+        xotakerArr[i].hivandutyun();
+        xotakerArr[i].mahanal();
+    }
 }
