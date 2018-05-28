@@ -14,11 +14,15 @@ global.treeQanak = 1;
 global.mutantQanak = 1;
 global.soliderQanak = 1;
 
+function random(max) 
+{
+    return Math.round(Math.random() * max);
+}
+
+
 function getRandomNum(max) 
 {
-    var r = Math.round(getRandomNum() * (max - 0 + 1)) + 0;
-
-    return r;
+    return Math.floor(Math.random() * max);
 }
 
 for (var a = 0; a < qanak; ++a) 
@@ -27,121 +31,121 @@ for (var a = 0; a < qanak; ++a)
 
     for (var b = 0; b < qanak; ++b) 
     {
-      matrix[a][b] = Math.round(getRandomNum(1));
+      matrix[a][b] = random(1);
     }
 }
 
-    var i = 0;
+    // var i = 0;
 
-    while (i < xotakerQanak)
-    {
-      var x = Math.floor(getRandomNum(qanak));
-      var y = Math.floor(getRandomNum(qanak));
-      var r = Math.floor(getRandomNum(5));
+    // while (i < xotakerQanak)
+    // {
+    //   var x = getRandomNum(qanak);
+    //   var y = getRandomNum(qanak);
+    //   var r = getRandomNum(5);
         
-      if(r > 1)
-      {
-        matrix[y][x] = 2;
-      }
+    //   if(r > 1)
+    //   {
+    //     matrix[y][x] = 2;
+    //   }
         
-      else
-      {
-        matrix[y][x] = 2.5;
-      }
+    //   else
+    //   {
+    //     matrix[y][x] = 2.5;
+    //   }
 
-      i++;
-    }
+    //   i++;
+    // }
 
-    var i2 = 0;
+    // var i2 = 0;
 
-    while (i2 < gishatichQanak)
-    {
-      var x = Math.floor(getRandomNum(qanak));
-      var y = Math.floor(getRandomNum(qanak));
+    // while (i2 < gishatichQanak)
+    // {
+    //   var x = getRandomNum(qanak);
+    //   var y = getRandomNum(qanak);
         
       
-        var r = Math.floor(getRandomNum(5));
+    //     var r = getRandomNum(5);
         
-        if(r > 1)
-        {
-          matrix[y][x] = 3;
-        }
+    //     if(r > 1)
+    //     {
+    //       matrix[y][x] = 3;
+    //     }
         
-        else
-        {
-          matrix[y][x] = 3.5;
-        }
+    //     else
+    //     {
+    //       matrix[y][x] = 3.5;
+    //     }
 
-        i++;
-      }
+    //     i++;
+    //   }
 
-    var i3 = 0;
+    // var i3 = 0;
 
-    while (i3 < mardQanak)
-    {
-      var x = Math.floor(getRandomNum(qanak));
-      var y = Math.floor(getRandomNum(qanak));
+    // while (i3 < mardQanak)
+    // {
+    //   var x = getRandomNum(qanak);
+    //   var y = getRandomNum(qanak);
         
-      if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5) 
-      {
-        var r = Math.floor(getRandomNum(5));
+    //   if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5) 
+    //   {
+    //     var r = getRandomNum(5);
         
-        if(r >= 1)
-        {
-          matrix[y][x] = 4;              
-        }
+    //     if(r >= 1)
+    //     {
+    //       matrix[y][x] = 4;              
+    //     }
         
-        else
-        {
-          matrix[y][x] = 4.5;               
-        }
+    //     else
+    //     {
+    //       matrix[y][x] = 4.5;               
+    //     }
 
-        i++;
-      }
-    }
+    //     i++;
+    //   }
+    // }
         
-    var i4 = 0;
+    // var i4 = 0;
 
-    while (i4 < treeQanak)
-    {
-      var x = Math.floor(getRandomNum(qanak));
-      var y = Math.floor(getRandomNum(qanak));
+    // while (i4 < treeQanak)
+    // {
+    //   var x = getRandomNum(qanak);
+    //   var y = getRandomNum(qanak);
         
-      if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5) 
-      {
-        matrix[y][x] = 5;
+    //   if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5) 
+    //   {
+    //     matrix[y][x] = 5;
 
-        i++;
-      }
-    }
+    //     i++;
+    //   }
+    // }
         
-    var i5 = 0;
+    // var i5 = 0;
 
-    while (i5 < mutantQanak)
-    {
-      var x = Math.floor(getRandomNum(qanak));
-      var y = Math.floor(getRandomNum(qanak));
+    // while (i5 < mutantQanak)
+    // {
+    //   var x = getRandomNum(qanak);
+    //   var y = getRandomNum(qanak);
         
-      if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5)
-      {
-        matrix[y][x] = 9;
-        i++;
-      }
-    }
+    //   if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5)
+    //   {
+    //     matrix[y][x] = 9;
+    //     i++;
+    //   }
+    // }
         
-    var i6 = 0;
+    // var i6 = 0;
 
-    while (i6 < soliderQanak)
-    {
-      var x = Math.floor(getRandomNum(qanak));
-      var y = Math.floor(getRandomNum(qanak));
+    // while (i6 < soliderQanak)
+    // {
+    //   var x = getRandomNum(qanak);
+    //   var y = getRandomNum(qanak);
         
-      if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5 && matrix [y][x] != 9)
-      {
-        matrix[y][x] = 11;
-        i++;
-      }
-    }
+    //   if (matrix[y][x] != 2 && matrix [y][x] != 3 && matrix [y][x] != 4 && matrix[y][x] != 2.5 && matrix [y][x] != 3.5 && matrix [y][x] != 4.5 && matrix [y][x] != 5 && matrix [y][x] != 9)
+    //   {
+    //     matrix[y][x] = 11;
+    //     i++;
+    //   }
+    // }
 
 global.Class10 = require("./public/class.js");
 global.Grass = require("./public/classGrass.js");
@@ -336,15 +340,5 @@ setInterval(function (matrix)
     xotakerArr[i].hivandutyun();
     xotakerArr[i].mahanal();
   }
-  io.sockets.emit('send matrix', matrix);
+  io.sockets.emit('send matrix', global.matrix);
 }, 1000)
-
-
-//   io.on('connection', function (matrix) {
-//     io.sockets.emit('send matrix', matrix);
-
-//   socket.on("send matrix", function (matrix){
-//     io.sockets.emit("send matrix", matrix);
-//   })
-// });
-// })
