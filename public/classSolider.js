@@ -760,7 +760,7 @@ module.exports = class Solider extends global.Class10 //done
             
             for(var i in randomArr) //Comparison of Arrays
             {
-                var b = Math.round(this.getRandom(numCount));
+                var b = Math.round(this.getRandomNum(numCount));
                 
                 if(randomArr[i] == numArr[b])
                 {

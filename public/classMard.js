@@ -114,7 +114,7 @@ module.exports = class Mard extends global.Class10 //done
         if(this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
-            var norVandak = random(datarkVandakner);
+            var norVandak = this.getRandomArr(datarkVandakner);
 
             if (norVandak) 
             {

@@ -2,21 +2,23 @@ var socket = io();
 socket = io.connect('http://localhost:3000');
 
 var matrix2 = [];
+var info_weather;
 var fr = 10;
-var side = 15;
+var side = 20;
 
 // matrix[0].length * side + 1, matrix.length * side + 1
 
 function setup()
 {
     frameRate(fr);
-    createCanvas(1000,1000);
+    createCanvas(1001, 1001);
     background('#acacac');
 }
     
-socket.on('send matrix', function(matrix) 
+socket.on('send matrix', function(matrix, weather) 
 {
     matrix2 = matrix;
+    info_weather = weather;
     
     for (var y = 0; y < matrix2.length; y++) 
     {
@@ -24,44 +26,44 @@ socket.on('send matrix', function(matrix)
         {
             if (matrix2[y][x] == 0) //datark vandak
             {
-                // if(window.weather == 'winter')
-                // {
-                //     fill("white");
-                //     rect(x * side, y * side, side, side);
-                // }
+                if(info_weather == 'winter')
+                {
+                    fill("white");
+                    rect(x * side, y * side, side, side);
+                }
 
-                // else
-                // {
+                else
+                {
                     fill("#acacac");
                     rect(x * side, y * side, side, side); 
-                // }
+                }
             }
 
             else if (matrix2[y][x] == 1) //xot
             {
-                // if(window.weather == 'spring')
-                // {
+                if(info_weather == 'spring')
+                {
                     fill("#30ff30");
                     rect(x * side, y * side, side, side);
-                // }
+                }
 
-                // if(window.weather == 'summer')
-                // {
-                //     fill("#008000");
-                //     rect(x * side, y * side, side, side);
-                // }
+                if(info_weather == 'summer')
+                {
+                    fill("#008000");
+                    rect(x * side, y * side, side, side);
+                }
 
-                // if(window.weather == 'autumn')
-                // {
-                //     fill("#ffe000");
-                //     rect(x * side, y * side, side, side);
-                // }
+                if(info_weather == 'autumn')
+                {
+                    fill("#ffe000");
+                    rect(x * side, y * side, side, side);
+                }
 
-                // if(window.weather == 'winter')
-                // {
-                //     fill("#e0ffe0");
-                //     rect(x * side, y * side, side, side);
-                // }
+                if(info_weather == 'winter')
+                {
+                    fill("#e0ffe0");
+                    rect(x * side, y * side, side, side);
+                }
             }
 
             else if (matrix2[y][x] == 2) //xotaker_arakan
@@ -78,13 +80,13 @@ socket.on('send matrix', function(matrix)
 
             else if (matrix2[y][x] == 3) //gishatich_arakan
             {
-                fill("#FF6400");
+                fill("red");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix2[y][x] == 3.5) //gishatich_igakan
             {
-                fill("pink");
+                fill("black");
                 rect(x * side, y * side, side, side);
             }
 
